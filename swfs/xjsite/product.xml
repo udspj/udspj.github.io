@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?> 
+<pro> 
+<products psearcha="触摸" psearchb="查询机" pcolor="0x03C92B" ppos="1" /> 
+<products psearcha="触摸" psearchb="桌面" pcolor="0xD2A902" ppos="6" /> 
+<products psearcha="触摸" psearchb="橱窗" pcolor="0x029ADB" ppos="14" /> 
+</pro>

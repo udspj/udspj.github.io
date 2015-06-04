@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<class logo="logo" ver1="版权信息：udspj" ver2="版本号：19880514">
+
+<classpic path="bitmapdatab" mirror="1" type="1" sn="0" />
+<classpic path="bitmapdata7" mirror="1" type="1" sn="1" />
+<classpic path="bitmapdata9" mirror="1" type="1" sn="2" />
+<classpic path="bitmapdata10" mirror="1" type="1" sn="3" />
+<classpic path="bitmapdata11" mirror="1" type="1" sn="4" />
+
+<classpic path="bitmapdataa" mirror="1" type="2" sn="0" />
+<classpic path="bitmapdata1" mirror="1" type="2" sn="1" />
+<classpic path="bitmapdata2" mirror="1" type="2" sn="2" />
+<classpic path="bitmapdata3" mirror="1" type="2" sn="3" />
+<classpic path="bitmapdata4" mirror="1" type="2" sn="4" />
+<classpic path="bitmapdata5" mirror="1" type="2" sn="5" />
+<classpic path="bitmapdata6" mirror="1" type="2" sn="6" />
+<classpic path="bitmapdata12" mirror="1" type="2" sn="7" />
+
+<classpic path="bitmapdataend" mirror="1" type="0" sn="0" />
+
+</class>
