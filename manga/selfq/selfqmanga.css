@@ -36,13 +36,11 @@ body{
 	width: 250px;
 	height: 100px;
 	left: 25px;
-	border-bottom: 1px solid #000000;
-	border-left: 1px solid #000000;
-	border-right: 1px solid #000000;
+	border: 1px solid #000000;
 	border-top: 1px solid #454242;
 	background:#454242;
-	border-top-left-radius: 100px 200px;
-	border-top-right-radius: 100px 200px;
+	border-top-left-radius: 50px 100px;
+	border-top-right-radius: 50px 100px;
 }
 .lefthair{
 	position: absolute;
