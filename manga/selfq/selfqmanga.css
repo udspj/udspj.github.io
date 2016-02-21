@@ -37,8 +37,8 @@ body{
 	height: 100px;
 	left: 25px;
 	border: 1px solid #000000;
+	border-top: 1px solid #454242;
 	background:#454242;
-	border-top: none;
 	border-top-left-radius: 100px 200px;
 	border-top-right-radius: 100px 200px;
 }
@@ -70,7 +70,7 @@ body{
 	position: absolute;
 	top:120px;
 	width: 190px;
-	height: 112px;
+	height: 122px;
 	left: 55px;
 	border: 1px solid #000000;
 	border-bottom: 1px solid #fceee7;
@@ -84,7 +84,7 @@ body{
 	position: absolute;
 	top:170px;
 	width: 60px;
-	border: 1px solid #fff;
+	border: 1px solid #000000;
 	border-bottom: none;
 	border-right: none;
 	border-left: none;
