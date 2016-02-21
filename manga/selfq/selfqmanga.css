@@ -36,7 +36,9 @@ body{
 	width: 250px;
 	height: 100px;
 	left: 25px;
-	border: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
 	border-top: 1px solid #454242;
 	background:#454242;
 	border-top-left-radius: 100px 200px;
