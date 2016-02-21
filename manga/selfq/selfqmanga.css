@@ -26,7 +26,7 @@ body{
 	width: 200px;
 	height: 185px;
 	border: 1px solid #000000;
-	background:#ffe5e5;
+	background:#fceee7;
 	border-bottom-left-radius: 117px 68px;
 	border-bottom-right-radius: 117px 68px;
 }
@@ -75,7 +75,7 @@ body{
 	border: 1px solid #000000;
 	border-top: none;
 	border-bottom: none;
-	background:#ffe5e5;
+	background:#fceee7;
 	border-bottom-left-radius: 20px 120px;
 	border-bottom-right-radius: 20px 120px;
 }
@@ -175,7 +175,7 @@ body{
 	height:0;  
 	border-left:24px solid transparent;
 	border-right:24px solid transparent;   
-	border-top:39px solid #ffe5e5;
+	border-top:39px solid #fceee7;
 }
 .neckdown{
 	position: absolute;
@@ -183,7 +183,7 @@ body{
 	left:-24px;
 	width:0;   
 	height:0;  
-	border-bottom:29px solid #fff; 
+	border-bottom:29px solid #f9f9f9; 
 	border-left:24px solid transparent;
 	border-right:24px solid transparent;
 }
@@ -200,13 +200,13 @@ body{
 }
 .shirtfill{
 	position: absolute;
-	top:0px;
+	top:-1px;
 	left:-29px;
 	width:148px;   
 	height:0;
 	border-left:30px solid transparent;
 	border-right:30px solid transparent;   
-	border-bottom:149px solid #f9f9f9; 
+	border-bottom:150px solid #f9f9f9; 
 }
 .shirtplacket{
 	position: absolute;
@@ -272,7 +272,7 @@ body{
 	width: 50px;
 	height: 50px;
 	border: 1px solid #000000;
-	background:#ffe5e5;
+	background:#fceee7;
 	border-radius: 25px;
 }
 .left.hand{
