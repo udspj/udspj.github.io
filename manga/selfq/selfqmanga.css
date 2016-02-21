@@ -73,6 +73,7 @@ body{
 	height: 112px;
 	left: 55px;
 	border: 1px solid #000000;
+	border-top: 1px solid #fceee7;
 	border-top: none;
 	border-bottom: none;
 	background:#fceee7;
