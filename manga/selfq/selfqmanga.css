@@ -75,7 +75,6 @@ body{
 	border: 1px solid #000000;
 	border-bottom: 1px solid #fceee7;
 	border-top: none;
-	border-bottom: none;
 	background:#fceee7;
 	border-bottom-left-radius: 20px 120px;
 	border-bottom-right-radius: 20px 120px;
@@ -85,7 +84,7 @@ body{
 	position: absolute;
 	top:170px;
 	width: 60px;
-	border: 1px solid #000000;
+	border: 1px solid #fff;
 	border-bottom: none;
 	border-right: none;
 	border-left: none;
