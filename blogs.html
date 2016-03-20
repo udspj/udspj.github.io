@@ -1,38 +1,85 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>udspj</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>udspj</title>
 
-	<style type="text/css">
-	#app {width:800px; font-weight:bold; font-size: 200%; margin-left: auto; margin-right: auto; }
-	</style>
+  <style type="text/css">
+  #topdiv {text-align : center;}
+  #topimg {width:50%; height:50%;}
+  #app {width:800px; font-weight:bold; font-size: 200%; margin-left: auto; margin-right: auto; }
+  </style>
 
 </head>
 <body>
-	<div id="app"></div>
+  <div id="topdiv">
+    <img id="topimg" src="manga/blogtop.png"/>
+  </div>
+  <div id="app"></div>
 
-	<script type="text/javascript">
-var xmlhttp;
-loadXMLDoc("https://api.github.com/repos/udspj/udspj.github.io/git/trees/7320a4f344af37a928c03995aec45b8942f431fd")
-function loadXMLDoc(url)
+  <script type="text/javascript">
+
+  var xmlhttp;
+
+var gettrees = function(){
+  if (xmlhttp.readyState==4)
+  {// 4 = "loaded"
+  if (xmlhttp.status==200)
+    {
+    var json = eval("(" + xmlhttp.responseText + ")");
+
+    for(j = 0;j <json.length; j++)
 {
-// 	for(j = 0;j <12; j++)
-// {
-// 	var para = document.createElement("a");
-//   var txt1 = document.createTextNode("如何用css设置div与div之间的间距呢？如何用css设置div与div之间的间距呢？如何用css设置div与div之间的间距呢？如何用css设置div与div之间的间距呢？如何用css设置div与div之间的间距呢？如何用css设置div与div之间的间距呢？");
-//   para.setAttribute("href","http://www.w3school.com.cn/");
-//   para.style.margin="10px";
-//   para.style.display="block";
-//   para.style.textDecoration="none";
-//   para.style.color="#666";
-//   para.appendChild(txt1);
-//   var testdiv = document.getElementById("app");
-//   testdiv.appendChild(para);
-//   testdiv.appendChild(document.createElement("br"));
-// }
+      alert(json[j].git_url)
+  if(json[j].path == "blogs")
+  {
+    loadXMLDoc(json[j].git_url,getcontents)
+    break
+  }
+}
+    }
+  else
+    {
+    alert("Problem retrieving XML data");
+    }
+  }
+}
 
+var getcontents = function(){
+  if (xmlhttp.readyState==4)
+  {// 4 = "loaded"
+  if (xmlhttp.status==200)
+    {
+      alert(xmlhttp.responseText)
+    var json = eval("(" + xmlhttp.responseText + ")");
+    alert(json.tree[0].path)
 
+    for(j = 0;j <json.tree.length; j++)
+{
+  var para = document.createElement("a");
+  var txt1 = document.createTextNode(json.tree[j].path);
+  para.setAttribute("href","http://udspj.github.io/blogs/"+json.tree[j].path+"/"+json.tree[j].path+".html");
+  para.style.margin="10px";
+  para.style.display="block";
+  para.style.textDecoration="none";
+  para.style.color="#666";
+  para.appendChild(txt1);
+  var testdiv = document.getElementById("app");
+  testdiv.appendChild(para);
+  testdiv.appendChild(document.createElement("br"));
+}
+    }
+  else
+    {
+    alert("Problem retrieving XML data");
+    }
+  }
+}
+
+loadXMLDoc("https://api.github.com/repos/udspj/udspj.github.io/contents/",gettrees)
+
+function loadXMLDoc(url,statechange)
+{
 
 xmlhttp=null;
 if (window.XMLHttpRequest)
@@ -45,7 +92,7 @@ else if (window.ActiveXObject)
   }
 if (xmlhttp!=null)
   {
-  xmlhttp.onreadystatechange=state_Change;
+  xmlhttp.onreadystatechange=statechange;
   xmlhttp.open("GET",url,true);
   xmlhttp.send(null);
   }
@@ -55,39 +102,6 @@ else
   }
 }
 
-function state_Change()
-{
-if (xmlhttp.readyState==4)
-  {// 4 = "loaded"
-  if (xmlhttp.status==200)
-    {// 200 = OK
-    // ...our code here...
-    // alert(xmlhttp.responseText)
-    var json = eval("(" + xmlhttp.responseText + ")");
-    alert(json.tree[0].path)
-
-    for(j = 0;j <json.tree.length; j++)
-{
-	var para = document.createElement("a");
-  var txt1 = document.createTextNode(json.tree[j].path);
-  para.setAttribute("href","http://udspj.github.io/blogs/"+json.tree[j].path+"/blog"+j+".html");
-  para.style.margin="10px";
-  para.style.display="block";
-  para.style.textDecoration="none";
-  para.style.color="#666";
-  para.appendChild(txt1);
-  var testdiv = document.getElementById("app");
-  testdiv.appendChild(para);
-  testdiv.appendChild(document.createElement("br"));
-}
-
-    }
-  else
-    {
-    alert("Problem retrieving XML data");
-    }
-  }
-}
-</script>
+  </script>
 </body>
 </html>
