@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>as3视频图像中的色块检测识别</title>
+
+<xmp theme="simplex" style="display:none;">
+
+这是前段时间公司项目做的东西，需要时时每帧检测视频中的绿块，并把头像图片替换在绿块上。项目已经上线了，最终效果如下：
+![mahua](imgs/pic0.jpg)
+
+虽然是识别，但实质不涉及什么算法，都是使用as3内置的bitmapdata的方法（多亏这些现成的类，做简易的识别好方便）
+说实话，我不是高手，我只用as3内置类识别出较精确的区域
+其次，大家都知道电影特效用蓝幕的。该项目用绿块，所以也得保证包含绿块的画面中不能有绿色的环境色，否则会增加识别难度，注意！人眼看，会觉得绿块就是绿的，由于影片拍摄受角度光亮明暗影响，绿色肯定不可能是纯色！所以建议影片中绿块尽量用G通道值非常高R和B值很低的绿色（我是觉得该项目中绿块颜色选的很不好）
+最主要的，因为是每帧识别，影片使用25fps ，也就是每帧最多只有40ms代码运算时间，所以必须尽可能减少运算步骤（还好项目需求并不需要十分精确）。
+
+为啥要每帧识别？
+因为影片需要，没办法，影片里绿块位置时时在变，而且无规则
+
+下面说说我个人思路吧（我不是高手，若有好的思路也请分享）
+
+##1.原图
+第一步，先把video图像截屏为bitmapdata
+
+![mahua](imgs/pic1.jpg)
+
+##2.分别处理图像RGB通道，具体RGB数值怎么定，要根据实际图像特性。比如我现在用的绿块，绿色肯定G通道的值会比较高。我对色值不熟，所以借助PS对比色值的
+
+```c
+//过滤红色通道含red量大于120的区域并高亮粉色
+var pt:Point = new Point(0,0);
+var threshold:uint = 0x00780000;//Red为120的红色
+var color:uint = 0xffff00ff;//Green＝0的纯粉色
+var maskColor:uint = 0x00ff0000;//正红色
+bmpdata.threshold(bmpdata,bmpdata.rect, pt, ">", threshold, color, maskColor, true);
+```
+
+threshold方法是将bmpdata中红色含量大于120的地方取出来并替换成color变量所指定的颜色
+
+同样的方法，
+//过滤蓝色通道大于100的区域并高亮紫色
+//找出绿色通道大于90的区域并高亮为0xff00ff00这个色值的绿色（这部分区域是需要的，得出如下图效果）
+
+![mahua](imgs/pic2.jpg)
+
+##3.把图像划分成20×15的小块（具体几×几根据需要来定，如果绿块大，格子就画大些吧，能减少运算量）
+
+![mahua](imgs/pic3.jpg)
+
+##4.检测每一小块
+当然拉，肯定用for循环检测每一小块是否是纯绿色（这就是为啥环境色里不能有大面积绿色的原因）
+
+```c
+//画格子分区域
+var w_div = 20;//横向20格
+var h_div = 15;//纵向20格
+w_num = bmpdata.width / w_div;//每小块的宽
+h_num = bmpdata.height / h_div;//每小块的高
+var greenpoint:Point = new Point();
+
+//找出全是绿色的区块 ，取到第一个全绿块的中心点坐标
+var bmpdata_mid:BitmapData = new BitmapData(w_num,h_num);//定义一个临时bmpdata ，存放被检测的小块们
+for (j = 0; j < w_div*h_div; j++)
+{
+    bmpdata_mid.draw(bmpdata,new Matrix(1,0,0,1,-j%w_div*w_num,-int(j/w_div)*h_num));
+    if (bmpdata_mid.getColorBoundsRect(0xff00ff00,0xff00ff00,false).width == 0)//只取全绿色的部分
+    {
+         greenpoint.x = j % w_div * w_num + w_num / 2;
+         greenpoint.y = int(j / w_div) * h_num + h_num / 2;
+         break;
+     }
+}
+```
+
+getColorBoundsRect方法是检测某一矩形内包含（或不包含）某个指定颜色的区域，并返回该区域的坐标和宽高，这里我是检测不包含0xff00ff00该色值的区域，如果不含0xff00ff00区域的宽为0,就表示整个小块都是0xff00ff00这个颜色，如下图，标出黄色区域的就是要用的色块了
+其实不需要检测所有的纯色块，只要拿到一个纯色块就行了，所有for循环里我设置只要找到符合条件的色块就不再检测，并纪录把该色块的中心点坐标赋给greenpoint
+
+此时，greenpoint就是需要的点，这个点什么用，具体看下一步
+
+![mahua](imgs/pic4.jpg)
+
+##5.把识别到的区域填色
+这步很简单，一行代码，效果如下图
+```c
+bmpdata.floodFill(greenpoint.x, greenpoint.y, 0xFF00fff0);
+```
+floodFill是把一个封闭区域填充为指定颜色，用过PS油漆桶都知道，把容差设置为0，在封闭区域内随便点击哪里，PS会自动找出与点击处色值一致且连续的区域，然后填充这些区域。所以floodFill会填充greenpoint周围所有同色部分
+
+![mahua](imgs/pic5.jpg)
+
+##6.取到识别区域的坐标和宽高
+```c
+var arearect:Rectangle = bmpdata.getColorBoundsRect(0xFF00fff0,0xFF00fff0);
+```
+arearect就是下图红框
+
+![mahua](imgs/pic6.jpg)
+
+![mahua](imgs/pic7.jpg)
+
+嘿嘿！整个识别过程很简单吧！还好as3本身提供这些现成方法
+
+接下来就要检测四边形4个顶点了（暂不考虑弧度）
+四边形检测复杂点么，用霍夫变换检测直线，但步骤比较复杂，而且也不一定非常精确，因为把所有边缘象素点都取出来逐一转换到参数坐标再逐一计算再逐一统计，好麻烦。反正该项目也没要求很高，不采用这方法
+
+##7.我么就偷懒，在arearect红边框线上找到像素颜色为0xFF00fff0的点即可
+
+##8.得到4个顶点坐标，再用uv三角形绘图api把图像贴到对应位置就好了
+
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
