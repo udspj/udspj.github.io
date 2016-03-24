@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FLARToolkit标记卡AR增强现实</title>
+
+<xmp theme="simplex" style="display:none;">
+
+adobe官方网站上的FLARtoollkit基础使用例子
+
+Augmented reality using a webcam and Flash
+
+http://www.adobe.com/devnet/flash/articles/augmented_reality.html
+
+
+我对AR增强现实的东西很感兴趣，不过这个，也只能用现成类库做，自己没本事写＝ ＝
+
+以上例子的源码是最最基本的SingleMarkerDetector单个标记卡识别，由于这种AR需要标记卡支持，在PC端实用性不高，而且也都09年时的技术，不过我还是改写了2套源码：
+
+1.MultiMarkerDetector多标记卡识别，加载多个dae模型
+
+2.在无摄像头条件下，借助CardEmulator模拟标记卡来测试AR效果
+
+嘿嘿，因为这工具冷门，这2套源码在国内网站上搜不到的哦～
+
+先发MultiMarkerDetector的吧，先上图，后发源码
+
+![mahua](imgs/pic0.jpg)
+
+![mahua](imgs/pic1.jpg)
+
+```c
+package
+{
+    import flash.display.BitmapData;
+    import flash.display.Sprite;
+    import flash.events.Event;
+    import flash.media.Camera;
+    import flash.media.Video;
+    import flash.utils.ByteArray;
+
+    import org.libspark.flartoolkit.core.FLARCode;
+    import org.libspark.flartoolkit.core.param.FLARParam;
+    import org.libspark.flartoolkit.core.raster.rgb.FLARRgbRaster_BitmapData;
+    import org.libspark.flartoolkit.core.transmat.FLARTransMatResult;
+    import org.libspark.flartoolkit.detector.FLARMultiMarkerDetector;
+    import org.libspark.flartoolkit.pv3d.FLARBaseNode;
+    import org.libspark.flartoolkit.pv3d.FLARCamera3D;
+
+    import org.papervision3d.lights.PointLight3D;
+    import org.papervision3d.materials.shadematerials.FlatShadeMaterial;
+    import org.papervision3d.materials.utils.MaterialsList;
+    import org.papervision3d.objects.parsers.DAE;
+    import org.papervision3d.objects.primitives.Cube;
+    import org.papervision3d.render.BasicRenderEngine;
+    import org.papervision3d.render.LazyRenderEngine;
+    import org.papervision3d.scenes.Scene3D;
+    import org.papervision3d.view.Viewport3D;
+
+    public class AugmentedReality extends Sprite
+    {
+
+        private var video: Video;
+        private var webcam: Camera;
+        private var i:int;
+
+        private var flarBaseNode: FLARBaseNode;
+        private var flarParam: FLARParam;
+        private var flarCode: FLARCode;
+        private var flarRgbRaster_BitmapData: FLARRgbRaster_BitmapData;
+        private var flarSingleMarkerDetector: FLARMultiMarkerDetector;
+        private var flarCamera3D: FLARCamera3D;
+        private var flarTransMatResult: FLARTransMatResult;
+        private var flarTransMatResult2: FLARTransMatResult;
+        private var bitmapData: BitmapData;
+        private var FLAR_CODE_SIZE: uint = 16;
+        private var MARKER_WIDTH: uint = 80;
+
+        private var flarCode2: FLARCode;
+        private var flarBaseNode2: FLARBaseNode;
+
+        [Embed(source = "./assets/FLAR/FLARPattern.pat",mimeType = "application/octet-stream")]
+        private var Pattern: Class;
+
+        [Embed(source = "./assets/FLAR/flarlogo.pat",mimeType = "application/octet-stream")]
+        private var Pattern2:Class;
+
+        [Embed(source = "./assets/FLAR/FLARCameraParameters.dat",mimeType = "application/octet-stream")]
+        private var Params:Class;
+
+        private var basicRenderEngine: BasicRenderEngine;
+        private var viewport3D: Viewport3D;
+        private var scene3D: Scene3D;
+        private var collada3DModel: DAE;
+
+        private var collada3DModel2: DAE;
+        private var codeArr:Array = [];
+        private var nodeArr:Array = []
+        private var enArr:Array = []
+        private var resArr:Array = []
+       
+        private var markerId:int;
+       
+        private var VIDEO_WIDTH : Number = 640;
+        private var VIDEO_HEIGHT : Number = 480;
+        private var WEB_CAMERA_WIDTH : Number = VIDEO_WIDTH/2;
+        private var WEB_CAMERA_HEIGHT : Number = VIDEO_HEIGHT/2;
+        private var VIDEO_FRAME_RATE : Number = 30;
+        private var DETECTION_THRESHOLD: uint  = 80;
+        private var DETECTION_CONFIDENCE: Number = 0.5;
+        private var MODEL_SCALE : Number = 0.0175;
+
+        private var COLLADA_3D_MODEL : String = "./assets/models/tower/models/tower.dae";
+        private var COLLADA_3D_MODEL2 : String = "./assets/models/tower/models/mobile.DAE";
+       
+        public function AugmentedReality()
+        {
+            prepareWebCam();
+            prepareMarkerDetection();
+            preparePaperVision3D();
+
+            addEventListener(Event.ENTER_FRAME, loopToDetectMarkerAndUpdate3D);
+        }
+
+        private function prepareWebCam():void
+        {
+            video = new Video(VIDEO_WIDTH,VIDEO_HEIGHT);
+            webcam = Camera.getCamera();
+            webcam.setMode(WEB_CAMERA_WIDTH, WEB_CAMERA_HEIGHT, VIDEO_FRAME_RATE);
+            video.attachCamera(webcam);
+            addChild(video);
+        }
+
+        private function prepareMarkerDetection():void
+        {
+            flarParam = new FLARParam();
+            flarParam.loadARParam(new Params() as ByteArray);
+           
+            flarCode = new FLARCode(FLAR_CODE_SIZE,FLAR_CODE_SIZE);
+            flarCode.loadARPatt(new Pattern());
+
+            flarCode2 = new FLARCode(FLAR_CODE_SIZE,FLAR_CODE_SIZE);
+            flarCode2.loadARPatt(new Pattern2());
+
+            codeArr=[flarCode,flarCode2];
+           
+            bitmapData = new BitmapData(VIDEO_WIDTH, VIDEO_HEIGHT);
+            bitmapData.draw(video);
+            flarRgbRaster_BitmapData = new FLARRgbRaster_BitmapData(bitmapData);
+            flarSingleMarkerDetector = new FLARMultiMarkerDetector(flarParam,codeArr,[MARKER_WIDTH,MARKER_WIDTH],2);
+        }
+
+        private function preparePaperVision3D():void
+        {
+            basicRenderEngine = new BasicRenderEngine();
+           
+            flarTransMatResult = new FLARTransMatResult();
+            flarTransMatResult2 = new FLARTransMatResult();
+            resArr = [flarTransMatResult,flarTransMatResult2]
+            viewport3D = new Viewport3D();
+            flarCamera3D = new FLARCamera3D(flarParam);
+            flarBaseNode = new FLARBaseNode();
+            scene3D = new Scene3D();
+            scene3D.addChild(flarBaseNode);
+
+            flarBaseNode2 = new FLARBaseNode();
+            scene3D.addChild(flarBaseNode2);
+           
+            nodeArr = [flarBaseNode,flarBaseNode2]
+           
+            collada3DModel = new DAE ();
+            collada3DModel.load(COLLADA_3D_MODEL);
+            collada3DModel.scaleX = collada3DModel.scaleY = collada3DModel.scaleZ = MODEL_SCALE;
+            collada3DModel.rotationX = 90;
+            collada3DModel.rotationY = 0;
+            collada3DModel.rotationZ = 45;
+
+            collada3DModel2 = new DAE ();
+            collada3DModel2.load(COLLADA_3D_MODEL2);
+            collada3DModel2.scaleX = collada3DModel2.scaleY = collada3DModel2.scaleZ = .5;
+            collada3DModel2.rotationX = 90;
+            collada3DModel2.rotationY = 0;
+            collada3DModel2.rotationZ = 45;
+
+            flarBaseNode.addChild(collada3DModel);
+            flarBaseNode2.addChild(collada3DModel2);
+            addChild(viewport3D);
+        }
+       
+        private function loopToDetectMarkerAndUpdate3D(aEvent : Event):void
+        {
+            bitmapData.draw(video);
+           
+            try
+            {
+                for (i = 0; i< 2; i++)
+                {
+                    if (flarSingleMarkerDetector.detectMarkerLite (flarRgbRaster_BitmapData, DETECTION_THRESHOLD) &&
+                    flarSingleMarkerDetector.getConfidence(i) > DETECTION_CONFIDENCE)
+                    {
+                        markerId = flarSingleMarkerDetector.getARCodeIndex(i);
+                        flarSingleMarkerDetector.getTransmationMatrix(i,resArr[markerId]);
+                        nodeArr[i].setTransformMatrix(resArr[i]);
+                        basicRenderEngine.renderScene(scene3D, flarCamera3D, viewport3D);
+                    }
+                }
+            }
+            catch (error:Error){}
+        }
+    }
+}
+```
+
+红色文字部分是在http://www.adobe.com/devnet/flash/articles/augmented_reality.html
+这个官方例子基础上修改成多标记卡识别
+
+不过我做的这个在loopToDetectMarkerAndUpdate3D中逻辑有小问题，就是必须2张标记卡同时出现在屏幕上，否则出错，修改方法请参考下面的吧，代码是11年弄的，博文是13年整理的，也懒得修正了，嘿嘿
+
+```c
+private function loop(e:Event):void{
+            try{
+                bmd.draw(vid);
+                var numDetectedMarkers:int = detector.detectMarkerLite(raster, 80);
+                var markerId:int;
+                for(var i:int = 0; i < numDetectedMarkers; i++){
+                    //only use markers with a confidence rating of .5+
+                    if(detector.getConfidence(i) > 0.4){
+                        //figure out which marker we're looking at
+                        markerId = detector.getARCodeIndex(i);
+                        detector.getTransmationMatrix(i, transMats[markerId]);
+                    }
+                }
+                //apply the transform matricies to the basenodes
+                for(var j:Number = 0; j < baseNodes.length; j++){
+                    baseNodes[j].setTransformMatrix(transMats[j]);
+                    r.renderScene(s, c, v);
+                    trace('set trans mat for ...', baseNodes[j]);
+                }
+            }
+            catch(e:Error){}
+}
+```
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－
+
+
+![mahua](imgs/pic2.jpg)
+
+![mahua](imgs/pic3.jpg)
+
+![mahua](imgs/pic4.jpg)
+
+接下来的源码是使用模拟标记卡测试AR，不需要摄像头了，效果如上面3张图所示
+
+代码是在上面多标记卡基础上修改的，红色字部分为修改代码
+
+```c
+package
+{
+    import flash.display.BitmapData;
+    import flash.display.Sprite;
+    import flash.events.Event;
+    import flash.media.Camera;
+    import flash.media.Video;
+    import flash.utils.ByteArray;
+
+    import org.libspark.flartoolkit.core.FLARCode;
+    import org.libspark.flartoolkit.core.param.FLARParam;
+    import org.libspark.flartoolkit.core.raster.rgb.FLARRgbRaster_BitmapData;
+    import org.libspark.flartoolkit.core.transmat.FLARTransMatResult;
+    import org.libspark.flartoolkit.detector.FLARMultiMarkerDetector;
+    import org.libspark.flartoolkit.pv3d.FLARBaseNode;
+    import org.libspark.flartoolkit.pv3d.FLARCamera3D;
+
+    import org.papervision3d.lights.PointLight3D;
+    import org.papervision3d.materials.shadematerials.FlatShadeMaterial;
+    import org.papervision3d.materials.utils.MaterialsList;
+    import org.papervision3d.objects.parsers.DAE;
+    import org.papervision3d.objects.primitives.Cube;
+    import org.papervision3d.render.BasicRenderEngine;
+    import org.papervision3d.render.LazyRenderEngine;
+    import org.papervision3d.scenes.Scene3D;
+    import org.papervision3d.view.Viewport3D;
+
+    public class AugmentedReality extends Sprite
+    {
+
+        private var video: Video;
+        private var webcam: Camera;
+        private var i:int;
+
+        private var flarBaseNode: FLARBaseNode;
+        private var flarParam: FLARParam;
+        private var flarCode: FLARCode;
+        private var flarRgbRaster_BitmapData: FLARRgbRaster_BitmapData;
+        private var flarSingleMarkerDetector: FLARMultiMarkerDetector;
+        private var flarCamera3D: FLARCamera3D;
+        private var flarTransMatResult: FLARTransMatResult;
+        private var flarTransMatResult2: FLARTransMatResult;
+        private var bitmapData: BitmapData;
+        private var FLAR_CODE_SIZE: uint = 16;
+        private var MARKER_WIDTH: uint = 80;
+
+        private var flarCode2: FLARCode;
+        private var flarBaseNode2: FLARBaseNode;
+
+        [Embed(source = "./assets/FLAR/FLARPattern.pat",mimeType = "application/octet-stream")]
+        private var Pattern: Class;
+
+        [Embed(source = "./assets/FLAR/flarlogo.pat",mimeType = "application/octet-stream")]
+        private var Pattern2:Class;
+
+        [Embed(source = "./assets/FLAR/FLARCameraParameters.dat",mimeType = "application/octet-stream")]
+        private var Params:Class;
+
+        private var basicRenderEngine: BasicRenderEngine;
+        private var viewport3D: Viewport3D;
+        private var scene3D: Scene3D;
+        private var collada3DModel: DAE;
+
+        private var collada3DModel2: DAE;
+        private var codeArr:Array = [];
+        private var nodeArr:Array = []
+        private var enArr:Array = []
+        private var resArr:Array = []
+       
+        private var markerId:int;
+       
+        private var VIDEO_WIDTH : Number = 640;
+        private var VIDEO_HEIGHT : Number = 480;
+        private var WEB_CAMERA_WIDTH : Number = VIDEO_WIDTH/2;
+        private var WEB_CAMERA_HEIGHT : Number = VIDEO_HEIGHT/2;
+        private var VIDEO_FRAME_RATE : Number = 30;
+        private var DETECTION_THRESHOLD: uint  = 80;
+        private var DETECTION_CONFIDENCE: Number = 0.5;
+        private var MODEL_SCALE : Number = 0.0175;
+
+        private var COLLADA_3D_MODEL : String = "./assets/models/tower/models/tower.dae";
+        private var COLLADA_3D_MODEL2 : String = "./assets/models/tower/models/mobile.DAE";
+        private var ce:CardEmulator;
+       
+        public function AugmentedReality()
+        {
+            //prepareWebCam();
+            ce = new CardEmulator("assets/models/tower/images/marker_v2.jpg","assets/models/tower/images/marker_v1.jpg",VIDEO_WIDTH,VIDEO_HEIGHT,true);
+            addChild(ce);
+            prepareMarkerDetection();
+            preparePaperVision3D();
+
+            addEventListener(Event.ENTER_FRAME, loopToDetectMarkerAndUpdate3D);
+        }
+
+        private function prepareWebCam():void
+        {
+            video = new Video(VIDEO_WIDTH,VIDEO_HEIGHT);
+            webcam = Camera.getCamera();
+            webcam.setMode(WEB_CAMERA_WIDTH, WEB_CAMERA_HEIGHT, VIDEO_FRAME_RATE);
+            video.attachCamera(webcam);
+            addChild(video);
+        }
+
+        private function prepareMarkerDetection():void
+        {
+            flarParam = new FLARParam();
+            flarParam.loadARParam(new Params() as ByteArray);
+           
+            flarCode = new FLARCode(FLAR_CODE_SIZE,FLAR_CODE_SIZE);
+            flarCode.loadARPatt(new Pattern());
+
+            flarCode2 = new FLARCode(FLAR_CODE_SIZE,FLAR_CODE_SIZE);
+            flarCode2.loadARPatt(new Pattern2());
+
+            codeArr=[flarCode,flarCode2];
+           
+            bitmapData = new BitmapData(VIDEO_WIDTH, VIDEO_HEIGHT);
+            //bitmapData.draw(video);
+            bitmapData.draw(ce.viewport);
+            flarRgbRaster_BitmapData = new FLARRgbRaster_BitmapData(bitmapData);
+            flarSingleMarkerDetector = new FLARMultiMarkerDetector(flarParam,codeArr,[MARKER_WIDTH,MARKER_WIDTH],2);
+        }
+
+        private function preparePaperVision3D():void
+        {
+            basicRenderEngine = new BasicRenderEngine();
+           
+            flarTransMatResult = new FLARTransMatResult();
+            flarTransMatResult2 = new FLARTransMatResult();
+            resArr = [flarTransMatResult,flarTransMatResult2]
+            viewport3D = new Viewport3D();
+            flarCamera3D = new FLARCamera3D(flarParam);
+            flarBaseNode = new FLARBaseNode();
+            scene3D = new Scene3D();
+            scene3D.addChild(flarBaseNode);
+
+            flarBaseNode2 = new FLARBaseNode();
+            scene3D.addChild(flarBaseNode2);
+           
+            nodeArr = [flarBaseNode,flarBaseNode2]
+           
+            collada3DModel = new DAE ();
+            collada3DModel.load(COLLADA_3D_MODEL);
+            collada3DModel.scaleX = collada3DModel.scaleY = collada3DModel.scaleZ = MODEL_SCALE;
+            collada3DModel.rotationX = 90;
+            collada3DModel.rotationY = 0;
+            collada3DModel.rotationZ = 45;
+
+            collada3DModel2 = new DAE ();
+            collada3DModel2.load(COLLADA_3D_MODEL2);
+            collada3DModel2.scaleX = collada3DModel2.scaleY = collada3DModel2.scaleZ = .5;
+            collada3DModel2.rotationX = 90;
+            collada3DModel2.rotationY = 0;
+            collada3DModel2.rotationZ = 45;
+
+            flarBaseNode.addChild(collada3DModel);
+            flarBaseNode2.addChild(collada3DModel2);
+            addChild(viewport3D);
+        }
+       
+        private function loopToDetectMarkerAndUpdate3D(aEvent : Event):void
+        {
+            ce.render();
+            bitmapData.draw(ce.viewport);
+            //bitmapData.draw(video);
+           
+            try
+            {
+                for (i = 0; i< 2; i++)
+                {
+                    if (flarSingleMarkerDetector.detectMarkerLite (flarRgbRaster_BitmapData, DETECTION_THRESHOLD) &&
+                    flarSingleMarkerDetector.getConfidence(i) > DETECTION_CONFIDENCE)
+                    {
+                        markerId = flarSingleMarkerDetector.getARCodeIndex(i);
+                        flarSingleMarkerDetector.getTransmationMatrix(i,resArr[markerId]);
+                        nodeArr[i].setTransformMatrix(resArr[i]);
+                        basicRenderEngine.renderScene(scene3D, flarCamera3D, viewport3D);
+                    }
+                }
+            }
+            catch (error:Error){}
+        }
+    }
+}
+```
+
+
+附上CardEmulator.as源码：
+
+```c
+//Original Author:  Jesse Freeman
+package
+{
+    import flash.display.Sprite;
+    import org.papervision3d.cameras.Camera3D;
+    import org.papervision3d.materials.BitmapFileMaterial;
+    import org.papervision3d.objects.primitives.Plane;
+    import org.papervision3d.render.BasicRenderEngine;
+    import org.papervision3d.scenes.Scene3D;
+    import org.papervision3d.view.BitmapViewport3D;
+   
+
+    public class CardEmulator extends Sprite
+    {
+        protected var _width:Number = 0;
+        protected var _height:Number = 0;
+        protected var testMarkerURL:String;
+        protected var testMarkerURL2:String;
+        protected var emulatorViewport:BitmapViewport3D;
+        protected var emulatorRenderer:BasicRenderEngine;
+        protected var emulatorScene:Scene3D;
+        protected var emulatorCamera:Camera3D;
+        protected var testCard:Plane;
+        protected var testCard2:Plane;
+        protected var addViewportToDisplay:Boolean = false;
+       
+
+        public function CardEmulator(testMarkerURL:String,testMarkerURL2:String, w:Number = 320, h:Number = 240, addViewportToDisplay:Boolean = false)
+        {
+            this.testMarkerURL = testMarkerURL;
+            this.testMarkerURL2 = testMarkerURL2;
+            _width = w;
+            _height = h;
+            this.addViewportToDisplay = addViewportToDisplay;
+            init();
+        }
+
+
+       
+        protected function init():void
+        {
+            // Setup PV3D
+            emulatorViewport = new BitmapViewport3D(_width,_height);
+            emulatorRenderer = new BasicRenderEngine();
+            emulatorScene = new Scene3D();
+            emulatorCamera = new Camera3D();
+
+            // Create test pattern plane
+            var bmpMaterial:BitmapFileMaterial = new BitmapFileMaterial(testMarkerURL,true);
+            bmpMaterial.doubleSided = true;
+           
+            var bmpMaterial2:BitmapFileMaterial = new BitmapFileMaterial(testMarkerURL2,true);
+            bmpMaterial2.doubleSided = true;
+
+            testCard = new Plane(bmpMaterial,300,300,4,4);
+           
+            testCard2 = new Plane(bmpMaterial2,300,300,4,4);
+
+            // Make the camera face the testCard
+            emulatorCamera.target = testCard;
+            emulatorScene.addChild( testCard );
+            testCard.x=-300
+           
+            emulatorScene.addChild( testCard2 );
+            testCard2.x=300
+
+            // Make sure we should add this to the display
+            if (addViewportToDisplay)
+            {
+                addChild(emulatorViewport);
+            }
+        }
+
+       
+        protected function calculateMouseMovement():void
+        {
+            if (stage)
+            {
+                var rotY: Number = (mouseY-(stage.stageHeight/2))/(stage.height/2)*(2200);
+                var rotX: Number = (mouseX-(stage.stageWidth/2))/(stage.width/2)*(-2200);
+                emulatorCamera.x = emulatorCamera.x + (rotX - emulatorCamera.x) / 2;
+                emulatorCamera.y = emulatorCamera.y + (rotY - emulatorCamera.y) / 2;
+            }
+        }
+       
+        public function get viewport():BitmapViewport3D
+        {
+            return emulatorViewport;
+        }
+
+       
+        public function render():void
+        {
+            calculateMouseMovement();
+            emulatorRenderer.renderScene(emulatorScene, emulatorCamera, emulatorViewport);
+
+        }
+
+    }
+
+}
+```
+
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
