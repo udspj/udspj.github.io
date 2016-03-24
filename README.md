@@ -2,6 +2,6 @@
 
 udspj's blog
 
-博客里放的是没传到github上的项目demo代码，有些是源码文件都找不到了
+The source codes on the blog are for the demo project which has not been uploaded to github yet. Some of source files cannot even be found. Some of source file might be lost.
 
 http://udspj.github.io/blogs.html
