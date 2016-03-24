@@ -1,2 +1,5 @@
 # udspj.github.io
-udspj no blog
+
+udspj's blog
+
+http://udspj.github.io/blogs.html
