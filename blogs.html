@@ -7,7 +7,8 @@
   <style type="text/css">
   #topdiv {text-align : center; margin-top: 50px;}
   #topimg {width:50%; height:50%;}
-  #app {width:600px; font-weight:bold; font-size: 150%; margin-left: auto; margin-right: auto;}
+  #app {width:600px; margin-top: 50px; font-weight:bold; font-size: 150%; margin-left: auto; margin-right: auto;}
+  #line {height:1px;border:none;border-top:1px dashed #999999;margin-top: 50px; }
   </style>
 
 </head>
@@ -16,6 +17,7 @@
     <h1 id="title">loading...</h1>
     <img id="topimg" src="manga/blogtop.png"/>
   </div>
+  <hr width=50% size=10 color=#999999 align=center noshade style="border-radius:0px;">
   <div id="app"></div>
 
   <script type="text/javascript">
@@ -65,6 +67,11 @@
           para.appendChild(txt1);
           var testdiv = document.getElementById("app");
           testdiv.appendChild(para);
+
+          var line = document.createElement("hr");
+          line.id = "line"
+          testdiv.appendChild(line);
+
           testdiv.appendChild(document.createElement("br"));
         }
         var title = document.getElementById("title");
