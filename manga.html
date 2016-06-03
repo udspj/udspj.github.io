@@ -42,9 +42,9 @@ html,body
   <div id="imgdiv">
     <img id="mangaimg" src="73.jpg"/>
   </div>
-	<!-- <div id="disqus_thread">
+	<div id="disqus_thread">
 		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-	</div> -->
+	</div>
 </body>
 
 <script>
@@ -55,11 +55,11 @@ var responseRes;
 var danmuarray = new Array();
 
         var urlreq = new XMLHttpRequest()
-          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj&limit=100')
+          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj')
           var self = this
           urlreq.onload = function(){
-            responseRes = JSON.parse(urlreq.responseText);
-            alert(responseRes)
+            alert(urlreq.responseText)
+            // responseRes = JSON.parse(urlreq.responseText);
             // json = eval("(" + urlreq.responseText + ")");
             // for(j = 0;j <json.length; j++)
             // {
@@ -69,79 +69,263 @@ var danmuarray = new Array();
           }
           urlreq.send()
 
+var vx = -5;
+var danmucount;
+var maxscreencount = 5;
+var screendanmu = new Array();
+var danmuindex = 0
 
-// var vx = -5;
-// var danmucount;
-// var maxscreencount = 5;
-// var screendanmu = new Array();
-// var danmuindex = 0
+function showDanmus()
+{
+    danmucount = danmuarray.length;
+    createDanmus();
+    runDanmus();
+}
 
-// function showDanmus()
-// {
-//     danmucount = danmuarray.length;
-//     createDanmus();
-//     runDanmus();
-// }
+function createDanmus()
+{
+    if(screendanmu.length < maxscreencount && danmuindex < danmucount)
+    {
+          var para = document.createElement("p");
+          var danmutext = document.createTextNode(danmuarray[danmuindex]);
+          para.setAttribute("class","danmu");
+          para.style.left = String(document.body.clientWidth)+"px";
+          para.style.top = String(Math.ceil(Math.random()*100))+"px";
+          para.appendChild(danmutext);
+          var div = document.getElementById("danmaku");
+          div.appendChild(para);
+          screendanmu[screendanmu.length] = para;
+          danmuindex ++;
+    }
 
-// function createDanmus()
-// {
-//     if(screendanmu.length < maxscreencount && danmuindex < danmucount)
-//     {
-//           var para = document.createElement("p");
-//           var danmutext = document.createTextNode(danmuarray[danmuindex]);
-//           para.setAttribute("class","danmu");
-//           para.style.left = String(document.body.clientWidth)+"px";
-//           para.style.top = String(Math.ceil(Math.random()*100))+"px";
-//           para.appendChild(danmutext);
-//           var div = document.getElementById("danmaku");
-//           div.appendChild(para);
-//           screendanmu[screendanmu.length] = para;
-//           danmuindex ++;
-//     }
+    setTimeout(createDanmus,5000)
+}
 
-//     setTimeout(createDanmus,5000)
-// }
+function runDanmus()
+{
+  if(screendanmu.length > 0)
+  {
+      for (var i = 0; i < screendanmu.length; i++) 
+    {
+      screendanmu[i].style.left = String(parseInt(screendanmu[i].style.left)+vx)+"px"
+    }
 
-// function runDanmus()
-// {
-//   if(screendanmu.length > 0)
-//   {
-//       for (var i = 0; i < screendanmu.length; i++) 
-//     {
-//       screendanmu[i].style.left = String(parseInt(screendanmu[i].style.left)+vx)+"px"
-//     }
+    // 此处把屏幕外弹幕remove
+    if (parseInt(screendanmu[0].style.left) < -parseInt(screendanmu[0].offsetWidth)) 
+    {
+      screendanmu[0].remove();
+      screendanmu.splice(0, 1);
+    }
+  }
 
-//     // 此处把屏幕外弹幕remove
-//     if (parseInt(screendanmu[0].style.left) < -parseInt(screendanmu[0].offsetWidth)) 
-//     {
-//       screendanmu[0].remove();
-//       screendanmu.splice(0, 1);
-//     }
-//   }
-
-//     setTimeout(runDanmus,50)
-// }
+    setTimeout(runDanmus,50)
+}
 
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
      */
     
-    // var disqus_config = function () {
-    //     this.page.url = "http://udspj.github.io";  // Replace PAGE_URL with your page's canonical URL variable
-    //     this.page.identifier = "http://udspj.github.io"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    // };
+    var disqus_config = function () {
+        this.page.url = "http://udspj.github.io";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "http://udspj.github.io"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
     
-    // (function() {  // DON'T EDIT BELOW THIS LINE
-    //     var d = document, s = d.createElement('script');
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
         
-    //     s.src = '//udspj.disqus.com/embed.js';
+        s.src = '//udspj.disqus.com/embed.js';
         
-    //     s.setAttribute('data-timestamp', +new Date());
-    //     (d.head || d.body).appendChild(s);
-    // })();
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
   
 </script>
 
 
 </html>
+
+
+
+<!-- 2016-05-28 19:47:37.649 moacios[6735:2969295] [Crashlytics] Version 3.7.0 (102)
+2016-05-28 19:47:37.925 moacios[6735:2969295] Could not load the "btn_big_down.png" image referenced from a nib in the bundle with identifier "com.jorudan.ctsPush"
+My token is: 
+f4c086fb700973ac9a215843c20dc2e3f97fef7099875c8bf37b8d7f8d62c0df
+{
+  "response" : [
+    {
+      "isDeleted" : false,
+      "forum" : "udspj",
+      "raw_message" : "test33333",
+      "likes" : 0,
+      "isHighlighted" : false,
+      "media" : [
+
+      ],
+      "isFlagged" : false,
+      "createdAt" : "2016-05-21T15:02:39",
+      "numReports" : 0,
+      "parent" : 2688007940,
+      "isEdited" : false,
+      "id" : "2688008134",
+      "dislikes" : 0,
+      "points" : 0,
+      "message" : "<p>test33333<\/p>",
+      "isDeletedByAuthor" : false,
+      "isApproved" : true,
+      "thread" : "4845936224",
+      "isSpam" : false,
+      "author" : {
+        "id" : "208836105",
+        "joinedAt" : "2016-05-21T11:05:36",
+        "isAnonymous" : false,
+        "disable3rdPartyTrackers" : false,
+        "about" : "",
+        "url" : "",
+        "profileUrl" : "https:\/\/disqus.com\/by\/udspj\/",
+        "reputation" : 1.232862,
+        "isPowerContributor" : false,
+        "location" : "",
+        "username" : "udspj",
+        "isPrivate" : false,
+        "rep" : 1.232862,
+        "avatar" : {
+          "isCustom" : false,
+          "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar92.png",
+          "large" : {
+            "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar92.png",
+            "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+          },
+          "small" : {
+            "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar32.png",
+            "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+          },
+          "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+        },
+        "signedUrl" : "",
+        "name" : "udspj",
+        "isPrimary" : true
+      }
+    },
+    {
+      "isDeleted" : false,
+      "forum" : "udspj",
+      "raw_message" : "test22222",
+      "likes" : 0,
+      "isHighlighted" : false,
+      "media" : [
+
+      ],
+      "isFlagged" : false,
+      "createdAt" : "2016-05-21T15:02:27",
+      "numReports" : 0,
+      "parent" : null,
+      "isEdited" : false,
+      "id" : "2688007940",
+      "dislikes" : 0,
+      "points" : 0,
+      "message" : "<p>test22222<\/p>",
+      "isDeletedByAuthor" : false,
+      "isApproved" : true,
+      "thread" : "4845936224",
+      "isSpam" : false,
+      "author" : {
+        "id" : "208836105",
+        "joinedAt" : "2016-05-21T11:05:36",
+        "isAnonymous" : false,
+        "disable3rdPartyTrackers" : false,
+        "about" : "",
+        "url" : "",
+        "profileUrl" : "https:\/\/disqus.com\/by\/udspj\/",
+        "reputation" : 1.232862,
+        "isPowerContributor" : false,
+        "location" : "",
+        "username" : "udspj",
+        "isPrivate" : false,
+        "rep" : 1.232862,
+        "avatar" : {
+          "isCustom" : false,
+          "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar92.png",
+          "large" : {
+            "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar92.png",
+            "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+          },
+          "small" : {
+            "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar32.png",
+            "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+          },
+          "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+        },
+        "signedUrl" : "",
+        "name" : "udspj",
+        "isPrimary" : true
+      }
+    },
+    {
+      "isDeleted" : false,
+      "forum" : "udspj",
+      "raw_message" : "test",
+      "likes" : 0,
+      "isHighlighted" : false,
+      "media" : [
+
+      ],
+      "isFlagged" : false,
+      "createdAt" : "2016-05-21T13:50:10",
+      "numReports" : 0,
+      "parent" : null,
+      "isEdited" : false,
+      "id" : "2687921062",
+      "dislikes" : 0,
+      "points" : 0,
+      "message" : "<p>test<\/p>",
+      "isDeletedByAuthor" : false,
+      "isApproved" : true,
+      "thread" : "4845936224",
+      "isSpam" : false,
+      "author" : {
+        "id" : "208836105",
+        "joinedAt" : "2016-05-21T11:05:36",
+        "isAnonymous" : false,
+        "disable3rdPartyTrackers" : false,
+        "about" : "",
+        "url" : "",
+        "profileUrl" : "https:\/\/disqus.com\/by\/udspj\/",
+        "reputation" : 1.232862,
+        "isPowerContributor" : false,
+        "location" : "",
+        "username" : "udspj",
+        "isPrivate" : false,
+        "rep" : 1.232862,
+        "avatar" : {
+          "isCustom" : false,
+          "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar92.png",
+          "large" : {
+            "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar92.png",
+            "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+          },
+          "small" : {
+            "cache" : "\/\/a.disquscdn.com\/1464130545\/images\/noavatar32.png",
+            "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+          },
+          "permalink" : "https:\/\/disqus.com\/api\/users\/avatars\/udspj.jpg"
+        },
+        "signedUrl" : "",
+        "name" : "udspj",
+        "isPrimary" : true
+      }
+    }
+  ],
+  "code" : 0,
+  "cursor" : {
+    "hasNext" : false,
+    "id" : "1463838610003214:1:0",
+    "next" : "1463838610003214:1:0",
+    "more" : false,
+    "total" : null,
+    "hasPrev" : false,
+    "prev" : null
+  }
+}
+2016-05-28 19:48:10.409 moacios[6735:2969329] [Fabric] unable to complete application update: Error Domain=FABNetworkError Code=-6 "(null)" -->
+
