@@ -59,6 +59,8 @@ var danmuarray = new Array();
           var self = this
           urlreq.onload = function(){
             alert(urlreq.responseText)
+            alert(JSON.parse(urlreq.responseText).response[0])
+            alert(JSON.parse(urlreq.responseText).response[0].raw_message)
             responseRes = JSON.parse(urlreq.responseText);
             json = eval("(" + urlreq.responseText + ")");
             for(j = 0;j <json.length; j++)
