@@ -38,88 +38,20 @@
     </style>
 </head>
 <body>
-	<!-- <div width="100" height="100" align="center">
+	<div width="100" height="100" align="center">
 		<h1>page is building...</h1>
 		<img src="resource/images/tukurichu.jpg">
-	</div> -->
+	</div>
 	<div id="danmaku" width="100%" height="300px"></div>
   <div id="imgdiv">
-    <img id="mangaimg" src="resource/images/tukurichu.jpg"/>
-  </div>
-		<div id="disqus_thread">
+    <img id="mangaimg" src="73.jpg"/>
+    <div id="disqus_thread">
 		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 	</div>
+  </div>
+		
 </body>
 <script>
-
-
-var responseRes;
-var danmuarray = new Array();
-
-var vx = -5;
-var danmucount;
-var maxscreencount = 5;
-var screendanmu = new Array();
-var danmuindex = 0
-
-function showDanmus()
-{
-    danmucount = danmuarray.length;
-    createDanmus();
-    runDanmus();
-}
-
-function createDanmus()
-{
-    if(screendanmu.length < maxscreencount && danmuindex < danmucount)
-    {
-          var para = document.createElement("p");
-          var danmutext = document.createTextNode(danmuarray[danmuindex]);
-          para.setAttribute("class","danmu");
-          para.style.left = String(document.body.clientWidth)+"px";
-          para.style.top = String(Math.ceil(Math.random()*100))+"px";
-          para.appendChild(danmutext);
-          var div = document.getElementById("danmaku");
-          div.appendChild(para);
-          screendanmu[screendanmu.length] = para;
-          danmuindex ++;
-    }
-
-    setTimeout(createDanmus,5000)
-}
-
-function runDanmus()
-{
-  if(screendanmu.length > 0)
-  {
-      for (var i = 0; i < screendanmu.length; i++) 
-    {
-      screendanmu[i].style.left = String(parseInt(screendanmu[i].style.left)+vx)+"px"
-    }
-
-    // 此处把屏幕外弹幕remove
-    if (parseInt(screendanmu[0].style.left) < -parseInt(screendanmu[0].offsetWidth)) 
-    {
-      screendanmu[0].remove();
-      screendanmu.splice(0, 1);
-    }
-  }
-
-    setTimeout(runDanmus,50)
-}
-
-        var urlreq = new XMLHttpRequest()
-          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj')
-          var self = this
-          urlreq.onload = function(){
-            responseRes = JSON.parse(urlreq.responseText).response;
-            for(j = 0;j <responseRes.length; j++)
-            {
-                danmuarray[j] = responseRes[j].raw_message;
-            }
-            showDanmus();
-          }
-          urlreq.send()
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
