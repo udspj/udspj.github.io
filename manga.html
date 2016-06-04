@@ -49,27 +49,8 @@
 
 <script>
 
-
-var json;
 var responseRes;
 var danmuarray = new Array();
-
-        var urlreq = new XMLHttpRequest()
-          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj')
-          var self = this
-          urlreq.onload = function(){
-            alert(urlreq.responseText)
-            alert(JSON.parse(urlreq.responseText))
-            alert(JSON.parse(urlreq.responseText).response[0].raw_message)
-            responseRes = JSON.parse(urlreq.responseText);
-            json = eval("(" + urlreq.responseText + ")");
-            for(j = 0;j <json.length; j++)
-            {
-                danmuarray[j] = JSON.parse(urlreq.responseText).response[j].raw_message;
-            }
-            showDanmus();
-          }
-          urlreq.send()
 
 var vx = -5;
 var danmucount;
@@ -122,6 +103,19 @@ function runDanmus()
 
     setTimeout(runDanmus,50)
 }
+
+        var urlreq = new XMLHttpRequest()
+          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj')
+          var self = this
+          urlreq.onload = function(){
+            responseRes = JSON.parse(urlreq.responseText).response;
+            for(j = 0;j <responseRes.length; j++)
+            {
+                danmuarray[j] = responseRes[j].raw_message;
+            }
+            showDanmus();
+          }
+          urlreq.send()
 
     /**
      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
