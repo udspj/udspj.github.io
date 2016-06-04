@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<title>udspj</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style type="text/css">
-html,body 
-{
-  overflow:hidden; margin:0px; width:100%; height:100%;
-}
+    html,body 
+    {
+      overflow:hidden; margin:0px; width:100%; height:100%;
+    }
     .danmu
     {
         color: white;
@@ -20,21 +20,21 @@ html,body
         position:absolute;
         white-space:nowrap;
     }
-#imgdiv 
-{
-  margin-left: auto; margin-right: auto;text-align : center; 
-  width:100%; height:100%;
-  overflow-y:scroll; overflow-x:auto;
-}
-#mangaimg
-{
-  max-width:600px; min-width:100px; 
-  margin-left: auto; margin-right: auto;text-align : center;
-}
-#dammaku
-{
-  right:0; top:0; width:100%; position:fixed; padding:10px;
-}
+    #imgdiv 
+    {
+      margin-left: auto; margin-right: auto;text-align : center; 
+      width:100%; height:100%;
+      overflow-y:scroll; overflow-x:auto;
+    }
+    #mangaimg
+    {
+      max-width:600px; min-width:100px; 
+      margin-left: auto; margin-right: auto;text-align : center;
+    }
+    #dammaku
+    {
+      right:0; top:0; width:100%; position:fixed; padding:10px;
+    }
     </style>
 </head>
 <body>
@@ -59,13 +59,13 @@ var danmuarray = new Array();
           var self = this
           urlreq.onload = function(){
             alert(urlreq.responseText)
-            // responseRes = JSON.parse(urlreq.responseText);
-            // json = eval("(" + urlreq.responseText + ")");
-            // for(j = 0;j <json.length; j++)
-            // {
-            //     danmuarray[j] = JSON.parse(urlreq.responseText)[j].danmustr;
-            // }
-            // showDanmus();
+            responseRes = JSON.parse(urlreq.responseText);
+            json = eval("(" + urlreq.responseText + ")");
+            for(j = 0;j <json.length; j++)
+            {
+                danmuarray[j] = JSON.parse(urlreq.responseText).response[j].raw_message;
+            }
+            showDanmus();
           }
           urlreq.send()
 
