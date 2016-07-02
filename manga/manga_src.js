@@ -29,7 +29,7 @@ var MangaList = [{ "title": "80沟通(下)[9]", "url": "http://ww1.sinaimg.cn/mw
     { "title": "75卖萌三连弹[0]", "url": "http://ww2.sinaimg.cn/mw1024/48a8af64gw1f2rsn4t3x4j20go28j42t.jpg" },
     { "title": "75卖萌三连弹[1]", "url": "http://ww2.sinaimg.cn/mw1024/48a8af64gw1f2rsn5jsxbj20go23qjw3.jpg" },
     { "title": "75卖萌三连弹[2]", "url": "http://ww4.sinaimg.cn/mw1024/48a8af64gw1f2rsn69s7uj20go2urtg0.jpg" },
-    { "title": "74程序员学日语后", "url": "http://ww3.sinaimg.cn/mw1024/48a8af64gw1f2jqc030otj20go3eogvb.jpg" },
+    { "title": "74学日语后", "url": "http://ww3.sinaimg.cn/mw1024/48a8af64gw1f2jqc030otj20go3eogvb.jpg" },
     { "title": "73女装程序员", "url": "http://ww2.sinaimg.cn/mw1024/48a8af64gw1f2bm9kpam7j20go4xi158.jpg" },
     { "title": "72异端代码审问", "url": "http://ww4.sinaimg.cn/mw1024/48a8af64gw1f23ltcnnsvj20go3sralm.jpg" },
     { "title": "71所谓高薪", "url": "http://ww1.sinaimg.cn/mw1024/48a8af64gw1f1mi83mbc4j20go3u3dyk.jpg" },
