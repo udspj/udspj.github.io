@@ -56,7 +56,7 @@
   <img id="imgbtn" src="manga/listctrlbtn.png" width="200px" height="300px" />
   <div id="imgdiv">
       <h1 id="title">评论弹幕加载中...</h1>
-      <img id="mangaimg" src="791.jpg" align="center"/>
+      <img id="mangaimg" align="center"/>
       <div id="disqus_thread">
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
       </div>
@@ -68,7 +68,7 @@
 <script>
 
 
-var imgarray = MangaList;//["http://ww4.sinaimg.cn/large/48a8af64gw1f58uj5rmq0j20go2patgu.jpg","802.jpg","803.jpg","804.jpg","805.jpg","806.jpg","807.jpg","808.jpg","809.jpg","73.jpg","791.jpg","801.jpg","802.jpg","803.jpg","804.jpg","805.jpg","806.jpg","807.jpg","808.jpg","809.jpg"]
+var imgarray = MangaList;
 var x,y,m;
 function _id(id) {return document.getElementById(id);}
 window.onload=function(e){
@@ -108,6 +108,7 @@ document.onmouseup = function(){ m = false; }
 }
 
 _id('buttonscontainer').style.width = String(imgarray.length * 150)+"px";
+_id('mangaimg').src = imgarray[0]["url"];
 for (var i = 0; i < imgarray.length; i ++)
 {
           var para = document.createElement("div");
