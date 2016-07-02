@@ -35,14 +35,25 @@
     {
       right:0; top:0; width:100%; position:fixed; padding:10px;
     }
+    #imageselector
+    {
+      bottom: 0; width:100%; height:150px; position:fixed; background-color: #000; opacity:0.7; padding:10px;
+    }
     #disqus_thread
     {
       position: relative; display:block; margin: 0px 50px 0px 50px; 
     }
+
+    #buttonscontainer { height: 100%; width: calc(100% - 20px); position: relative; -moz-user-select: none; -webkit-user-select: none; }
+    #imgbtn { bottom: 0; position:fixed; }
     </style>
 </head>
 <body>
   <div id="danmaku" width="100%" height="300px"></div>
+  <div id="imageselector">
+    <div id="buttonscontainer"></div>
+  </div>
+  <img id="imgbtn" src="manga/listctrlbtn.png" width="200px" height="300px" />
   <div id="imgdiv">
       <h1 id="title">评论弹幕加载中...</h1>
       <img id="mangaimg" src="791.jpg" align="center"/>
@@ -52,7 +63,101 @@
   </div>
     
 </body>
+
+<script language='javascript' src="manga/manga_src.js"></script>
 <script>
+
+
+var imgarray = MangaList;//["http://ww4.sinaimg.cn/large/48a8af64gw1f58uj5rmq0j20go2patgu.jpg","802.jpg","803.jpg","804.jpg","805.jpg","806.jpg","807.jpg","808.jpg","809.jpg","73.jpg","791.jpg","801.jpg","802.jpg","803.jpg","804.jpg","805.jpg","806.jpg","807.jpg","808.jpg","809.jpg"]
+var x,y,m;
+function _id(id) {return document.getElementById(id);}
+window.onload=function(e){
+  _id("imgbtn").ondragstart=function(){return false};
+_id('buttonscontainer').onselectstart=function(){return false};
+_id('buttonscontainer').onmousedown=function(e){
+e=e||window.event;
+e.which=e.which||e.button;
+e.pageX=e.pageX||e.x;
+// e.pageY=e.pageY||e.y;
+if(e.which == 1) {
+m = true;
+x = e.pageX - parseInt(this.offsetLeft);
+// y = e.pageY - parseInt(this.offsetTop);
+}
+}
+_id('buttonscontainer').style.left = "200px";
+document.onmousemove = function(e){
+e=e||window.event;
+e.which=e.which||e.button;
+e.pageX=e.pageX||e.x;
+// e.pageY=e.pageY||e.y;
+if(m) {
+_id('buttonscontainer').style.left=e.pageX-x+'px';
+// _id('id').style.top=e.pageY-y+'px';
+if (parseInt(_id('buttonscontainer').style.left) > parseInt(200))
+{
+  _id('buttonscontainer').style.left = "200px";
+}
+if (parseInt(_id('buttonscontainer').style.left) < parseInt(document.body.clientWidth - imgarray.length * 150 - 10))
+{
+  _id('buttonscontainer').style.left = String(document.body.clientWidth - imgarray.length * 150 - 10)+"px";
+}
+}
+}
+document.onmouseup = function(){ m = false; }
+}
+
+_id('buttonscontainer').style.width = String(imgarray.length * 150)+"px";
+for (var i = 0; i < imgarray.length; i ++)
+{
+          var para = document.createElement("div");
+          // para.style.left = String(i * 100)+"px";
+          para.style.top = "0px";
+          para.style.width = "130px";
+          para.style.height = "130px";
+          para.style.background = "#ffffff";
+          para.style.float = "left";
+          para.style.margin = "10px";
+          para.id = imgarray[i]["url"];
+          para.innerHTML = imgarray[i]["title"];
+          para.align = "center";
+          para.onclick = function() {
+            var imgcon = document.getElementById("mangaimg");
+            imgcon.src = this.id;
+          };
+
+          var paraimg = document.createElement("img");
+          paraimg.src = "manga/defaultimg.jpg";
+          paraimg.ondragstart = function() {
+            return false;
+          };
+          para.appendChild(paraimg);
+
+          var div = document.getElementById("buttonscontainer");
+          div.appendChild(para);
+}
+var isopenlist = true;
+imgbtn.onclick = function() {
+  var btncontainer = document.getElementById("buttonscontainer");
+  btncontainer.hidden = isopenlist;
+  var btnbk = document.getElementById("imageselector");
+  if ( isopenlist ) {
+    btnbk.style.width = "200px";
+  } else {
+    btnbk.style.width = "100%";
+  }
+  isopenlist = !isopenlist;
+};
+
+            var imgcon = document.getElementById("mangaimg");
+            imgcon.onload = function() {
+            }
+
+
+
+
+
+
 
 var responseRes;
 var danmuarray = new Array();
@@ -108,9 +213,9 @@ function runDanmus()
 
     setTimeout(runDanmus,50)
 }
-
+//https://disqus.com/api/docs/posts/list/
         var urlreq = new XMLHttpRequest()
-          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj')
+          urlreq.open('GET','https://disqus.com/api/3.0/posts/list.json?api_key=fDv3hhNLuouP8ZPpiptoPE1OPU0pq9qtohiIx2GDbSLVWaNkOB6V3X1RnZMsuINF&forum=udspj&limit=100')
           var self = this
           urlreq.onload = function(){
             responseRes = JSON.parse(urlreq.responseText).response;
