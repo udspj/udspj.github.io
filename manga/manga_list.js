@@ -4,7 +4,7 @@ function mangaListView() {
 
 mangaListView.prototype = {
     init: function() {
-        var x, y, m;
+        var x, m, touchx, touchm;
         document.getElementById('buttonscontainer').style.left = "200px";
         document.getElementById('buttonscontainer').style.width = String(MangaList.length * 150) + "px";
         document.getElementById('mangaimg').src = MangaList[0]["url"];
@@ -24,7 +24,16 @@ mangaListView.prototype = {
             para.onclick = function() {
                 var imgcon = document.getElementById("mangaimg");
                 imgcon.src = this.id;
+                document.getElementById('imgdiv').scroll(0, 0);
             };
+
+
+            para.addEventListener("touchend", function(e) {
+                var imgcon = document.getElementById("mangaimg");
+                imgcon.src = this.id;
+                document.getElementById('imgdiv').scroll(0, 0);
+            })
+
 
             var paraimg = document.createElement("img");
             paraimg.src = "manga/defaultimg.jpg";
@@ -86,6 +95,31 @@ mangaListView.prototype = {
             }
         }
         document.onmouseup = function() { m = false; }
+
+
+
+        var btncon = document.getElementById("buttonscontainer");
+        btncon.addEventListener("touchstart", function(e) {
+            var e = e || window.event;
+            e.preventDefault();
+            touchx = e.touches[0].clientX - parseInt(this.offsetLeft);
+            touchm = true;
+        })
+        btncon.addEventListener("touchmove", function(e) {
+            var e = e || window.event;
+            e.preventDefault();
+            document.getElementById('buttonscontainer').style.left = e.touches[0].clientX - touchx + 'px';
+            if (parseInt(document.getElementById('buttonscontainer').style.left) > parseInt(200)) {
+                document.getElementById('buttonscontainer').style.left = "200px";
+            }
+            if (parseInt(document.getElementById('buttonscontainer').style.left) < parseInt(document.body.clientWidth - MangaList.length * 150 - 10)) {
+                document.getElementById('buttonscontainer').style.left = String(document.body.clientWidth - MangaList.length * 150 - 10) + "px";
+            }
+        })
+        btncon.addEventListener("touchend", function(e) {
+            touchm = false;
+        })
+
     }
 }
 

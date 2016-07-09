@@ -31,6 +31,8 @@ function createDanmus() {
 }
 
 function runDanmus() {
+    document.documentElement.scrollTop = document.body.scrollTop = 0;
+    
     if (screendanmu.length > 0) {
         for (var i = 0; i < screendanmu.length; i++) {
             screendanmu[i].style.left = String(parseInt(screendanmu[i].style.left) + vx) + "px"

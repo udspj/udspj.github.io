@@ -1,4 +1,5 @@
-var MangaList = [{ "title": "80沟通(下)[9]", "url": "http://ww1.sinaimg.cn/mw1024/48a8af64gw1f58uizc755j20go2a2117.jpg" },
+var MangaList = [{ "title": "81galgame", "url": "http://ww3.sinaimg.cn/mw1024/48a8af64gw1f5gvusb44gj20go526njj.jpg" },
+    { "title": "80沟通(下)[9]", "url": "http://ww1.sinaimg.cn/mw1024/48a8af64gw1f58uizc755j20go2a2117.jpg" },
     { "title": "80沟通(下)[10]", "url": "http://ww2.sinaimg.cn/mw1024/48a8af64gw1f58uj0a1hoj20go1rnn2d.jpg" },
     { "title": "80沟通(下)[11]", "url": "http://ww1.sinaimg.cn/mw1024/48a8af64gw1f58uj18malj20go1rnwk1.jpg" },
     { "title": "80沟通(上)[1]", "url": "http://ww1.sinaimg.cn/mw1024/48a8af64gw1f525bpdv1bj20go17r430.jpg" },
