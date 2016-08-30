@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html ng-app="noteapp">
+<head>
+<meta charset="utf-8">
+  <link href="gal_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="bk" id="bk1" ></div>
+<div class="bk" id="bk2" ></div>
+<div id="characontainer" ></div>
+
+	<div id="iddialogbox" class="dialogbox" onclick="changeBackground();">
+		<div class="namebox">
+			<p align="center" style="color:white;font-size:16px;">udspj</p>
+		</div>
+		<p id="textbox" style="color:white;font-size:16px;margin:20px;"></p>
+		<p id="nexttext" style="color:white;right:20px;bottom:0px;position:absolute;">↪</p>
+	</div>
+		<div class="menubox">
+			<div class="menu" style="border-radius: 0px 10px 0px 0px;" onclick="menuClickHistory();">历史</div>
+			<div class="menu" onclick="menuClickPrevSelect();">上一个选项</div>
+			<div class="menu" onclick="menuClickRestart();">重新开始</div>
+			<div class="menu" style="border-radius: 0px 0px 10px 0px;" onclick="menuClickAuto();">自动</div>
+		</div>
+
+<div class='blackcover' id='blackcoverup' style="top:0;"></div> 
+<div class='blackcover' id='blackcoverdown' style="bottom:0;"></div> 
+
+<script language='javascript' src="Selections.js"></script>
+<script language='javascript' src="History.js"></script>
+<script language='javascript' src="Characters.js"></script>
+<script type="text/javascript">
+
+// function stopHandler(event)  {
+
+//     window.event?window.event.cancelBubble=true:event.stopPropagation();  
+
+// } 
+
+function menuClickHistory() {
+	console.log("menuClickHistory");
+	historydialog.showHistory();
+}
+function menuClickPrevSelect() {
+	console.log("menuClickPrevSelect");
+}
+function menuClickRestart() {
+	var r=confirm("确定要RE：0重新开始吗？");
+if (r==true)
+  {
+  console.log("You pressed OK!");
+  }
+}
+function menuClickAuto() {
+	console.log("menuClickAuto");
+}
+
+//获取浏览器页面可见高度和宽度
+
+        var _PageHeight = document.documentElement.clientHeight,
+            _PageWidth = document.documentElement.clientWidth;
+        //计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+        var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+            _LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+        //在页面未加载完毕之前显示的loading Html自定义内容
+        var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 57px; line-height: 57px; padding-left: 50px; padding-right: 5px; background: #fff url(/Content/loading.gif) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; color: #696969; font-family:\'Microsoft YaHei\';">页面加载中，请等待...</div></div>';
+        //呈现loading效果
+        document.write(_LoadingHtml);
+        //window.onload = function () {
+        //    var loadingMask = document.getElementById('loadingDiv');
+        //    loadingMask.parentNode.removeChild(loadingMask);
+        //};
+        //监听加载状态改变
+        document.onreadystatechange = completeLoading;
+        //加载状态为complete时移除loading效果
+        function completeLoading() {
+            if (document.readyState == "complete") {
+                var loadingMask = document.getElementById('loadingDiv');
+                loadingMask.parentNode.removeChild(loadingMask);
+console.log('cccccccc');
+start();
+            }
+        }
+
+
+
+
+
+
+var selections = [{choice:"选项 xiang 1", toindex:"10"}, {choice:"动对外部环", toindex:"20"}, {choice:"xuan xiang 2", toindex:"20"}, {choice:"xuan xiang 2", toindex:"20"}, {choice:"系统是最 2", toindex:"20"}];
+
+
+
+
+var characters = new Characters()
+
+
+
+
+
+
+	var historydialog = new History(["asdfasdfadsfadsf","777777",'实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。','实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。','实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。','实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。','实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。','实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。',"sdafdsafdsafe444 454434646 dsdd ffsffasafs dsasa"]);
+
+
+
+
+
+var blackcoverup = document.getElementById('blackcoverup');//document.getElementsByClassName('blackcoverup')[0];
+var blackcoverdown = document.getElementById('blackcoverdown');//document.getElementsByClassName('blackcoverdown')[0];
+var bk1 = document.getElementById('bk1');
+var bk2 = document.getElementById('bk2');
+
+// var chara1 = document.getElementById('character1');
+// var chara2 = document.getElementById('character2');
+// var exp1 = document.getElementById('expression1');
+// var exp2 = document.getElementById('expression2');
+
+// window.onload = function (){
+	function start() {
+blackcoverup.classList.add('horizTranslate');
+blackcoverdown.classList.add('horizTranslate');
+
+bk1.classList.add('fadein');
+		bk1.style.backgroundImage = "url('bk1.jpg')";
+		bk2.style.backgroundImage = "url('bk2.jpg')";
+
+
+		// var charaA = new character(['chara1.png'], ['chara1exp1.png','chara1exp2.png']);
+
+
+	characters.showCharacters(['chara1.png','chara2.png']);
+document.getElementById("nexttext").style.display = "none";
+
+
+// var selectbranch = new SelectionBranch();
+// selectbranch.showSelections(selections);
+// 	window.addEventListener('onSelectClick', function (e) { console.log('eventttttttt'+e.detail) }, false);
+
+}
+
+var isclicked = false;
+function changeBackground() { // img,
+	
+	if(!isTextShowed) {
+		isclicked = true;
+		showDialogueText();
+		return;
+	}
+	if(bk1.classList.contains('fadein')) {
+		bk1.classList.remove('fadein');
+		bk1.classList.add('fadeout');
+		bk2.classList.remove('fadeout');
+		bk2.classList.add('fadein');
+	}else{
+		bk2.classList.remove('fadein');
+		bk2.classList.add('fadeout');
+		bk1.classList.remove('fadeout');
+		bk1.classList.add('fadein');
+	}
+	console.log('aaaaaaa');
+	showDialogueText();
+		characters.showCharacters(['chara1.png']);
+}
+
+var isTextShowed = true;
+var startAdd;
+function showDialogueText() {
+	isTextShowed = false;
+	var textword = '实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。';
+	var textbox=document.getElementById("textbox");
+	if (isclicked) {
+		textbox.innerText=textword;
+		isTextShowed = true;
+		console.log('asdfsafsassssss');
+		clearInterval(startAdd);
+		isclicked = false;
+            document.getElementById("nexttext").style.display = "";
+		return;
+	}
+    var textlength=1;
+    function textwordAdd () {
+    	document.getElementById("nexttext").style.display = "none";
+        textbox.innerText=textword.substring(0, textlength);
+        if (textlength<=textword.length) {
+            textlength++;
+        }else{
+            clearInterval(startAdd);
+            isTextShowed = true;
+            document.getElementById("nexttext").style.display = "";
+        };
+    }
+		console.log('setInterval');
+    startAdd=setInterval(textwordAdd, 20);
+}
+
+
+</script>
+
+</body>
+</html>
