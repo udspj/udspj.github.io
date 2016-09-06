@@ -1,7 +1,11 @@
 function SelectionBranch() {
     // this.selects = selects;
+    this.startDetectHeightChange;
+    this.docheight;
 }
 SelectionBranch.prototype.showSelections = function(selects) {
+    var obj = this;
+
     self.selectdiv = document.createElement("div");
     selectdiv.style.backgroundColor = "rgba(0,0,0,0.5)";
     selectdiv.style.width = "100%";
@@ -20,6 +24,7 @@ SelectionBranch.prototype.showSelections = function(selects) {
     selectcontainer.style.margin = String(10 / (selectcount - 1)) + "% 0% 0% 0%";
     selectcontainer.style.display = "inline-block";
     self.selectdiv.appendChild(selectcontainer);
+    obj.docheight = document.body.clientHeight;
 
     for (var i = 0; i < selectcount; i++) {
         var select = document.createElement("div");
@@ -28,7 +33,8 @@ SelectionBranch.prototype.showSelections = function(selects) {
         select.style.width = "100%";
         select.style.height = String(100 / selectcount - 10 / (selectcount - 1)) + "%";
         select.style.marginBottom = String(10 / (selectcount - 1)) + "%";
-        select.style.lineHeight = "60px";
+        var hei = document.body.clientHeight * parseInt(selectcontainer.style.height.replace("%", "")) / 100 * parseInt(select.style.height.replace("%", "")) / 100;
+        select.style.lineHeight = String(hei) + "px";
         select.style.textAlign = "center";
         select.style.color = "white";
         select.style.fontSize = "16px";
@@ -40,6 +46,20 @@ SelectionBranch.prototype.showSelections = function(selects) {
             document.body.removeChild(self.selectdiv);
             var selectEvent = new CustomEvent('onSelectClick', { detail: this.id });
             window.dispatchEvent(selectEvent);
+            clearInterval(obj.startDetectHeightChange);
+        }
+    }
+
+    obj.startDetectHeightChange = setInterval(DetectHeightChange, 20);
+
+    function DetectHeightChange() {
+        if (obj.docheight == document.body.clientHeight) {
+            return
+        }
+        var hei = document.body.clientHeight * parseInt(selectcontainer.style.height.replace("%", "")) / 100 * parseInt(select.style.height.replace("%", "")) / 100;
+        obj.docheight = document.body.clientHeight;
+        for (var i = 0; i < selectcontainer.childNodes.length; ++i) {
+            selectcontainer.childNodes[i].style.lineHeight = String(hei) + "px";
         }
     }
 }

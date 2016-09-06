@@ -23,8 +23,8 @@ Characters.prototype.showCharacters = function(charas) {
         }
         var chara1 = document.getElementById('character1');
         var exp1 = document.getElementById('expression1');
-        chara1.style.backgroundImage = "url('chara1.png')";
-        exp1.style.backgroundImage = "url('chara1exp2.png')";
+        chara1.style.backgroundImage = "url('" + charas[0]["body"] + ".png')";
+        exp1.style.backgroundImage = "url('" + charas[0]["face"] + ".png')";
     }else if(charas.length == 2) {
         if (!document.getElementById('character1')) {
             var charadiv = document.createElement("div");
@@ -56,10 +56,10 @@ Characters.prototype.showCharacters = function(charas) {
         var chara2 = document.getElementById('character2');
         var exp2 = document.getElementById('expression2');
 
-        chara1.style.backgroundImage = "url('chara1.png')";
-        chara2.style.backgroundImage = "url('chara2.png')";
-        exp1.style.backgroundImage = "url('chara1exp1.png')";
-        exp2.style.backgroundImage = "url('chara2exp1.png')";
+        chara1.style.backgroundImage = "url('" + charas[0]["body"] + ".png')";
+        chara2.style.backgroundImage = "url('" + charas[1]["body"] + ".png')";
+        exp1.style.backgroundImage = "url('" + charas[0]["face"] + ".png')";
+        exp2.style.backgroundImage = "url('" + charas[1]["face"] + ".png')";
     }else if(charas.length == 0) {
         if (document.getElementById('character1')) {
             var container = document.getElementById("characontainer");

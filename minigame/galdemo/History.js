@@ -1,5 +1,5 @@
-function History(texts) {
-    this.texts = texts;
+function History() {
+    this.texts = [];
 
     self.historydiv = document.createElement("div");
     historydiv.style.backgroundColor = "rgba(0,0,0,0.5)";
@@ -21,6 +21,9 @@ function History(texts) {
     self.historydiv.onclick = function() {
         self.historydiv.style.display = "none";
     }
+}
+History.prototype.addHistory = function(text) {
+    this.texts[this.texts.length] = text;
 }
 History.prototype.showHistory = function() {
     self.historydiv.style.display = "";
