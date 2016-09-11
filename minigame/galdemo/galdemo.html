@@ -38,42 +38,42 @@
 
         var _LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p></td></tr></table>';
         document.write(_LoadingHtml);
-//         document.onreadystatechange = completeLoading;
-//         function completeLoading() {
-//             if (document.readyState == "complete") {
-//                 var loadingMask = document.getElementById('loadingDiv');
-//                 loadingMask.parentNode.removeChild(loadingMask);
-// start();
-//             }
-//         }
-
-
-
-
-
-
-
-		var manifest = ["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
-
-		preload = new createjs.LoadQueue(true);
-
-		// Use this instead to use tag loading
-		//preload = new createjs.PreloadJS(false);
-			var loadingtext = document.getElementById('loadingtext');
-
-		preload.on("progress", handleProgress);
-		preload.on("complete", handleComplete);
-		preload.loadManifest(manifest);
-		function handleProgress(event) {
-			console.log("handleProgress:"+event.loaded);
-			loadingtext.innerText = "loading... "+event.loaded*100+"%";
-		}
-		function handleComplete(event) {
-			console.log("handleComplete:");
-			var loadingMask = document.getElementById('loadingDiv');
+        document.onreadystatechange = completeLoading;
+        function completeLoading() {
+            if (document.readyState == "complete") {
+                var loadingMask = document.getElementById('loadingDiv');
                 loadingMask.parentNode.removeChild(loadingMask);
 start();
-		}
+            }
+        }
+
+
+
+
+
+
+
+// 		var manifest = ["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
+
+// 		preload = new createjs.LoadQueue(true);
+
+// 		// Use this instead to use tag loading
+// 		//preload = new createjs.PreloadJS(false);
+// 			var loadingtext = document.getElementById('loadingtext');
+
+// 		preload.on("progress", handleProgress);
+// 		preload.on("complete", handleComplete);
+// 		preload.loadManifest(manifest);
+// 		function handleProgress(event) {
+// 			console.log("handleProgress:"+event.loaded);
+// 			loadingtext.innerText = "loading... "+event.loaded*100+"%";
+// 		}
+// 		function handleComplete(event) {
+// 			console.log("handleComplete:");
+// 			var loadingMask = document.getElementById('loadingDiv');
+//                 loadingMask.parentNode.removeChild(loadingMask);
+// start();
+// 		}
 
 
 
