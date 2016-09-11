@@ -76,12 +76,12 @@ body {
 
 .menubox {
     position: fixed;
+    width: 120px;
     height: 160px;
     bottom: 20px;
-    left: 800px;
-    right: 320px;
+    right: 200px;
     background: rgba(0, 0, 0, 0.7);
-    border-radius: 0px 0px 0px 10px;
+    border-radius: 0px 10px 10px 0px;
     border: 2px solid rgba(255, 255, 255, 0.45);
 }
 
@@ -155,7 +155,7 @@ body {
         border: 2px solid rgba(255, 255, 255, 0.45);
     }
     .menubox {
-        position: absolute;
+        position: fixed;
         width: 120px;
         height: 160px;
         bottom: 20px;
