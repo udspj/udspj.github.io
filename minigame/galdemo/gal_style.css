@@ -75,7 +75,7 @@ body {
 }
 
 .menubox {
-    position: absolute;
+    position: fixed;
     width: 120px;
     height: 160px;
     bottom: 20px;
