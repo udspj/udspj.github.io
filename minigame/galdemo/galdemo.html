@@ -58,7 +58,7 @@
      {id: "bk2", src:"bk2.jpg"}
  ]);//["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
 
-		preload = new createjs.LoadQueue(false);
+		preload = new createjs.LoadQueue(true);
 
 		// Use this instead to use tag loading
 		//preload = new createjs.PreloadJS(false);
@@ -227,6 +227,7 @@ function changeBackground(img) {
 	if(nowimg == img) { return }
 	nowimg = img;
 	if(bk1.classList.contains('fadein')) {
+		console.log("preload img "+img+","+preload.getResult(img));
 		console.log("preload img "+img+","+preload.getResult(img).src);
 		bk2.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
 		bk1.classList.remove('fadein');
