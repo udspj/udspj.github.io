@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<div class="bk" id="bk1" ></div>
-<div class="bk" id="bk2" ></div>
+<div class="bk" id="bk1" ><img id="bk1img" /></div>
+<div class="bk" id="bk2" ><img id="bk2img" /></div>
 <div id="characontainer" ></div>
 
 	<div class="dialogbox" onclick="onDialogboxClicked();">
@@ -54,8 +54,8 @@
 
 
 		var manifest = ([
-     {id: "bk1", src:"http://udspj.github.io/minigame/galdemo/bk1.jpg"},
-     {id: "bk2", src:"http://udspj.github.io/minigame/galdemo/bk2.jpg"}
+     {id: "bk1", src:"bk1.jpg"},
+     {id: "bk2", src:"bk2.jpg"}
  ]);//["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
 
 		preload = new createjs.LoadQueue(true);
@@ -147,6 +147,8 @@ var blackcoverup = document.getElementById('blackcoverup');//document.getElement
 var blackcoverdown = document.getElementById('blackcoverdown');//document.getElementsByClassName('blackcoverdown')[0];
 var bk1 = document.getElementById('bk1');
 var bk2 = document.getElementById('bk2');
+var bk1img = document.getElementById('bk1img');
+var bk2img = document.getElementById('bk2img');
 
 var name = document.getElementById('namebox');
 
@@ -229,20 +231,21 @@ function changeBackground(img) {
 	if(bk1.classList.contains('fadein')) {
 		console.log("preload img "+img+","+preload.getResult(img));
 		console.log("preload img "+img+","+preload.getResult(img).src);
-		bk2.style.backgroundImage = "url('http://udspj.github.io/minigame/galdemo/"+img+".jpg')";
+		bk2img.src = preload.getResult(img).src;
+		// bk2.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
 		bk1.classList.remove('fadein');
 		bk1.classList.add('fadeout');
 		bk2.classList.remove('fadeout');
 		bk2.classList.add('fadein');
 	}else{
-		bk1.style.backgroundImage = "url('http://udspj.github.io/minigame/galdemo/"+img+".jpg')";
+		bk1img.src = preload.getResult(img).src;
+		// bk1.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
 		bk2.classList.remove('fadein');
 		bk2.classList.add('fadeout');
 		bk1.classList.remove('fadeout');
 		bk1.classList.add('fadein');
 	}
 }
-
 
 
 
