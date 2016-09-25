@@ -49,9 +49,6 @@ var ScriptList = [{
 }, {
     "index": 4,
     "character": [{
-        "body": "chara1",
-        "face": "chara1exp1"
-    }, {
         "body": "chara2",
         "face": "chara1exp1"
     }],
@@ -86,9 +83,6 @@ var ScriptList = [{
     "index": 7,
     "character": [{
         "body": "chara1",
-        "face": "chara1exp1"
-    }, {
-        "body": "chara2",
         "face": "chara1exp1"
     }],
     "background": "bk1",
