@@ -227,13 +227,14 @@ function changeBackground(img) {
 	if(nowimg == img) { return }
 	nowimg = img;
 	if(bk1.classList.contains('fadein')) {
-		bk2.style.backgroundImage = "url('"+preload.getResult(img).src+".jpg')";
+		console.log("preload img "+img+","+preload.getResult(img).src);
+		bk2.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
 		bk1.classList.remove('fadein');
 		bk1.classList.add('fadeout');
 		bk2.classList.remove('fadeout');
 		bk2.classList.add('fadein');
 	}else{
-		bk1.style.backgroundImage = "url('"+preload.getResult(img).src+".jpg')";
+		bk1.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
 		bk2.classList.remove('fadein');
 		bk2.classList.add('fadeout');
 		bk1.classList.remove('fadeout');
