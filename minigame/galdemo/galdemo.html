@@ -53,9 +53,12 @@
 
 
 
-		var manifest = ["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
+		var manifest = ([
+     {id: "bk1", src:"bk1.jpg"},
+     {id: "bk2", src:"bk2.jpg"}
+ ]);//["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
 
-		preload = new createjs.LoadQueue(true);
+		preload = new createjs.LoadQueue(false);
 
 		// Use this instead to use tag loading
 		//preload = new createjs.PreloadJS(false);
@@ -224,13 +227,13 @@ function changeBackground(img) {
 	if(nowimg == img) { return }
 	nowimg = img;
 	if(bk1.classList.contains('fadein')) {
-		bk2.style.backgroundImage = "url('"+img+".jpg')";
+		bk2.style.backgroundImage = "url('"+preload.getResult(img).src+".jpg')";
 		bk1.classList.remove('fadein');
 		bk1.classList.add('fadeout');
 		bk2.classList.remove('fadeout');
 		bk2.classList.add('fadein');
 	}else{
-		bk1.style.backgroundImage = "url('"+img+".jpg')";
+		bk1.style.backgroundImage = "url('"+preload.getResult(img).src+".jpg')";
 		bk2.classList.remove('fadein');
 		bk2.classList.add('fadeout');
 		bk1.classList.remove('fadeout');
