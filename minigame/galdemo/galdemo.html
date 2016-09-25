@@ -63,7 +63,7 @@
 		// Use this instead to use tag loading
 		//preload = new createjs.PreloadJS(false);
 			var loadingtext = document.getElementById('loadingtext');
-
+preload.setMaxConnections(5);
 		preload.on("progress", handleProgress);
 		preload.on("complete", handleComplete);
 		preload.loadManifest(manifest);
@@ -229,7 +229,7 @@ function changeBackground(img) {
 	if(bk1.classList.contains('fadein')) {
 		console.log("preload img "+img+","+preload.getResult(img));
 		console.log("preload img "+img+","+preload.getResult(img).src);
-		bk2.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
+		bk2.style.backgroundImage = "url('http://udspj.github.io/minigame/galdemo/"+img+".jpg')";
 		bk1.classList.remove('fadein');
 		bk1.classList.add('fadeout');
 		bk2.classList.remove('fadeout');
