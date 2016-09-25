@@ -4,7 +4,7 @@ var ScriptList = [{
         "body": "chara1",
         "face": "chara1exp2"
     }],
-    "background": "bk1.jpg",
+    "background": "bk1",
     "name": "udspj1",
     "dialogue": "this is ... 上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统"
 }, {
@@ -13,7 +13,7 @@ var ScriptList = [{
         "body": "chara1",
         "face": "chara1exp1"
     }],
-    "background": "bk1.jpg",
+    "background": "bk1",
     "name": "udspj1",
     "dialogue": "实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。"
 }
@@ -26,7 +26,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "aaaaaaaaaaaa?"
 }, {
@@ -38,7 +38,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "3333333333?"
     ,
@@ -55,7 +55,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk1",
     "name": "udspj2",
     "dialogue": "3333333333?"
 }, {
@@ -67,7 +67,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。?"
 }, {
@@ -79,7 +79,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "3333333333?"
 }, {
@@ -91,7 +91,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk1",
     "name": "udspj2",
     "dialogue": "便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Rea?"
 }, {
@@ -103,7 +103,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "实际上便是一种reactive能力。而类似这种能自动对外部环境的变化作出响应的系统我们称之为反应型系统(Reactive System)。典型的外部环境变化包括外部输入信号的变化、事件的发生，而且系统的响应通常是实时的。互动系统是最重要的一种反应型系统，它不但能响应外部环境的变化，还会将自己的内部状态通过某种方式反馈给外部观察者。"
 }, {
@@ -115,7 +115,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "what?"
 }, {
@@ -127,7 +127,7 @@ var ScriptList = [{
         "body": "chara2",
         "face": "chara1exp1"
     }],
-    "background": "bk2.jpg",
+    "background": "bk2",
     "name": "udspj2",
     "dialogue": "3333333333?"
 }
