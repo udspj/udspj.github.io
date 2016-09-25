@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<div class="bk" id="bk1" ><img id="bk1img" /></div>
-<div class="bk" id="bk2" ><img id="bk2img" /></div>
+<img class="bk" id="bk1" ></img>
+<img class="bk" id="bk2" ></img>
 <div id="characontainer" ></div>
 
 	<div class="dialogbox" onclick="onDialogboxClicked();">
@@ -32,7 +32,6 @@
 <script language='javascript' src="Characters.js"></script>
 <script language='javascript' src="resource.js"></script>
 <script language='javascript' src="DialogueText.js"></script>
-<script src="preloadjs-0.6.2.min.js"></script>
 <script type="text/javascript">
 
 
@@ -51,32 +50,56 @@
 
 
 
+var images = new Array()  
+            function preload() {  
+            	var count = preload.arguments.length
+            	var loaded = 0
+                for (i = 0; i < count; i++) {  
+                    images[i] = new Image()  
+                    images[i].src = preload.arguments[i]  
+                    images[i].onload = function (){
+                    	loaded++
+		console.log("handleProgress:");
+			loadingtext.innerText = "loading... "+loaded+"/"+count;
+						if (loaded == count){
+							console.log("handleComplete:");
+						var loadingMask = document.getElementById('loadingDiv');
+			                loadingMask.parentNode.removeChild(loadingMask);
+			start();
 
+						}
+	}
+                }  
+            }  
+            preload(  
+                "bk1.jpg",  
+                "bk2.jpg"
+            ) 
 
-		var manifest = ([
-     {id: "bk1", src:"bk1.jpg"},
-     {id: "bk2", src:"bk2.jpg"}
- ]);//["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
+// 		var manifest = ([
+//      {id: "bk1", src:"http://udspj.github.io/minigame/galdemo/bk1.jpg"},
+//      {id: "bk2", src:"http://udspj.github.io/minigame/galdemo/bk2.jpg"}
+//  ]);//["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
 
-		preload = new createjs.LoadQueue(true);
+// 		preload = new createjs.LoadQueue(true);
 
-		// Use this instead to use tag loading
-		//preload = new createjs.PreloadJS(false);
-			var loadingtext = document.getElementById('loadingtext');
-preload.setMaxConnections(5);
-		preload.on("progress", handleProgress);
-		preload.on("complete", handleComplete);
-		preload.loadManifest(manifest);
-		function handleProgress(event) {
-			console.log("handleProgress:"+event.loaded);
-			loadingtext.innerText = "loading... "+event.loaded*100+"%";
-		}
-		function handleComplete(event) {
-			console.log("handleComplete:");
-			var loadingMask = document.getElementById('loadingDiv');
-                loadingMask.parentNode.removeChild(loadingMask);
-start();
-		}
+// 		// Use this instead to use tag loading
+// 		//preload = new createjs.PreloadJS(false);
+// 			var loadingtext = document.getElementById('loadingtext');
+// preload.setMaxConnections(5);
+// 		preload.on("progress", handleProgress);
+// 		preload.on("complete", handleComplete);
+// 		preload.loadManifest(manifest);
+// 		function handleProgress(event) {
+// 			console.log("handleProgress:"+event.loaded);
+// 			loadingtext.innerText = "loading... "+event.loaded*100+"%";
+// 		}
+// 		function handleComplete(event) {
+// 			console.log("handleComplete:");
+// 			var loadingMask = document.getElementById('loadingDiv');
+//                 loadingMask.parentNode.removeChild(loadingMask);
+// start();
+// 		}
 
 
 
@@ -228,18 +251,24 @@ var nowimg = "";
 function changeBackground(img) {
 	if(nowimg == img) { return }
 	nowimg = img;
+
+var createurl = window.URL || window.webkitURL;
+
 	if(bk1.classList.contains('fadein')) {
-		console.log("preload img "+img+","+preload.getResult(img));
-		console.log("preload img "+img+","+preload.getResult(img).src);
-		bk2img.src = preload.getResult(img).src;
-		// bk2.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
+		// console.log("preload img "+img+","+preload.getResult(img));
+		// console.log("preload img "+img+","+bk2img);
+		// console.log("preload img "+img+","+preload.getResult(img).src);
+		// bk2img.src = preload.getResult(img).src;
+		// bk2.appendChild(preload.getResult(img));
+		bk2.style.backgroundImage = "url('"+img+".jpg')";
 		bk1.classList.remove('fadein');
 		bk1.classList.add('fadeout');
 		bk2.classList.remove('fadeout');
 		bk2.classList.add('fadein');
 	}else{
-		bk1img.src = preload.getResult(img).src;
-		// bk1.style.backgroundImage = "url('"+preload.getResult(img).src+"')";
+		// bk1img.src = preload.getResult(img).src;
+		// bk1.appendChild(preload.getResult(img));
+		bk1.style.backgroundImage = "url('"+img+".jpg')";
 		bk2.classList.remove('fadein');
 		bk2.classList.add('fadeout');
 		bk1.classList.remove('fadeout');
