@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script language='javascript' src="srcs/jquery-2.1.1.min.js"></script>
+    <script language='javascript' src="srcs/angular-1.4.6.min.js"></script>
+    <script language='javascript' src="srcs/bootstrap-3.3.7.min.js"></script>
+    <link href="srcs/bootstrap-3.3.7.min.css" rel="stylesheet" type="text/css" />
+    <link href="indexstyle.css" rel="stylesheet" type="text/css" />
+    <script language='javascript' src="indexjs.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="userCtrl">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <div id="bk" style="background-image: url('{{imageBK}}');">
+                    <div id="characontainer">
+                        <div class="character">
+                            <div class="exp"></div>
+                        </div>
+                        <div class="character" style="background-image: url('{{imageChara1}}');">
+                            <div class="exp"></div>
+                        </div>
+                        <div class="character">
+                            <div class="exp"></div>
+                        </div>
+                    </div>
+                    <p id="dialogbox">{{textdialog}}</p>
+                    <p id="namebox" align="center" style="color:white;font-size:14px;">{{textname}}</p>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="col-xs-12 col-md-4 column">
+                            <button type="button" class="btn btn-default">插入</button>
+                            <button type="button" class="btn btn-default">删除</button>
+                        </div>
+                        <div class="col-xs-6 col-md-2 column">
+                            <input type="text" class="form-control" placeholder="请输入姓">
+                        </div>
+                        <div class="col-xs-6 col-md-2 column">
+                            <label>／111页</label>
+                        </div>
+                        <div class="col-xs-12 col-md-4 column">
+                            <button type="button" class="btn btn-default">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 column">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home" data-toggle="tab">背景</a>
+                    </li>
+                    <li>
+                        <a href="#aaa" data-toggle="tab">角色</a>
+                    </li>
+                    <li>
+                        <a href="#bbb" data-toggle="tab">名字对白</a>
+                    </li>
+                    <li>
+                        <a href="#ccc" data-toggle="tab">选择支组</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                        <form>
+                            <div class="form-group">
+                                <label>选择背景图</label>
+                                <label class="sr-only" for="inputfile">文件输入</label>
+                                <input type="file" id="inputfile" file-change="upload('imgbk')" ng-model="imgfile">
+                            </div>
+                        </form>
+                        <div class="col-sm-6 col-md-3" ng-repeat="x in simgs">
+                            <a href="#" class="thumbnail">
+                                <img src={{x}} alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                        <!-- <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div> -->
+                    </div>
+                    <div class="tab-pane fade" id="aaa">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label>选择立绘</label>
+                                <label class="sr-only" for="inputfile1">文件输入</label>
+                                <input type="file" id="inputfile1" file-change="upload('imgchara1')" ng-model="imgfile">
+                            </div>
+                            <div class="form-group">
+                                <label>选择表情</label>
+                                <label class="sr-only" for="inputfile2">文件输入</label>
+                                <input type="file" id="inputfile2">
+                            </div>
+                            <div class="form-group">
+                                <label>选择立绘</label>
+                                <label class="sr-only" for="inputfile3">文件输入</label>
+                                <input type="file" id="inputfile3">
+                            </div>
+                            <div class="form-group">
+                                <label>选择表情</label>
+                                <label class="sr-only" for="inputfile4">文件输入</label>
+                                <input type="file" id="inputfile4">
+                            </div>
+                            <div class="form-group">
+                                <label>选择立绘</label>
+                                <label class="sr-only" for="inputfile5">文件输入</label>
+                                <input type="file" id="inputfile5">
+                            </div>
+                            <div class="form-group">
+                                <label>选择表情</label>
+                                <label class="sr-only" for="inputfile6">文件输入</label>
+                                <input type="file" id="inputfile6">
+                            </div>
+                        </form>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <a href="#" class="thumbnail">
+                                <img src="/wp-content/uploads/2014/06/kittens.jpg" alt="通用的占位符缩略图">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bbb">
+                        <input type="text" class="form-control" id="lastname" placeholder="角色名字" ng-model="textname">
+                        <textarea class="form-control" rows="10" placeholder="角色对白文字" ng-model="textdialog"></textarea>
+                        <label for="name">文本框
+                        </label>
+                    </div>
+                    <div class="tab-pane fade" id="ccc">
+                        <div class="row clearfix">
+                            <div class="col-md-8 column">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支1">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支2">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支3">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支4">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支5">
+                            </div>
+                            <div class="col-md-4 column">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
