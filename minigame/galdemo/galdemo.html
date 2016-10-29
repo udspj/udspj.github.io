@@ -34,8 +34,22 @@
 
 <script type="text/javascript">
 
-var _LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p></td></tr></table>';
-document.write(_LoadingHtml);
+var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章</p></td></tr></table>';
+document.write(LoadingHtml);
+
+var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:20px;">不支持竖屏</p></td></tr></table>';
+document.write(SizeErrorHtml);
+var sizeMask = document.getElementById('SizeErrorDiv');
+
+window.addEventListener('resize', resize, false);
+function resize() {
+    if(window.innerWidth < window.innerHeight) {
+        sizeMask.style.display="";
+    }else{
+        sizeMask.style.display="none";
+    }
+}
+resize();
 
 
 
