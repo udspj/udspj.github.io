@@ -11,7 +11,7 @@ body {
     width: 100%;
     height: 50%;
     position: fixed;
-    background-color: blue;
+    background-color: black;
 }
 
 .blackcover.horizTranslate {
@@ -101,7 +101,7 @@ body {
 
 #characontainer {
     position: fixed;
-    background: rgba(22, 111, 66, 1.0);
+    /*background: rgba(22, 111, 66, 1.0);*/
     top: 50px;
     bottom: 0px;
     left: 100px;
@@ -166,7 +166,7 @@ body {
     }
     #characontainer {
         position: fixed;
-        background: rgba(22, 111, 66, 1.0);
+        /*background: rgba(22, 111, 66, 1.0);*/
         top: 50px;
         bottom: 0px;
         left: 20px;

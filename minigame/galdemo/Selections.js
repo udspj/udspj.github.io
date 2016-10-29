@@ -18,7 +18,7 @@ SelectionBranch.prototype.showSelections = function(selects) {
     var selectcount = selects.length;
 
     var selectcontainer = document.createElement("div");
-    selectcontainer.style.backgroundColor = "#ccff00";
+    // selectcontainer.style.backgroundColor = "#ccff00";
     selectcontainer.style.width = "50%";
     selectcontainer.style.height = String(selectcount * 15) + "%";
     selectcontainer.style.margin = String(10 / (selectcount - 1)) + "% 0% 0% 0%";
