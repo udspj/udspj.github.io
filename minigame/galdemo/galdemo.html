@@ -1,341 +1,225 @@
 <!DOCTYPE html>
 <html ng-app="noteapp">
+
 <head>
-<meta charset="utf-8">
-  <link href="gal_style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link href="gal_style.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
+    <img class="bk" id="bk1"></img>
+    <img class="bk" id="bk2"></img>
+    <div id="characontainer"></div>
+    <div class="dialogbox" onclick="onDialogboxClicked();">
+        <div id="namebox">
+            <p align="center" style="color:white;font-size:16px;"></p>
+        </div>
+        <p id="textbox" style="color:white;font-size:16px;margin:20px;"></p>
+        <p id="nexttext" style="color:white;right:20px;bottom:0px;position:absolute;">↪</p>
+    </div>
+    <div class="menubox">
+        <div class="menu" style="border-radius: 0px 10px 0px 0px;" onclick="menuClickHistory();">历史</div>
+        <div class="menu" onclick="menuClickPrevSelect();">上一个选项</div>
+        <div class="menu" onclick="menuClickRestart();">重新开始</div>
+        <div class="menu" id="menuauto" style="border-radius: 0px 0px 10px 0px;" onclick="menuClickAuto();">自动</div>
+    </div>
+    <div class='blackcover' id='blackcoverup' style="top:0;"></div>
+    <div class='blackcover' id='blackcoverdown' style="bottom:0;"></div>
+    
+    <script language='javascript' src="Selections.js"></script>
+    <script language='javascript' src="History.js"></script>
+    <script language='javascript' src="Characters.js"></script>
+    <script language='javascript' src="resource.js"></script>
+    <script language='javascript' src="DialogueText.js"></script>
 
-<img class="bk" id="bk1" ></img>
-<img class="bk" id="bk2" ></img>
-<div id="characontainer" ></div>
-
-	<div class="dialogbox" onclick="onDialogboxClicked();">
-		<div id="namebox">
-			<p align="center" style="color:white;font-size:16px;"></p>
-		</div>
-		<p id="textbox" style="color:white;font-size:16px;margin:20px;"></p>
-		<p id="nexttext" style="color:white;right:20px;bottom:0px;position:absolute;">↪</p>
-	</div>
-		<div class="menubox">
-			<div class="menu" style="border-radius: 0px 10px 0px 0px;" onclick="menuClickHistory();">历史</div>
-			<div class="menu" onclick="menuClickPrevSelect();">上一个选项</div>
-			<div class="menu" onclick="menuClickRestart();">重新开始</div>
-			<div class="menu" id="menuauto" style="border-radius: 0px 0px 10px 0px;" onclick="menuClickAuto();">自动</div>
-		</div>
-
-<div class='blackcover' id='blackcoverup' style="top:0;"></div> 
-<div class='blackcover' id='blackcoverdown' style="bottom:0;"></div> 
-
-<script language='javascript' src="Selections.js"></script>
-<script language='javascript' src="History.js"></script>
-<script language='javascript' src="Characters.js"></script>
-<script language='javascript' src="resource.js"></script>
-<script language='javascript' src="DialogueText.js"></script>
 <script type="text/javascript">
 
-
-        var _LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p></td></tr></table>';
-        document.write(_LoadingHtml);
-//         document.onreadystatechange = completeLoading;
-//         function completeLoading() {
-//             if (document.readyState == "complete") {
-//                 var loadingMask = document.getElementById('loadingDiv');
-//                 loadingMask.parentNode.removeChild(loadingMask);
-// start();
-//             }
-//         }
+var _LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p></td></tr></table>';
+document.write(_LoadingHtml);
 
 
 
+var images = new Array()
 
-
-var images = new Array()  
-            function preload() {  
-            	var count = preload.arguments.length
-            	var loaded = 0
-                for (i = 0; i < count; i++) {  
-                    images[i] = new Image()  
-                    images[i].src = "image/"+preload.arguments[i]  
-                    images[i].onload = function (){
-                    	loaded++
-		console.log("handleProgress:");
-			loadingtext.innerText = "loading... "+loaded+"/"+count;
-						if (loaded == count){
-							console.log("handleComplete:");
-						var loadingMask = document.getElementById('loadingDiv');
-			                loadingMask.parentNode.removeChild(loadingMask);
-			start();
-
-						}
-	}
-                }  
-            }  
-            preload(  
-                "bk_library.jpg",  
-                "mikaru_front_1.png",
-                "mikaru_front_exp_1.png"
-            ) 
-
-// 		var manifest = ([
-//      {id: "bk1", src:"http://udspj.github.io/minigame/galdemo/bk1.jpg"},
-//      {id: "bk2", src:"http://udspj.github.io/minigame/galdemo/bk2.jpg"}
-//  ]);//["bk1.jpg", "bk2.jpg", "chara1.png", "chara2.png", "chara1exp1.png", "chara1exp2.png", "chara2exp1.png", "chara2exp2.png"];
-
-// 		preload = new createjs.LoadQueue(true);
-
-// 		// Use this instead to use tag loading
-// 		//preload = new createjs.PreloadJS(false);
-// 			var loadingtext = document.getElementById('loadingtext');
-// preload.setMaxConnections(5);
-// 		preload.on("progress", handleProgress);
-// 		preload.on("complete", handleComplete);
-// 		preload.loadManifest(manifest);
-// 		function handleProgress(event) {
-// 			console.log("handleProgress:"+event.loaded);
-// 			loadingtext.innerText = "loading... "+event.loaded*100+"%";
-// 		}
-// 		function handleComplete(event) {
-// 			console.log("handleComplete:");
-// 			var loadingMask = document.getElementById('loadingDiv');
-//                 loadingMask.parentNode.removeChild(loadingMask);
-// start();
-// 		}
+function preload() {
+    var count = preload.arguments.length
+    var loaded = 0
+    for (i = 0; i < count; i++) {
+        images[i] = new Image()
+        images[i].src = "image/" + preload.arguments[i]
+        images[i].onload = function() {
+            loaded++
+            loadingtext.innerText = "loading... " + loaded + "/" + count;
+            if (loaded == count) {
+                console.log("preloadComplete");
+                var loadingMask = document.getElementById('loadingDiv');
+                loadingMask.parentNode.removeChild(loadingMask);
+                start();
+            }
+        }
+    }
+}
+preload(
+    "bk_library.jpg",
+    "mikaru_front_1.png",
+    "mikaru_front_exp_1.png"
+)
 
 
 
 function menuClickHistory() {
-	historydialog.showHistory();
+    historydialog.showHistory();
 }
 
 function menuClickPrevSelect() {
-	if(lastSelectIndex.length == 0) {
-		return
-	}
-	showPrevSelection(lastSelectIndex[lastSelectIndex.length-1]);
-	// lastSelectIndex.pop();
+    if (lastSelectIndex.length == 0) {
+        return
+    }
+    showPrevSelection(lastSelectIndex[lastSelectIndex.length - 1]);
 }
 
 function menuClickRestart() {
-	var r=confirm("确定要RE：0重新开始吗？");
-if (r==true)
-  {
-	  if(auto.innerText == "取消自动") {
-		menuClickAuto();
-	}
-	  nowindex = 0;
-	  showNextDialogue();
-  }
+    var r = confirm("确定要RE：0重新开始吗？");
+    if (r == true) {
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+        nowindex = 0;
+        showNextDialogue();
+    }
 }
 
-	var auto = document.getElementById('menuauto');
-		window.addEventListener('onAutoTextFinished', autoTextHandler, false);
+var auto = document.getElementById('menuauto');
+window.addEventListener('onAutoTextFinished', autoTextHandler, false);
+
 function menuClickAuto() {
-	// console.log("menuClickAuto");
-	var textinterval;
-	if(auto.innerText == "自动") {
-		auto.innerText = "取消自动";
-		showNextDialogue();
-	}else{
-		// console.log('取消自动');
-		auto.innerText = "自动";
-		// window.removeEventListener('onAutoTextFinished', autoTextHandler, false);
-				clearInterval(textinterval);
-	}
+    var textinterval;
+    if (auto.innerText == "自动") {
+        auto.innerText = "取消自动";
+        showNextDialogue();
+    } else {
+        auto.innerText = "自动";
+        clearInterval(textinterval);
+    }
 }
-function autoTextHandler (e) { 
-			console.log('onAutoTextFinished');
-			historydialog.addHistory(e.detail);
-        //nowindex++;
-        nowindex = ScriptList[nowindex]["toindex"];
-			if(auto.innerText == "取消自动") {
-			textinterval = setInterval(function(){ 
-				showNextDialogue(); 
-				clearInterval(textinterval); 
-			}, 1000);
-		}
-		}
 
-
-		
-
-
+function autoTextHandler(e) {
+    historydialog.addHistory(e.detail);
+    nowindex = ScriptList[nowindex]["toindex"];
+    if (auto.innerText == "取消自动") {
+        textinterval = setInterval(function() {
+            showNextDialogue();
+            clearInterval(textinterval);
+        }, 1000);
+    }
+}
 
 
 
 var characters = new Characters();
-	var historydialog = new History();
-	var dialogue = new DialogueText();
+var historydialog = new History();
+var dialogue = new DialogueText();
 
-
-var blackcoverup = document.getElementById('blackcoverup');//document.getElementsByClassName('blackcoverup')[0];
-var blackcoverdown = document.getElementById('blackcoverdown');//document.getElementsByClassName('blackcoverdown')[0];
+var blackcoverup = document.getElementById('blackcoverup');
+var blackcoverdown = document.getElementById('blackcoverdown');
 var bk1 = document.getElementById('bk1');
 var bk2 = document.getElementById('bk2');
 var bk1img = document.getElementById('bk1img');
 var bk2img = document.getElementById('bk2img');
-
 var name = document.getElementById('namebox');
 
+function start() {
+    blackcoverup.classList.add('horizTranslate');
+    blackcoverdown.classList.add('horizTranslate');
+    bk1.classList.add('fadein');
+    document.getElementById("nexttext").style.display = "none";
 
-	function start() {
-		blackcoverup.classList.add('horizTranslate');
-		blackcoverdown.classList.add('horizTranslate');
+    showNextDialogue();
 
-		bk1.classList.add('fadein');
-				
-		document.getElementById("nexttext").style.display = "none";
-
-		showNextDialogue();
-
-		window.addEventListener('onSelectClick', function (e) { 
-			// console.log('eventttttttt'+e.detail);
-			nowindex = e.detail;
-			showNextDialogue();
-		}, false);
+    window.addEventListener('onSelectClick', function(e) {
+        nowindex = e.detail;
+        showNextDialogue();
+    }, false);
 }
 
 var lastSelectIndex = [];
 var nowindex = 0;
-function onDialogboxClicked(){
-	if(auto.innerText == "取消自动") {
-		return;
-	}
-	showNextDialogue();
+
+function onDialogboxClicked() {
+    if (auto.innerText == "取消自动") {
+        return;
+    }
+    showNextDialogue();
 }
+
 function showNextDialogue() {
-	console.log("showNextDialogue");
-	var res = ScriptList[nowindex];
-	if(!res) {
-		console.log("end");
-		if(auto.innerText == "取消自动") {
-			menuClickAuto();
-		}
-		return;
-	}
-	if(!dialogue.isTextShowed) {
-		dialogue.isclicked = true;
-		dialogue.showDialogueText(res["dialogue"]);
-		return;
-	}
-	name.innerText = res["name"]
-	changeBackground(res["background"])
-	dialogue.showDialogueText(res["dialogue"]);
-	characters.showCharacters(res["character"]);
-	if(res["selections"]) {
-		var selectbranch = new SelectionBranch();
-		selectbranch.showSelections(res["selections"]);
-			if(auto.innerText == "取消自动") {
-				menuClickAuto();
-			}
-		lastSelectIndex[lastSelectIndex.length] = nowindex;
-	}
+    var res = ScriptList[nowindex];
+    if (!res) {
+        console.log("end");
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+        return;
+    }
+    if (!dialogue.isTextShowed) {
+        dialogue.isclicked = true;
+        dialogue.showDialogueText(res["dialogue"]);
+        return;
+    }
+    name.innerText = res["name"]
+    changeBackground(res["background"])
+    dialogue.showDialogueText(res["dialogue"]);
+    characters.showCharacters(res["character"]);
+    if (res["selections"]) {
+        var selectbranch = new SelectionBranch();
+        selectbranch.showSelections(res["selections"]);
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+        lastSelectIndex[lastSelectIndex.length] = nowindex;
+    }
 }
 
 function showPrevSelection(previndex) {
-	var res = ScriptList[previndex];
-	name.innerText = res["name"]
-	changeBackground(res["background"])
-	console.log(res["dialogue"] + " " + previndex);
-	dialogue.showDialogueText(res["dialogue"]);
-	characters.showCharacters(res["character"]);
-	if(res["selections"]) {
-		var selectbranch = new SelectionBranch();
-		selectbranch.showSelections(res["selections"]);
-			if(auto.innerText == "取消自动") {
-				menuClickAuto();
-			}
-	}
+    var res = ScriptList[previndex];
+    name.innerText = res["name"]
+    changeBackground(res["background"])
+    dialogue.showDialogueText(res["dialogue"]);
+    characters.showCharacters(res["character"]);
+    if (res["selections"]) {
+        var selectbranch = new SelectionBranch();
+        selectbranch.showSelections(res["selections"]);
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+    }
 }
 
-// var isclicked = false;
+
 var nowimg = "";
+
 function changeBackground(img) {
-	if(nowimg == img) { return }
-	nowimg = img;
+    if (nowimg == img) {
+        return 
+    }
+    nowimg = img;
 
-var createurl = window.URL || window.webkitURL;
-
-	if(bk1.classList.contains('fadein')) {
-		// console.log("preload img "+img+","+preload.getResult(img));
-		// console.log("preload img "+img+","+bk2img);
-		// console.log("preload img "+img+","+preload.getResult(img).src);
-		// bk2img.src = preload.getResult(img).src;
-		// bk2.appendChild(preload.getResult(img));
-		bk2.style.backgroundImage = "url('"+img+".jpg')";
-		bk1.classList.remove('fadein');
-		bk1.classList.add('fadeout');
-		bk2.classList.remove('fadeout');
-		bk2.classList.add('fadein');
-	}else{
-		// bk1img.src = preload.getResult(img).src;
-		// bk1.appendChild(preload.getResult(img));
-		bk1.style.backgroundImage = "url('"+img+".jpg')";
-		bk2.classList.remove('fadein');
-		bk2.classList.add('fadeout');
-		bk1.classList.remove('fadeout');
-		bk1.classList.add('fadein');
-	}
+    if (bk1.classList.contains('fadein')) {
+        bk2.style.backgroundImage = "url('" + img + ".jpg')";
+        bk1.classList.remove('fadein');
+        bk1.classList.add('fadeout');
+        bk2.classList.remove('fadeout');
+        bk2.classList.add('fadein');
+    } else {
+        bk1.style.backgroundImage = "url('" + img + ".jpg')";
+        bk2.classList.remove('fadein');
+        bk2.classList.add('fadeout');
+        bk1.classList.remove('fadeout');
+        bk1.classList.add('fadein');
+    }
 }
-
-
-
-
-
-
-
-
-
-
-// var isTextShowed = true;
-// var startAdd;
-// function showDialogueText(text) {
-// 	isTextShowed = false;
-// 	var textword = text;
-// 	var textbox=document.getElementById("textbox");
-// 	if (isclicked) {
-// 		textbox.innerText=textword;
-// 		isclicked = false;
-// 		// console.log('asdfsafsassssss');
-// 	// 	isTextShowed = true;
-// 	// 	clearInterval(startAdd);
-//  //            document.getElementById("nexttext").style.display = "";
-//  //            historydialog.addHistory(textword);
-// 	// nowindex ++;
-//         	next(textword);
-// 		return;
-// 	}
-//     var textlength=1;
-//     function textwordAdd () {
-//     	document.getElementById("nexttext").style.display = "none";
-//         textbox.innerText=textword.substring(0, textlength);
-//         if (textlength<=textword.length) {
-//             textlength++;
-//         }else{
-//         	next(textword);
-//  //            clearInterval(startAdd);
-//  //            isTextShowed = true;
-//  //            document.getElementById("nexttext").style.display = "";
-//  //            historydialog.addHistory(textword);
-// 	// nowindex ++;
-//         };
-//     }
-// 		console.log('setInterval');
-//     startAdd=setInterval(textwordAdd, 20);
-// }
-// function next(text){
-// 	clearInterval(startAdd);
-//             isTextShowed = true;
-//             document.getElementById("nexttext").style.display = "";
-//             // historydialog.addHistory(text);
-// 	// nowindex ++;
-
-// 	var selectEvent = new CustomEvent('onAutoTextFinished', {  detail: text  });
-//             window.dispatchEvent(selectEvent);
-// }
-
 
 </script>
-
 </body>
+
 </html>
