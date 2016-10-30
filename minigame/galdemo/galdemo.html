@@ -34,7 +34,7 @@
 
 <script type="text/javascript">
 
-var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />无bgm无CV，这galgame只是个demo，很多地方功能体验简化不完整，没有支线和end，见谅</p></td></tr></table>';
+var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />无bgm无CV，这galgame只是个demo，很多地方功能体验不完整，脚本格式没有简化，没有时间轴和支线，见谅</p></td></tr></table>';
 document.write(LoadingHtml);
 
 var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:20px;">不支持竖屏</p></td></tr></table>';
@@ -74,11 +74,9 @@ function preload() {
     }
 }
 preload(
-    "bk_backgate.jpg",
     "bk_building.jpg",
     "bk_classroom.jpg",
     "bk_frontgate.jpg",
-    "bk_highbuilding.jpg",
     "bk_memory.jpg",
     "bk_library.jpg",
     "bk_sakura.jpg",
@@ -97,11 +95,20 @@ preload(
 
 function menuClickHistory() {
     historydialog.showHistory();
+    if (auto.innerText == "取消自动") {
+        menuClickAuto();
+    }
 }
 
 function menuClickPrevSelect() {
     if (lastSelectIndex.length == 0) {
         return
+    }
+    if (auto.innerText == "取消自动") {
+        menuClickAuto();
+    }
+    if (!dialogue.isTextShowed) {
+        showNextDialogue();
     }
     showPrevSelection(lastSelectIndex[lastSelectIndex.length - 1]);
 }
@@ -111,6 +118,9 @@ function menuClickRestart() {
     if (r == true) {
         if (auto.innerText == "取消自动") {
             menuClickAuto();
+        }
+        if (!dialogue.isTextShowed) {
+            showNextDialogue();
         }
         nowindex = 0;
         showNextDialogue();
