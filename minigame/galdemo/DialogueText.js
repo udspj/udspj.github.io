@@ -11,7 +11,6 @@ DialogueText.prototype.showDialogueText = function(text) {
     if (obj.isclicked) {
         textbox.innerText = textword;
         obj.isclicked = false;
-        // console.log('asdfsafsassssss');
         next(textword);
         return;
     }
@@ -22,10 +21,8 @@ DialogueText.prototype.showDialogueText = function(text) {
         textbox.innerText = textword.substring(0, textlength);
         if (textlength <= textword.length) {
             textlength++;
-            // console.log('textlength');
         } else {
             next(textword);
-            // console.log('textword');
         };
     }
     obj.startAdd = setInterval(textwordAdd, 20);
@@ -33,10 +30,7 @@ DialogueText.prototype.showDialogueText = function(text) {
     function next(text) {
         clearInterval(obj.startAdd);
         obj.isTextShowed = true;
-        // console.log(obj.isTextShowed + " nextnextnext");
         document.getElementById("nexttext").style.display = "";
-        // historydialog.addHistory(text);
-        // nowindex++;
 
         var selectEvent = new CustomEvent('onAutoTextFinished', { detail:text });
         window.dispatchEvent(selectEvent);

@@ -1,8 +1,7 @@
 function Characters() {
-    // this.selects = selects;
+
 }
 Characters.prototype.showCharacters = function(charas) {
-    // var charas = ['chara1.png','chara2.png'];
     if(charas.length == 1) {
         if (!document.getElementById('character1')) {
             var charadiv = document.createElement("div");
@@ -42,7 +41,7 @@ Characters.prototype.showCharacters = function(charas) {
             var charadiv = document.createElement("div");
             charadiv.setAttribute("class", "character");
             charadiv.setAttribute("id", "character2");
-// console.log('showCharacters');
+
             var container = document.getElementById("characontainer");
             container.appendChild(charadiv);
 

@@ -33,6 +33,5 @@ History.prototype.showHistory = function() {
         historytexts += "\n" + this.texts[i] + "\n";
     }
     historytexts += "\n";
-    // console.log(historytexts);
     self.historytext.innerText = historytexts;
 }

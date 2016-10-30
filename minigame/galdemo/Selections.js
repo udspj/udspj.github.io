@@ -1,5 +1,4 @@
 function SelectionBranch() {
-    // this.selects = selects;
     this.startDetectHeightChange;
     this.docheight;
 }
@@ -12,13 +11,11 @@ SelectionBranch.prototype.showSelections = function(selects) {
     selectdiv.style.height = "100%";
     selectdiv.style.position = "fixed";
     selectdiv.style.textAlign = "center";
-    // selectdiv.style.verticalAlign = "middle";
     document.body.appendChild(self.selectdiv);
 
     var selectcount = selects.length;
 
     var selectcontainer = document.createElement("div");
-    // selectcontainer.style.backgroundColor = "#ccff00";
     selectcontainer.style.width = "50%";
     selectcontainer.style.height = String(selectcount * 15) + "%";
     selectcontainer.style.margin = String(10 / (selectcount - 1)) + "% 0% 0% 0%";
