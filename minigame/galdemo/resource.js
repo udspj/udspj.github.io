@@ -305,7 +305,7 @@ var ScriptList = {
     },
     40: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -315,7 +315,7 @@ var ScriptList = {
     },
     41: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -325,7 +325,7 @@ var ScriptList = {
     },
     50: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -335,7 +335,7 @@ var ScriptList = {
     },
     51: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -345,7 +345,7 @@ var ScriptList = {
     },
     52: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -355,7 +355,7 @@ var ScriptList = {
     },
     53: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -365,7 +365,7 @@ var ScriptList = {
     },
     54: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -375,7 +375,7 @@ var ScriptList = {
     },
     55: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -385,7 +385,7 @@ var ScriptList = {
     },
     56: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -395,7 +395,7 @@ var ScriptList = {
     },
     57: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -410,7 +410,7 @@ var ScriptList = {
     },
     60: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -420,7 +420,7 @@ var ScriptList = {
     },
     61: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -430,7 +430,7 @@ var ScriptList = {
     },
     62: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -440,7 +440,7 @@ var ScriptList = {
     },
     63: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -450,7 +450,7 @@ var ScriptList = {
     },
     70: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -460,8 +460,8 @@ var ScriptList = {
     },
     71: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -470,8 +470,8 @@ var ScriptList = {
     },
     72: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -530,8 +530,8 @@ var ScriptList = {
     },
     78: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -540,8 +540,8 @@ var ScriptList = {
     },
     79: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "我",
@@ -550,8 +550,8 @@ var ScriptList = {
     },
     80: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "我",
@@ -565,8 +565,8 @@ var ScriptList = {
     },
     81: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -575,8 +575,8 @@ var ScriptList = {
     },
     82: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "米尔嘉",
@@ -585,8 +585,8 @@ var ScriptList = {
     },
     83: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -595,8 +595,8 @@ var ScriptList = {
     },
     90: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -605,8 +605,8 @@ var ScriptList = {
     },
     91: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "米尔嘉",
@@ -615,8 +615,8 @@ var ScriptList = {
     },
     92: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -625,8 +625,8 @@ var ScriptList = {
     },
     93: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "我",
@@ -635,8 +635,8 @@ var ScriptList = {
     },
     94: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_sakura",
         "name": "米尔嘉",
@@ -645,7 +645,7 @@ var ScriptList = {
     },
     95: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -655,7 +655,7 @@ var ScriptList = {
     },
     96: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -665,7 +665,7 @@ var ScriptList = {
     },
     97: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -675,7 +675,7 @@ var ScriptList = {
     },
     98: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -685,7 +685,7 @@ var ScriptList = {
     },
     99: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
@@ -809,7 +809,7 @@ var ScriptList = {
         "character": [],
         "background": "image/bk_night",
         "name": "",
-        "dialogue": "也就 是“质数 × 后一个质数”的形式。可是我把 11 × 13 算错了，真是丢脸啊。米尔嘉一针见血地指出了我的“计算错误”。",
+        "dialogue": "也就是“质数 × 后一个质数”的形式。可是我把 11 × 13 算错了，真是丢脸啊。米尔嘉一针见血地指出了我的“计算错误”。",
         "toindex": 117
     },
     117: {
@@ -947,7 +947,7 @@ var ScriptList = {
     },
     136: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -957,7 +957,7 @@ var ScriptList = {
     },
     137: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -967,7 +967,7 @@ var ScriptList = {
     },
     138: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1033,7 +1033,7 @@ var ScriptList = {
     },
     147: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1043,7 +1043,7 @@ var ScriptList = {
     },
     148: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1053,7 +1053,7 @@ var ScriptList = {
     },
     149: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1063,7 +1063,7 @@ var ScriptList = {
     },
     150: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1073,7 +1073,7 @@ var ScriptList = {
     },
     151: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1083,7 +1083,7 @@ var ScriptList = {
     },
     152: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1093,7 +1093,7 @@ var ScriptList = {
     },
     153: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1103,7 +1103,7 @@ var ScriptList = {
     },
     154: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_3",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1113,8 +1113,8 @@ var ScriptList = {
     },
     155: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1123,8 +1123,8 @@ var ScriptList = {
     },
     156: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1133,8 +1133,8 @@ var ScriptList = {
     },
     157: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1143,8 +1143,8 @@ var ScriptList = {
     },
     158: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1153,8 +1153,8 @@ var ScriptList = {
     },
     159: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1163,8 +1163,8 @@ var ScriptList = {
     },
     160: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_1",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1173,8 +1173,8 @@ var ScriptList = {
     },
     161: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1183,8 +1183,8 @@ var ScriptList = {
     },
     162: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1193,8 +1193,8 @@ var ScriptList = {
     },
     163: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1203,8 +1203,8 @@ var ScriptList = {
     },
     164: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1217,8 +1217,8 @@ var ScriptList = {
     },
     170: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1227,8 +1227,8 @@ var ScriptList = {
     },
     171: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1237,8 +1237,8 @@ var ScriptList = {
     },
     172: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1247,8 +1247,8 @@ var ScriptList = {
     },
     173: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1257,8 +1257,8 @@ var ScriptList = {
     },
     174: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1267,8 +1267,8 @@ var ScriptList = {
     },
     175: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1277,8 +1277,8 @@ var ScriptList = {
     },
     176: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1287,8 +1287,8 @@ var ScriptList = {
     },
     177: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1297,8 +1297,8 @@ var ScriptList = {
     },
     178: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1307,8 +1307,8 @@ var ScriptList = {
     },
     179: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1317,8 +1317,8 @@ var ScriptList = {
     },
     180: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1327,8 +1327,8 @@ var ScriptList = {
     },
     181: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1337,8 +1337,8 @@ var ScriptList = {
     },
     182: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1347,8 +1347,8 @@ var ScriptList = {
     },
     183: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1357,8 +1357,8 @@ var ScriptList = {
     },
     184: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1367,8 +1367,8 @@ var ScriptList = {
     },
     185: {
         "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
+            "body": "image/mikaru_halfside_2",
+            "face": "image/mikaru_halfside_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1377,7 +1377,7 @@ var ScriptList = {
     },
     186: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1387,7 +1387,7 @@ var ScriptList = {
     },
     187: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1397,7 +1397,7 @@ var ScriptList = {
     },
     188: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
@@ -1407,7 +1407,7 @@ var ScriptList = {
     },
     189: {
         "character": [{
-            "body": "image/mikaru_front_1",
+            "body": "image/mikaru_front_2",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
