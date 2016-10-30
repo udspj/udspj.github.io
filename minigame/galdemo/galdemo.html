@@ -12,7 +12,7 @@
     <div id="characontainer"></div>
     <div class="dialogbox" onclick="onDialogboxClicked();">
         <div id="namebox">
-            <p align="center" style="color:white;font-size:16px;"></p>
+            <p id="nametext" align="center" style="color:white;font-size:16px;">aaa</p>
         </div>
         <p id="textbox" style="color:white;font-size:16px;margin:20px;"></p>
         <p id="nexttext" style="color:white;right:20px;bottom:0px;position:absolute;">↪</p>
@@ -34,7 +34,7 @@
 
 <script type="text/javascript">
 
-var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />这个游戏只是个demo，很多地方功能体验简化不完整，没有支线和end，见谅</p></td></tr></table>';
+var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />无bgm无CV，这galgame只是个demo，很多地方功能体验简化不完整，没有支线和end，见谅</p></td></tr></table>';
 document.write(LoadingHtml);
 
 var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:20px;">不支持竖屏</p></td></tr></table>';
@@ -74,9 +74,23 @@ function preload() {
     }
 }
 preload(
+    "bk_backgate.jpg",
+    "bk_building.jpg",
+    "bk_classroom.jpg",
+    "bk_frontgate.jpg",
+    "bk_highbuilding.jpg",
+    "bk_memory.jpg",
     "bk_library.jpg",
+    "bk_sakura.jpg",
+    "bk_night.jpg",
+    "bk_ill_sakura.jpg",
     "mikaru_front_1.png",
-    "mikaru_front_exp_1.png"
+    "mikaru_front_2.png",
+    "mikaru_front_3.png",
+    "mikaru_front_exp_1.png",
+    "mikaru_halfside_1.png",
+    "mikaru_halfside_2.png",
+    "mikaru_halfside_exp_1.png"
 )
 
 
@@ -140,7 +154,6 @@ var bk1 = document.getElementById('bk1');
 var bk2 = document.getElementById('bk2');
 var bk1img = document.getElementById('bk1img');
 var bk2img = document.getElementById('bk2img');
-var name = document.getElementById('namebox');
 
 function start() {
     blackcoverup.classList.add('horizTranslate');
@@ -180,7 +193,7 @@ function showNextDialogue() {
         dialogue.showDialogueText(res["dialogue"]);
         return;
     }
-    name.innerText = res["name"]
+    document.getElementById("nametext").innerHTML = res["name"]
     changeBackground(res["background"])
     dialogue.showDialogueText(res["dialogue"]);
     characters.showCharacters(res["character"]);
@@ -196,7 +209,7 @@ function showNextDialogue() {
 
 function showPrevSelection(previndex) {
     var res = ScriptList[previndex];
-    name.innerText = res["name"]
+    document.getElementById("nametext").innerHTML = res["name"]
     changeBackground(res["background"])
     dialogue.showDialogueText(res["dialogue"]);
     characters.showCharacters(res["character"]);
