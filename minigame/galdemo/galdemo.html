@@ -66,9 +66,9 @@ function preload() {
             loadingtext.innerText = "loading... " + loaded + "/" + count;
             if (loaded == count) {
                 console.log("preloadComplete");
-                // var loadingMask = document.getElementById('loadingDiv');
-                // loadingMask.parentNode.removeChild(loadingMask);
-                // start();
+                var loadingMask = document.getElementById('loadingDiv');
+                loadingMask.parentNode.removeChild(loadingMask);
+                start();
             }
         }
     }
