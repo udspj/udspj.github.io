@@ -294,7 +294,7 @@ var ScriptList = {
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
-        "name": "",
+        "name": "我",
         "dialogue": "",
         "toindex": 37,
         "selections": [{ "choice": "4", "toindex": "40" },
@@ -694,366 +694,258 @@ var ScriptList = {
         "toindex": 100
     },
     100: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
+        "character": [],
         "background": "image/bk_night",
         "name": "",
         "dialogue": "夜晚。",
-        "toindex": 110
+        "toindex": 101
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    101: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "我喜欢夜晚。",
-        "toindex": 110
+        "toindex": 102
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    102: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "家人入睡后，我就可以有大量自由的时间，拥有一个没人打扰的世界。我喜欢自己一个人度过那段时间，打开书，探索世界。我思考数学问题，闯入那深邃的密密层林。",
-        "toindex": 110
+        "toindex": 103
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    103: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "在那里，我发现了珍稀动物、清澈得令人吃惊的湖，还有需要抬头仰望的大树。令我意想不到的是，还遇到了美丽的花朵。",
-        "toindex": 110
+        "toindex": 104
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    104: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "她就是米尔嘉小姐。",
-        "toindex": 110
+        "toindex": 105
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    105: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "第一次见面就和我进行那样的对话，她真是个奇怪的女孩。她一定非常喜欢数学吧。她连开场白都没说，就直接给我出数列的脑筋急转弯题，简直像考试一样。",
-        "toindex": 110
+        "toindex": 106
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    106: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "我是不是合格了呢？我握了她的手，那柔软的手，飘着淡淡的清香，真的是很淡的清香——女孩独特的香味。",
-        "toindex": 110
+        "toindex": 107
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    107: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "女孩啊。",
-        "toindex": 110
+        "toindex": 108
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    108: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "我摘下眼镜，把它搁到书桌上，闭上眼睛，开始回想我和米尔嘉之间的对话。",
-        "toindex": 110
+        "toindex": 109
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    109: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "一开始的题目“1, 1, 2, 3, 5, 8, 13, ... ”是斐波那契数列。1, 1 后面的数字是将前两个数字相加，所得的和成为接下来的数字。",
         "toindex": 110
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    110: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "1, 1, 1+1=2, 1+2=3, 2+3=5, 3+5=8, 5+8=13, ...",
-        "toindex": 110
+        "toindex": 111
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    111: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "第二道题“1, 4, 27, 256, 3125, 46656, ... ”则是下面这种数列。",
-        "toindex": 110
+        "toindex": 112
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    112: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "1^1,2^2,3^3,4^4,5^5,6^6,...",
-        "toindex": 110
+        "toindex": 113
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    113: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "也就是说，这个数列中的各项是 n 的 n 次方，4 的 4 次方、5 的 5 次方之前心算还没问题，6 的 6 次方的话，心算就不太可能了。",
-        "toindex": 110
+        "toindex": 114
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    114: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "第三道题“6, 15, 35, 77, 143, ... ”的数列如下。",
-        "toindex": 110
+        "toindex": 115
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    115: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "2 × 3, 3 × 5, 5 × 7, 7 × 11, 11 × 13, ...",
-        "toindex": 110
+        "toindex": 116
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    116: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "也就 是“质数 × 后一个质数”的形式。可是我把 11 × 13 算错了，真是丢脸啊。米尔嘉一针见血地指出了我的“计算错误”。",
-        "toindex": 110
+        "toindex": 117
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    117: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "最后一道题是“6, 2, 8, 2, 10, 18, 4, 12, 10, 6, ... ”。这道题很难。因为这个数列其实是由圆周率 π 中的每位数字乘以 2 而得到的。",
-        "toindex": 110
+        "toindex": 118
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    118: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "π = 3.141592653... 圆周率 \n -> 3,1,4,1,5,9,2,6,5,3,... 各位数 \n -> 6,2,8,2,10,18,4,12,10,6,... 各位数的2倍",
-        "toindex": 110
+        "toindex": 119
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    119: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "解这道题必须要背出圆周率 π 的各位数字。如果脑海里没有这样一个数列模式，就无法解出这道题。",
-        "toindex": 110
+        "toindex": 120
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    120: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "记忆啊。",
-        "toindex": 110
+        "toindex": 121
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    121: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "我喜欢数学。比起记忆背诵，我更喜欢思考。追溯过去不是数学，发掘新东西才是数学。",
-        "toindex": 110
+        "toindex": 122
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    122: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "如果是要背诵的话，只要靠脑子死记硬背就可以了。记人名、记地名、背单词、背元素符号等，这些都无法进行推理计算。",
-        "toindex": 110
+        "toindex": 123
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    123: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "但是，数学却不同。一旦告诉我题目后，我就会把材料和道具（笔和纸等）都排列到桌上。我一直认为数学不是靠记忆，而是靠思考。",
-        "toindex": 110
+        "toindex": 124
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    124: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "但是，我又突然觉察到数学也许不是那么简单的东西。",
-        "toindex": 110
+        "toindex": 125
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    125: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "米尔嘉在出“6, 2, 8, 2”这道题时，为什么不单单说“6, 2, 8, 2”，还一直说到“6, 2, 8, 2, 10, 18”呢？那是因为如果她只说“6, 2, 8, 2”的话，我们无法发现其中的规律其实是圆周率 π 的各位数字的 2 倍。",
-        "toindex": 110
+        "toindex": 126
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    126: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "我们还可能得出其他简单的答案。假设题目只是“6, 2, 8, 2, 10, ... ”的话，我们还可能联想到以下数列。",
-        "toindex": 110
+        "toindex": 127
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    127: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "6,2,8,2,10,2,12,2,...",
-        "toindex": 110
+        "toindex": 128
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    128: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "有这样的联想也是非常自然的吧。也就是说，在连续的偶数之间放入一个 2 作为间隔。",
-        "toindex": 110
+        "toindex": 129
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    129: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "原来米尔嘉在出这道题时想得如此周密啊。",
-        "toindex": 110
+        "toindex": 130
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    130: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "“但你不是解出来了嘛。”",
-        "toindex": 110
+        "toindex": 131
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    131: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "她似乎预料到我能够解出这道题。我突然想到她那装模作样的表情。",
-        "toindex": 110
+        "toindex": 132
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    132: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "米尔嘉啊。",
-        "toindex": 110
+        "toindex": 133
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    133: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "在这样一个春色满园，樱花飘落的地方，她显得有些格格不入。她有着一头乌黑亮丽的秀发，宛若指挥家般修长的手指，温暖的小手，淡淡的清香。",
-        "toindex": 110
+        "toindex": 134
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    134: {
+        "character": [],
+        "background": "image/bk_night",
         "name": "",
         "dialogue": "不知怎么的，我一直想着米尔嘉的事情。",
-        "toindex": 110
+        "toindex": 135
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
+    135: {
+        "character": [],
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "喂，米尔嘉，那时为什么考我数列智力题呀？",
-        "toindex": 110
+        "toindex": 136
     },
-    5555: {
+    136: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1061,9 +953,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "什么那时呀？",
-        "toindex": 110
+        "toindex": 137
     },
-    5555: {
+    137: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1071,9 +963,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "米尔嘉抬起头，停止了计算。",
-        "toindex": 110
+        "toindex": 138
     },
-    5555: {
+    138: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1081,89 +973,65 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "这里是图书室。惬意的春风透过打开的窗子徐徐吹来，已经可以依稀看到法国梧桐冒出一片片嫩叶。远处的操场上还隐约传来棒球队的练习声。",
-        "toindex": 110
+        "toindex": 139
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    139: {
+        "character": [],
+        "background": "image/bk_building",
         "name": "",
         "dialogue": "已经五月了。",
-        "toindex": 110
+        "toindex": 140
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    140: {
+        "character": [],
+        "background": "image/bk_building",
         "name": "",
         "dialogue": "新学校，新教室，新同学，随着时间的流逝，新鲜感也在逐渐减少，我开始过起普普通通的每一天。",
-        "toindex": 110
+        "toindex": 141
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    141: {
+        "character": [],
+        "background": "image/bk_building",
         "name": "",
         "dialogue": "我没有参加任何课外社团，也就是说我参加了“回家族社团”。虽说如此，但我也不是放学后就立即回家。参加完师生座谈会后，我一般都去图书室，因为那里便于我推导数学公式。",
-        "toindex": 110
+        "toindex": 142
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    142: {
+        "character": [],
+        "background": "image/bk_building",
         "name": "",
         "dialogue": "我初中时也是这样，不参加社团活动，放学后去图书室。我经常在那里读读书，看看窗外的绿色，复习预习上课的内容。",
-        "toindex": 110
+        "toindex": 143
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    143: {
+        "character": [],
+        "background": "image/bk_classroom",
         "name": "",
         "dialogue": "我最喜欢的就是展开数学公式。我经常将课堂上学过的公式写在笔记本上，然后自己再进行公式变形，以学到的定义为基础进行公式推导。",
-        "toindex": 110
+        "toindex": 144
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    144: {
+        "character": [],
+        "background": "image/bk_classroom",
         "name": "",
         "dialogue": "根据定义进行变形，思考是否能举出具体例子，思考如何证明。在这一过程中我感到很快乐。我喜欢把这些过程都写在笔记本上。",
-        "toindex": 110
+        "toindex": 145
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    145: {
+        "character": [],
+        "background": "image/bk_classroom",
         "name": "",
         "dialogue": "我不喜欢运动，也没有什么朋友和我一起玩，唯一的乐趣就是一个人面朝笔记本写写算算。虽然是自己写这些数学公式，但并不是说一定能按照自己所想的那样把公式写出来。因为公式是有规律的，而有规律的地方就存在着游戏。",
-        "toindex": 110
+        "toindex": 146
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    146: {
+        "character": [],
+        "background": "image/bk_classroom",
         "name": "",
         "dialogue": "这是最最严密、最最自由的一种游戏。历史上的数学家们也都是挑战着这种游戏过来的。这个游戏只需要使用铅笔、笔记本和自己的脑子就行了。我对数学的迷恋简直达到了狂热的程度。",
-        "toindex": 110
+        "toindex": 147
     },
-    5555: {
+    147: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1171,9 +1039,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "所以，成为一名高中生后，我打算继续享受我一个人往返于图书室的日子。",
-        "toindex": 110
+        "toindex": 148
     },
-    5555: {
+    148: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1181,9 +1049,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "但是这个计划却落空了。",
-        "toindex": 110
+        "toindex": 149
     },
-    5555: {
+    149: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1191,9 +1059,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "这是因为来图书室的不止我一个人。",
-        "toindex": 110
+        "toindex": 150
     },
-    5555: {
+    150: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1201,9 +1069,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "另一个人就是米尔嘉。",
-        "toindex": 110
+        "toindex": 151
     },
-    5555: {
+    151: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1211,9 +1079,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "她和我是同班同学。她每三天来一次图书室。",
-        "toindex": 110
+        "toindex": 152
     },
-    5555: {
+    152: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1221,9 +1089,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "当我正在计算的时候，手中的铅笔突然被她拿起，接着她就旁若无人地在笔记本上写了起来。喂，这可是我的笔记本啊。",
-        "toindex": 110
+        "toindex": 153
     },
-    5555: {
+    153: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1231,9 +1099,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "但是，我并不讨厌她那样。她所说的数学题虽然比较难，但是也很有趣，非常刺激。",
-        "toindex": 110
+        "toindex": 154
     },
-    5555: {
+    154: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1241,9 +1109,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "米尔嘉拿着我的铅笔轻轻地敲了敲我的太阳穴，问我。",
-        "toindex": 110
+        "toindex": 155
     },
-    5555: {
+    155: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1251,9 +1119,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "那时是指什么时候的事情呀？",
-        "toindex": 110
+        "toindex": 156
     },
-    5555: {
+    156: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1261,9 +1129,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "就是我们初次见面的时候，在樱花树下。",
-        "toindex": 110
+        "toindex": 157
     },
-    5555: {
+    157: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1271,9 +1139,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "啊，是吗？我没有理由出数学题考你呀。我只是临时想到而已。为什么突然又提起这件事情呢？",
-        "toindex": 110
+        "toindex": 158
     },
-    5555: {
+    158: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1281,9 +1149,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "我也正好是突然想到。",
-        "toindex": 110
+        "toindex": 159
     },
-    5555: {
+    159: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1291,9 +1159,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "你喜欢那种智力题吗？",
-        "toindex": 110
+        "toindex": 160
     },
-    5555: {
+    160: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1301,9 +1169,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "一般吧，我并不讨厌。",
-        "toindex": 110
+        "toindex": 161
     },
-    5555: {
+    161: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1311,9 +1179,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "这样啊。‘数列智力题没有正确答案’这个说法你知道吗？",
-        "toindex": 110
+        "toindex": 162
     },
-    5555: {
+    162: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1321,9 +1189,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "什么意思呀？",
-        "toindex": 110
+        "toindex": 163
     },
-    5555: {
+    163: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1331,19 +1199,23 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "比如说，你认为 1, 2, 3, 4 接下来的数字是什么？",
-        "toindex": 110
+        "toindex": 164
     },
-    5555: {
+    164: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_library",
         "name": "我",
-        "dialogue": "那自然是 5 喽。1, 2, 3, 4, 5, ... 这样一直继续下去喽。",
-        "toindex": 110
+        "dialogue": "", // 那自然是 5 喽。1, 2, 3, 4, 5, ... 这样一直继续下去喽。
+        "toindex": 164,
+        "selections": [{ "choice": "1", "toindex": "170" },
+            { "choice": "5", "toindex": "170" },
+            { "choice": "10", "toindex": "170" }
+        ]
     },
-    5555: {
+    170: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1351,9 +1223,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "那可不一定哦。比如 1, 2, 3, 4 后面突然变成 10, 20, 30, 40，然后突然又增加到 100, 200, 300, 400, ... 这样的数列也是有可能的。",
-        "toindex": 110
+        "toindex": 171
     },
-    5555: {
+    171: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1361,9 +1233,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "这样的题目太狡猾了。一开始只告诉我 4 个数字，后面的数字却突然增大，这太过分了。1, 2, 3, 4 的后面突然接个 10，这种情况不可能想到啊！",
-        "toindex": 110
+        "toindex": 172
     },
-    5555: {
+    172: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1371,9 +1243,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "是吗？如果照你这么说的话，那要看到第几个数字才算数呢？数列是无限延续的，到底要看到第几个数字才能知道剩下的数字是什么呢？",
-        "toindex": 110
+        "toindex": 173
     },
-    5555: {
+    173: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1381,9 +1253,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "原来你所说的‘数列智力题没有正确答案’就是这个意思啊。题目中提供的数字，其后面的变化可能很大，但是，1, 2, 3, 4 后面如果接一个数字 10 的话，作为题目而言太无聊了。",
-        "toindex": 110
+        "toindex": 174
     },
-    5555: {
+    174: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1391,9 +1263,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "可是世上的事情不就是那样吗？谁都不知道接下来会发生什么。事情往往会偏离自己所预想的。对了，你知道这个数列的通项吗？",
-        "toindex": 110
+        "toindex": 175
     },
-    5555: {
+    175: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1401,9 +1273,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "1, 2, 3, 4, 6, 9, 8, 12, 18, 27, ...",
-        "toindex": 110
+        "toindex": 176
     },
-    5555: {
+    176: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1411,9 +1283,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "嗯，我也吃不准，似懂非懂的感觉。",
-        "toindex": 110
+        "toindex": 177
     },
-    5555: {
+    177: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1421,9 +1293,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "看到 1, 2, 3, 4 这样的排列的话，一般会认为接下来的数字是 5，对吧？但是不对，不是 5 而是 6。这说明，如果只告诉我们一点点条件的话，我们无法发现数列的规律，真正的数列模型是一眼看不出来的。",
-        "toindex": 110
+        "toindex": 178
     },
-    5555: {
+    178: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1431,9 +1303,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "嗯。",
-        "toindex": 110
+        "toindex": 179
     },
-    5555: {
+    179: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1441,9 +1313,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "如果看到 1, 2, 3, 4, 6, 9，你一定会认为接下来的数字会变大，对吧？但是不对，9 后面的数字却变小了，是 8。我们原本认为接下来的数字是逐渐变大的，但突然又峰回路转变小了。你能看出这个数列模型的规律吗？",
-        "toindex": 110
+        "toindex": 180
     },
-    5555: {
+    180: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1451,9 +1323,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "嗯，让我想想。如果去掉第一个数字 1 的话，接下来的数字都是 2 和 3 的倍数。可接下来的数字变小我却想不通了。",
-        "toindex": 110
+        "toindex": 181
     },
-    5555: {
+    181: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1461,9 +1333,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "比如说，答案可能是这样的。\n 2^0*3^0,2^1*3^0,2^0*3^1,2^2*3^0,2^1*3^1,2^0*3^2,2^3*3^0,2^2*3^1,2^2*3^2,2^0*3^3,... \n 如果考虑 2 和 3 的指数的话，这个数列模型就逐渐浮出水面了。",
-        "toindex": 110
+        "toindex": 182
     },
-    5555: {
+    182: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1471,9 +1343,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "嗯？是吗？我不太明白呢。某数的 0 次方就是 1。但仔细一看，\n 2^0*3^0=1,2^1*3^0=2,2^0*3^1=3,... \n 题目中的数列确实也是这样的。",
-        "toindex": 110
+        "toindex": 183
     },
-    5555: {
+    183: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1481,9 +1353,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "嗯，把这些指数写下来你也不理解吗？那么，我们这样来总结一下。",
-        "toindex": 110
+        "toindex": 184
     },
-    5555: {
+    184: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1491,9 +1363,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "2^0*3^0,指数之和为0\n2^1*3^0,2^0*3^1,指数之和为1\n2^2*3^0,2^1*3^1,2^0*3^2,指数之和为2\n2^3*3^0,2^2*3^1,2^2*3^2,2^0*3^3,指数之和为3",
-        "toindex": 110
+        "toindex": 185
     },
-    5555: {
+    185: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1501,9 +1373,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "我",
         "dialogue": "原来如此。",
-        "toindex": 110
+        "toindex": 186
     },
-    5555: {
+    186: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1511,9 +1383,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "但是说起 2 和 3 的倍数呢……",
-        "toindex": 110
+        "toindex": 187
     },
-    5555: {
+    187: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1521,9 +1393,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "女生A",
         "dialogue": "练琴的时间快到了，你怎么还不出去放松一下呀？",
-        "toindex": 110
+        "toindex": 188
     },
-    5555: {
+    188: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1531,9 +1403,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "米尔嘉刚开口，图书室的入口处便传来了大吵大嚷的声音。",
-        "toindex": 110
+        "toindex": 189
     },
-    5555: {
+    189: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1541,9 +1413,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "啊，我想起来了，今天是训练的日子。",
-        "toindex": 110
+        "toindex": 190
     },
-    5555: {
+    190: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1551,9 +1423,9 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "",
         "dialogue": "米尔嘉说着把铅笔还给我，朝站在入口处的女孩子走去。",
-        "toindex": 110
+        "toindex": 191
     },
-    5555: {
+    191: {
         "character": [{
             "body": "image/mikaru_front_1",
             "face": "image/mikaru_front_exp_1"
@@ -1561,44 +1433,34 @@ var ScriptList = {
         "background": "image/bk_library",
         "name": "米尔嘉",
         "dialogue": "什么时候有空的话，我跟你说关于‘世界上只有两个质数’的话题。",
-        "toindex": 110
+        "toindex": 192
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
+    192: {
+        "character": [],
         "background": "image/bk_library",
         "name": "",
         "dialogue": "说完她就离开了。图书室里只剩下我一个人。",
-        "toindex": 110
+        "toindex": 193
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    193: {
+        "character": [],
+        "background": "image/bk_frontgate",
         "name": "",
         "dialogue": "为什么世界上只有两个质数呢？",
-        "toindex": 110
+        "toindex": 194
     },
-    5555: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_library",
+    194: {
+        "character": [],
+        "background": "image/bk_frontgate",
         "name": "",
         "dialogue": "这到底是怎么回事？",
-        "toindex": 110
+        "toindex": 195
+    },
+    195: {
+        "character": [],
+        "background": "image/bk_frontgate",
+        "name": "",
+        "dialogue": "end",
+        "toindex": 999
     }
 }
-
-
-
-
-
-
-
-
