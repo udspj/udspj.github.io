@@ -102,7 +102,7 @@ body {
 #characontainer {
     position: fixed;
     /*background: rgba(22, 111, 66, 1.0);*/
-    top: 50px;
+    top: 10px;
     bottom: 0px;
     left: 100px;
     right: 100px;

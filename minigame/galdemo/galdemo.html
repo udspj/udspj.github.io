@@ -12,9 +12,9 @@
     <div id="characontainer"></div>
     <div class="dialogbox" onclick="onDialogboxClicked();">
         <div id="namebox">
-            <p id="nametext" align="center" style="color:white;font-size:16px;">aaa</p>
+            <p id="nametext" align="center" style="color:white;font-size:22px;line-height: 0px"></p>
         </div>
-        <p id="textbox" style="color:white;font-size:16px;margin:20px;"></p>
+        <p id="textbox" style="color:white;font-size:22px;margin:20px;"></p>
         <p id="nexttext" style="color:white;right:20px;bottom:0px;position:absolute;">↪</p>
     </div>
     <div class="menubox">
@@ -34,10 +34,10 @@
 
 <script type="text/javascript">
 
-var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />无bgm无CV，这galgame只是个demo，很多地方功能体验不完整，脚本格式没有简化，没有时间轴和支线，见谅</p></td></tr></table>';
+var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />操作方式：点击文字区域<br />只是个demo，无bgm无CV，很多功能体验不完整，脚本格式没有简化，没有时间轴和支线，见谅，最多20来分钟可以看完所以也没有存档</p></td></tr></table>';
 document.write(LoadingHtml);
 
-var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:20px;">不支持竖屏</p></td></tr></table>';
+var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:50px;">不支持竖屏</p></td></tr></table>';
 document.write(SizeErrorHtml);
 var sizeMask = document.getElementById('SizeErrorDiv');
 

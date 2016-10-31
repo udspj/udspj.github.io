@@ -34,7 +34,7 @@ SelectionBranch.prototype.showSelections = function(selects) {
         select.style.lineHeight = String(hei) + "px";
         select.style.textAlign = "center";
         select.style.color = "white";
-        select.style.fontSize = "16px";
+        select.style.fontSize = "22px";
         select.id = selects[i]["toindex"];
         select.innerHTML = selects[i]["choice"];
         selectcontainer.appendChild(select);
