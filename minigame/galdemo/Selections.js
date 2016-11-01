@@ -1,9 +1,6 @@
 function SelectionBranch() {
     this.startDetectHeightChange;
     this.docheight;
-}
-SelectionBranch.prototype.showSelections = function(selects) {
-    var obj = this;
 
     self.selectdiv = document.createElement("div");
     selectdiv.style.backgroundColor = "rgba(0,0,0,0.5)";
@@ -12,6 +9,13 @@ SelectionBranch.prototype.showSelections = function(selects) {
     selectdiv.style.position = "fixed";
     selectdiv.style.textAlign = "center";
     document.body.appendChild(self.selectdiv);
+
+    self.selectdiv.style.display = "none";
+}
+SelectionBranch.prototype.showSelections = function(selects) {
+    var obj = this;
+
+    self.selectdiv.style.display = "";
 
     var selectcount = selects.length;
 
@@ -40,7 +44,9 @@ SelectionBranch.prototype.showSelections = function(selects) {
         selectcontainer.appendChild(select);
         select.onclick = function() {
             console.log(this.id);
-            document.body.removeChild(self.selectdiv);
+            // document.body.removeChild(self.selectdiv);
+            self.selectdiv.removeChild(selectcontainer);
+            self.selectdiv.style.display = "none";
             var selectEvent = new CustomEvent('onSelectClick', { detail: this.id });
             window.dispatchEvent(selectEvent);
             clearInterval(obj.startDetectHeightChange);

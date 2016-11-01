@@ -284,7 +284,7 @@ var ScriptList = {
             "face": "image/mikaru_front_exp_1"
         }],
         "background": "image/bk_sakura",
-        "name": "",
+        "name": "我",
         "dialogue": "1, 1, 2, 3 的后面接着的数字是", // 5，接下来是 8，再接下来是 13，然后是 21，然后再是……
         "toindex": 37
     },
@@ -295,7 +295,7 @@ var ScriptList = {
         }],
         "background": "image/bk_sakura",
         "name": "我",
-        "dialogue": "",
+        "dialogue": "1, 1, 2, 3 的后面接着的数字是",
         "toindex": 37,
         "selections": [{ "choice": "4", "toindex": "40" },
             { "choice": "5", "toindex": "41" },
@@ -306,7 +306,7 @@ var ScriptList = {
     40: {
         "character": [{
             "body": "image/mikaru_front_2",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -400,7 +400,7 @@ var ScriptList = {
         }],
         "background": "image/bk_sakura",
         "name": "我",
-        "dialogue": "",
+        "dialogue": "1, 4, 27, 256，接下来是",
         "toindex": 57,
         "selections": [{ "choice": "625", "toindex": "60" },
             { "choice": "1024", "toindex": "60" },
@@ -421,7 +421,7 @@ var ScriptList = {
     61: {
         "character": [{
             "body": "image/mikaru_front_2",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -441,7 +441,7 @@ var ScriptList = {
     63: {
         "character": [{
             "body": "image/mikaru_front_2",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -451,7 +451,7 @@ var ScriptList = {
     70: {
         "character": [{
             "body": "image/mikaru_front_2",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "米尔嘉",
@@ -531,7 +531,7 @@ var ScriptList = {
     78: {
         "character": [{
             "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -541,7 +541,7 @@ var ScriptList = {
     79: {
         "character": [{
             "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "我",
@@ -551,11 +551,11 @@ var ScriptList = {
     80: {
         "character": [{
             "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "我",
-        "dialogue": "",
+        "dialogue": "6, 15, 35, 77 的后面是",
         "toindex": 80,
         "selections": [{ "choice": "113", "toindex": "81" },
             { "choice": "123", "toindex": "81" },
@@ -596,7 +596,7 @@ var ScriptList = {
     90: {
         "character": [{
             "body": "image/mikaru_halfside_2",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_sakura",
         "name": "",
@@ -948,7 +948,7 @@ var ScriptList = {
     136: {
         "character": [{
             "body": "image/mikaru_front_3",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -958,7 +958,7 @@ var ScriptList = {
     137: {
         "character": [{
             "body": "image/mikaru_front_3",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_library",
         "name": "",
@@ -968,7 +968,7 @@ var ScriptList = {
     138: {
         "character": [{
             "body": "image/mikaru_front_3",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_library",
         "name": "",
@@ -1104,7 +1104,7 @@ var ScriptList = {
     154: {
         "character": [{
             "body": "image/mikaru_front_3",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_library",
         "name": "",
@@ -1114,7 +1114,7 @@ var ScriptList = {
     155: {
         "character": [{
             "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1124,7 +1124,7 @@ var ScriptList = {
     156: {
         "character": [{
             "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_library",
         "name": "我",
@@ -1134,7 +1134,7 @@ var ScriptList = {
     157: {
         "character": [{
             "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_1"
+            "face": "image/mikaru_halfside_exp_2"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",
@@ -1208,7 +1208,7 @@ var ScriptList = {
         }],
         "background": "image/bk_library",
         "name": "我",
-        "dialogue": "", // 那自然是 5 喽。1, 2, 3, 4, 5, ... 这样一直继续下去喽。
+        "dialogue": "1, 2, 3, 4 接下来的数字是", // 那自然是 5 喽。1, 2, 3, 4, 5, ... 这样一直继续下去喽。
         "toindex": 164,
         "selections": [{ "choice": "1", "toindex": "170" },
             { "choice": "5", "toindex": "170" },
@@ -1408,7 +1408,7 @@ var ScriptList = {
     189: {
         "character": [{
             "body": "image/mikaru_front_2",
-            "face": "image/mikaru_front_exp_1"
+            "face": "image/mikaru_front_exp_2"
         }],
         "background": "image/bk_library",
         "name": "米尔嘉",

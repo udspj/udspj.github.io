@@ -37,20 +37,6 @@
 var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:20px;">loading...</p><p height=100 align=center style="color:white;font-size:20px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />操作方式：点击文字区域<br />只是个demo，无bgm无CV，很多功能体验不完整，脚本格式没有简化，没有时间轴和支线，见谅，最多20来分钟可以看完所以也没有存档</p></td></tr></table>';
 document.write(LoadingHtml);
 
-var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:50px;">不支持竖屏<br />请在横屏状态下进行游戏</p></td></tr></table>';
-document.write(SizeErrorHtml);
-var sizeMask = document.getElementById('SizeErrorDiv');
-
-window.addEventListener('resize', resize, false);
-function resize() {
-    if(window.innerWidth < window.innerHeight) {
-        sizeMask.style.display="";
-    }else{
-        sizeMask.style.display="none";
-    }
-}
-resize();
-
 
 
 var images = new Array()
@@ -157,6 +143,7 @@ function autoTextHandler(e) {
 var characters = new Characters();
 var historydialog = new History();
 var dialogue = new DialogueText();
+var selectbranch = new SelectionBranch();
 
 var blackcoverup = document.getElementById('blackcoverup');
 var blackcoverdown = document.getElementById('blackcoverdown');
@@ -208,7 +195,7 @@ function showNextDialogue() {
     dialogue.showDialogueText(res["dialogue"]);
     characters.showCharacters(res["character"]);
     if (res["selections"]) {
-        var selectbranch = new SelectionBranch();
+        // var selectbranch = new SelectionBranch();
         selectbranch.showSelections(res["selections"]);
         if (auto.innerText == "取消自动") {
             menuClickAuto();
@@ -224,7 +211,7 @@ function showPrevSelection(previndex) {
     dialogue.showDialogueText(res["dialogue"]);
     characters.showCharacters(res["character"]);
     if (res["selections"]) {
-        var selectbranch = new SelectionBranch();
+        // var selectbranch = new SelectionBranch();
         selectbranch.showSelections(res["selections"]);
         if (auto.innerText == "取消自动") {
             menuClickAuto();
@@ -255,6 +242,26 @@ function changeBackground(img) {
         bk1.classList.add('fadein');
     }
 }
+
+
+
+
+var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:50px;">不支持竖屏<br />请在横屏状态下进行游戏</p></td></tr></table>';
+document.write(SizeErrorHtml);
+var sizeMask = document.getElementById('SizeErrorDiv');
+
+window.addEventListener('resize', resize, false);
+function resize() {
+    if(window.innerWidth < window.innerHeight) {
+        sizeMask.style.display="";
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+    }else{
+        sizeMask.style.display="none";
+    }
+}
+resize();
 
 </script>
 </body>
