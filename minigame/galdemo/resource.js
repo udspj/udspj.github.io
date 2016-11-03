@@ -276,18 +276,18 @@ var ScriptList = {
         "background": "image/bk_sakura",
         "name": "",
         "dialogue": "啊，原来如此。我知道了。",
-        "toindex": 36
-    },
-    36: {
-        "character": [{
-            "body": "image/mikaru_front_1",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_sakura",
-        "name": "我",
-        "dialogue": "1, 1, 2, 3 的后面接着的数字是", // 5，接下来是 8，再接下来是 13，然后是 21，然后再是……
         "toindex": 37
     },
+    // 36: {
+    //     "character": [{
+    //         "body": "image/mikaru_front_1",
+    //         "face": "image/mikaru_front_exp_1"
+    //     }],
+    //     "background": "image/bk_sakura",
+    //     "name": "我",
+    //     "dialogue": "1, 1, 2, 3 的后面接着的数字是", // 5，接下来是 8，再接下来是 13，然后是 21，然后再是……
+    //     "toindex": 37
+    // },
     37: {
         "character": [{
             "body": "image/mikaru_front_1",
@@ -381,18 +381,18 @@ var ScriptList = {
         "background": "image/bk_sakura",
         "name": "",
         "dialogue": "我突然一下子找到了规律。",
-        "toindex": 56
-    },
-    56: {
-        "character": [{
-            "body": "image/mikaru_front_2",
-            "face": "image/mikaru_front_exp_1"
-        }],
-        "background": "image/bk_sakura",
-        "name": "我",
-        "dialogue": "1, 4, 27, 256，接下来是", //  3125 吧，再接下来是……心算是不行了。
         "toindex": 57
     },
+    // 56: {
+    //     "character": [{
+    //         "body": "image/mikaru_front_2",
+    //         "face": "image/mikaru_front_exp_1"
+    //     }],
+    //     "background": "image/bk_sakura",
+    //     "name": "我",
+    //     "dialogue": "1, 4, 27, 256，接下来是", //  3125 吧，再接下来是……心算是不行了。
+    //     "toindex": 57
+    // },
     57: {
         "character": [{
             "body": "image/mikaru_front_2",
@@ -536,18 +536,18 @@ var ScriptList = {
         "background": "image/bk_sakura",
         "name": "",
         "dialogue": "我刚一说，她顿时变得神采奕奕，微微一笑。我第一次看到她笑，便情不自禁地大声回答。",
-        "toindex": 79
-    },
-    79: {
-        "character": [{
-            "body": "image/mikaru_halfside_1",
-            "face": "image/mikaru_halfside_exp_2"
-        }],
-        "background": "image/bk_sakura",
-        "name": "我",
-        "dialogue": "6, 15, 35, 77 的后面是",
         "toindex": 80
     },
+    // 79: {
+    //     "character": [{
+    //         "body": "image/mikaru_halfside_1",
+    //         "face": "image/mikaru_halfside_exp_2"
+    //     }],
+    //     "background": "image/bk_sakura",
+    //     "name": "我",
+    //     "dialogue": "6, 15, 35, 77 的后面是",
+    //     "toindex": 80
+    // },
     80: {
         "character": [{
             "body": "image/mikaru_halfside_1",
