@@ -9,3 +9,5 @@ the blog for my projects that are not on the github http://udspj.github.io/blogs
 the comic page http://udspj.github.io/manga.html
 
 a css comic http://udspj.github.io/manga/selfq/selfqmanga.html
+
+《math girl》chapter 1 mini-galgame http://udspj.github.io/minigame/galdemo/galdemo.html
