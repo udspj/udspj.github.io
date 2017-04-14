@@ -1,0 +1,189 @@
+@charset "utf-8";
+html,
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.blackcover {
+    width: 100%;
+    height: 50%;
+    position: fixed;
+    background-color: black;
+}
+
+.blackcover.horizTranslate {
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    height: 0%;
+}
+
+.bk {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #ccc;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.0;
+}
+
+.bk.fadein {
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    opacity: 1.0;
+}
+
+.bk.fadeout {
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    opacity: 0.0;
+}
+
+.dialogbox {
+    position: fixed;
+    height: 160px;
+    bottom: 20px;
+    left: 200px;
+    right: 320px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0px 0px 0px 10px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+#namebox {
+    position: absolute;
+    width: 100px;
+    height: 40px;
+    top: -44px;
+    left: -2px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px 10px 0px 0px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+.menubox {
+    position: fixed;
+    width: 120px;
+    height: 160px;
+    bottom: 20px;
+    right: 200px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0px 10px 10px 0px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    right: 2px;
+    top: -2px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-bottom: -2px;
+}
+
+#characontainer {
+    position: fixed;
+    /*background: rgba(22, 111, 66, 1.0);*/
+    top: 10px;
+    bottom: 0px;
+    left: 100px;
+    right: 100px;
+    text-align: center;
+}
+
+.character {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+}
+
+.character.fadein {
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    opacity: 1.0;
+}
+
+.character.fadeout {
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    -ms-transition: 3s;
+    -o-transition: 3s;
+    transition: 3s;
+    opacity: 0.0;
+}
+
+.expression {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+@media screen and (max-width: 1000px) {
+    .dialogbox {
+        position: fixed;
+        height: 120px;
+        bottom: 10px;
+        left: 20px;
+        right: 140px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 0px 0px 0px 10px;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+    .menubox {
+        position: fixed;
+        width: 120px;
+        height: 120px;
+        bottom: 10px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 0px 10px 10px 0px;
+        border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+.menu {
+    position: relative;
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    right: 2px;
+    top: -2px;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-bottom: -2px;
+}
+    #characontainer {
+        position: fixed;
+        /*background: rgba(22, 111, 66, 1.0);*/
+        top: 10px;
+        bottom: 0px;
+        left: 20px;
+        right: 20px;
+        text-align: center;
+    }
+}

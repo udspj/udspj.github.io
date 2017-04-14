@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <link href="gal_style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <img class="bk" id="bk1"></img>
+    <img class="bk" id="bk2"></img>
+    <div id="characontainer"></div>
+    <div class="dialogbox" onclick="onDialogboxClicked();">
+        <div id="namebox">
+            <p id="nametext" align="center" style="color:white;font-size:15px;line-height: 15px"></p>
+        </div>
+        <p id="textbox" style="color:white;font-size:15px;margin:20px;"></p>
+        <p id="nexttext" style="color:white;right:20px;bottom:0px;position:absolute;">↪</p>
+    </div>
+    <div class="menubox">
+        <div class="menu" style="border-radius: 0px 10px 0px 0px;" onclick="menuClickHistory();">历史</div>
+        <div class="menu" onclick="menuClickPrevSelect();">上一个选项</div>
+        <div class="menu" onclick="menuClickRestart();">重新开始</div>
+        <div class="menu" id="menuauto" style="border-radius: 0px 0px 10px 0px;" onclick="menuClickAuto();">自动</div>
+    </div>
+    <div class='blackcover' id='blackcoverup' style="top:0;"></div>
+    <div class='blackcover' id='blackcoverdown' style="bottom:0;"></div>
+    
+    <script language='javascript' src="Selections.js"></script>
+    <script language='javascript' src="History.js"></script>
+    <script language='javascript' src="Characters.js"></script>
+    <script language='javascript' src="resource.js"></script>
+    <script language='javascript' src="DialogueText.js"></script>
+
+<script type="text/javascript">
+
+var LoadingHtml = '<table id="loadingDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p id="loadingtext" height=100 align=center style="color:white;font-size:15px;">loading...</p><p height=100 align=center style="color:white;font-size:15px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />操作方式：点击文字区域<br />只是个demo，无bgm无CV，图像素材没有压缩优化，很多功能体验不完整，脚本格式没有简化，没有时间轴和支线，见谅，最多20来分钟可以看完所以也没有存档</p></td></tr></table>';
+document.write(LoadingHtml);
+
+
+
+var images = new Array()
+
+function preload() {
+    var count = preload.arguments.length
+    var loaded = 0
+    for (i = 0; i < count; i++) {
+        images[i] = new Image()
+        images[i].src = "image/" + preload.arguments[i]
+        images[i].onload = function() {
+            loaded++
+            loadingtext.innerText = "loading... " + loaded + "/" + count;
+            if (loaded == count) {
+                console.log("preloadComplete");
+                var loadingMask = document.getElementById('loadingDiv');
+                loadingMask.parentNode.removeChild(loadingMask);
+                start();
+            }
+        }
+    }
+}
+preload(
+    "bk_building.jpg",
+    "bk_classroom.jpg",
+    "bk_frontgate.jpg",
+    "bk_memory.jpg",
+    "bk_library.jpg",
+    "bk_sakura.jpg",
+    "bk_night.jpg",
+    "bk_ill_sakura.jpg",
+    "mikaru_front_1.png",
+    "mikaru_front_2.png",
+    "mikaru_front_3.png",
+    "mikaru_front_exp_1.png",
+    "mikaru_front_exp_2.png",
+    "mikaru_halfside_1.png",
+    "mikaru_halfside_2.png",
+    "mikaru_halfside_exp_1.png",
+    "mikaru_halfside_exp_2.png"
+)
+
+
+
+function menuClickHistory() {
+    historydialog.showHistory();
+    if (auto.innerText == "取消自动") {
+        menuClickAuto();
+    }
+}
+
+function menuClickPrevSelect() {
+    if (lastSelectIndex.length == 0) {
+        return
+    }
+    if (auto.innerText == "取消自动") {
+        menuClickAuto();
+    }
+    if (!dialogue.isTextShowed) {
+        showNextDialogue();
+    }
+    showPrevSelection(lastSelectIndex[lastSelectIndex.length - 1]);
+}
+
+function menuClickRestart() {
+    var r = confirm("确定要RE：0重新开始吗？");
+    if (r == true) {
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+        if (!dialogue.isTextShowed) {
+            showNextDialogue();
+        }
+        nowindex = 0;
+        showNextDialogue();
+    }
+}
+
+var auto = document.getElementById('menuauto');
+window.addEventListener('onAutoTextFinished', autoTextHandler, false);
+
+function menuClickAuto() {
+    var textinterval;
+    if (auto.innerText == "自动") {
+        auto.innerText = "取消自动";
+        showNextDialogue();
+    } else {
+        auto.innerText = "自动";
+        clearInterval(textinterval);
+    }
+}
+
+function autoTextHandler(e) {
+    historydialog.addHistory(e.detail);
+    nowindex = ScriptList[nowindex]["toindex"];
+    if (auto.innerText == "取消自动") {
+        textinterval = setInterval(function() {
+            showNextDialogue();
+            clearInterval(textinterval);
+        }, 1000);
+    }
+}
+
+
+
+var characters = new Characters();
+var historydialog = new History();
+var dialogue = new DialogueText();
+var selectbranch = new SelectionBranch();
+
+var blackcoverup = document.getElementById('blackcoverup');
+var blackcoverdown = document.getElementById('blackcoverdown');
+var bk1 = document.getElementById('bk1');
+var bk2 = document.getElementById('bk2');
+var bk1img = document.getElementById('bk1img');
+var bk2img = document.getElementById('bk2img');
+
+function start() {
+    blackcoverup.classList.add('horizTranslate');
+    blackcoverdown.classList.add('horizTranslate');
+    bk1.classList.add('fadein');
+    document.getElementById("nexttext").style.display = "none";
+
+    showNextDialogue();
+
+    window.addEventListener('onSelectClick', function(e) {
+        nowindex = e.detail;
+        showNextDialogue();
+    }, false);
+}
+
+var lastSelectIndex = [];
+var nowindex = 0;
+
+function onDialogboxClicked() {
+    if (auto.innerText == "取消自动") {
+        return;
+    }
+    showNextDialogue();
+}
+
+function showNextDialogue() {
+    var res = ScriptList[nowindex];
+    if (!res) {
+        console.log("end");
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+        return;
+    }
+    if (!dialogue.isTextShowed) {
+        dialogue.isclicked = true;
+        dialogue.showDialogueText(res["dialogue"]);
+        return;
+    }
+    document.getElementById("nametext").innerHTML = res["name"]
+    changeBackground(res["background"])
+    dialogue.showDialogueText(res["dialogue"]);
+    characters.showCharacters(res["character"]);
+    if (res["selections"]) {
+        // var selectbranch = new SelectionBranch();
+        selectbranch.showSelections(res["selections"]);
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+        lastSelectIndex[lastSelectIndex.length] = nowindex;
+    }
+}
+
+function showPrevSelection(previndex) {
+    var res = ScriptList[previndex];
+    document.getElementById("nametext").innerHTML = res["name"]
+    changeBackground(res["background"])
+    dialogue.showDialogueText(res["dialogue"]);
+    characters.showCharacters(res["character"]);
+    if (res["selections"]) {
+        // var selectbranch = new SelectionBranch();
+        selectbranch.showSelections(res["selections"]);
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+    }
+}
+
+
+var nowimg = "";
+
+function changeBackground(img) {
+    if (nowimg == img) {
+        return 
+    }
+    nowimg = img;
+
+    if (bk1.classList.contains('fadein')) {
+        bk2.style.backgroundImage = "url('" + img + ".jpg')";
+        bk1.classList.remove('fadein');
+        bk1.classList.add('fadeout');
+        bk2.classList.remove('fadeout');
+        bk2.classList.add('fadein');
+    } else {
+        bk1.style.backgroundImage = "url('" + img + ".jpg')";
+        bk2.classList.remove('fadein');
+        bk2.classList.add('fadeout');
+        bk1.classList.remove('fadeout');
+        bk1.classList.add('fadein');
+    }
+}
+
+
+
+
+var SizeErrorHtml = '<table id="SizeErrorDiv" width="100%" height="100%" topmargin="0" leftmargin="0" style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;"><tr><td align="absmiddle"><p height=100 align=center style="color:white;font-size:20px;">不支持竖屏<br />请在横屏状态下进行游戏</p><p height=100 align=center style="color:white;font-size:15px;">人设立绘：udspj ｜ 背景图：来源网络 ｜ 对白：《数学女孩》序言＋第1章<br />操作方式：点击文字区域<br />只是个demo，无bgm无CV，图像素材没有压缩优化，很多功能体验不完整，脚本格式没有简化，没有时间轴和支线，见谅，最多20来分钟可以看完所以也没有存档</p></td></tr></table>';
+document.write(SizeErrorHtml);
+var sizeMask = document.getElementById('SizeErrorDiv');
+
+window.addEventListener('resize', resize, false);
+function resize() {
+    if(window.innerWidth < window.innerHeight) {
+        sizeMask.style.display="";
+        if (auto.innerText == "取消自动") {
+            menuClickAuto();
+        }
+    }else{
+        sizeMask.style.display="none";
+    }
+}
+resize();
+
+</script>
+</body>
+
+</html>
