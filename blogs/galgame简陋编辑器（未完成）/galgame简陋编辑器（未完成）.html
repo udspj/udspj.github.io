@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="srcs/bootstrap-3.3.7.min.css" rel="stylesheet" type="text/css" />
+    <link href="indexstyle.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="container">
+        <div class="row clearfix">
+            <div class="col-md-6 column">
+                <div id="bk" v-bind:style="{backgroundImage: 'url(' + page.bkimage + ')'}">
+                    <div id="characontainer">
+                        <div class="character">
+                            <div class="exp"></div>
+                        </div>
+                        <div class="character" v-bind:style="{backgroundImage: 'url(' + page.chara1img + ')'}">
+                            <div class="exp" v-bind:style="{backgroundImage: 'url(' + page.chara1exp + ')'}"></div>
+                        </div>
+                        <div class="character">
+                            <div class="exp"></div>
+                        </div>
+                    </div>
+                    <p id="dialogbox">{{ page.textdialog }}</p>
+                    <p id="namebox" align="center" style="color:white;font-size:14px;">{{ page.textname }}</p>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <div class="col-xs-12 col-md-3 column">
+                            <button type="button" class="btn btn-default" v-on:click="addPage()">插入</button>
+                            <button type="button" class="btn btn-default" v-on:click="delPage(page)">删除</button>
+                        </div>
+                        <div class="col-xs-6 col-md-1 column">
+                            <button type="button" class="btn btn-default" v-on:click="prevPage()"><</button>
+                        </div>
+                        <div class="col-xs-6 col-md-1 column">
+                            <button type="button" class="btn btn-default" v-on:click="nextPage()">></button>
+                        </div>
+                        <div class="col-xs-6 col-md-2 column">
+                            <input type="text" class="form-control" placeholder="第几页" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" v-on:keyup="pagetextchange(inputPage)" v-model="inputPage">
+                        </div>
+                        <div class="col-xs-6 col-md-2 column">
+                            <label>／{{ pageCount }}页</label>
+                        </div>
+                        <div class="col-xs-12 col-md-2 column">
+                            <button type="button" class="btn btn-default" v-on:click="savePage()">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 column">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#home" data-toggle="tab">背景</a>
+                    </li>
+                    <li>
+                        <a href="#aaa" data-toggle="tab">角色</a>
+                    </li>
+                    <li>
+                        <a href="#bbb" data-toggle="tab">名字对白</a>
+                    </li>
+                    <li>
+                        <a href="#ccc" data-toggle="tab">选择支组</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active" id="home">
+                        <form>
+                            <div class="form-group">
+                                <label>选择背景图</label>
+                                <label class="sr-only" for="inputfile">文件输入</label>
+                                <input type="file" id="inputfile" v-on:change="onBKChange">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="aaa">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <label>选择立绘</label>
+                                <label class="sr-only" for="inputfile1">文件输入</label>
+                                <input type="file" id="inputfile1" v-on:change="onChara1Change">
+                            </div>
+                            <div class="form-group">
+                                <label>选择表情</label>
+                                <label class="sr-only" for="inputfile2">文件输入</label>
+                                <input type="file" id="inputfile2" v-on:change="onChara1expChange">
+                            </div>
+                            <div class="form-group">
+                                <label>选择立绘</label>
+                                <label class="sr-only" for="inputfile3">文件输入</label>
+                                <input type="file" id="inputfile3">
+                            </div>
+                            <div class="form-group">
+                                <label>选择表情</label>
+                                <label class="sr-only" for="inputfile4">文件输入</label>
+                                <input type="file" id="inputfile4">
+                            </div>
+                            <div class="form-group">
+                                <label>选择立绘</label>
+                                <label class="sr-only" for="inputfile5">文件输入</label>
+                                <input type="file" id="inputfile5">
+                            </div>
+                            <div class="form-group">
+                                <label>选择表情</label>
+                                <label class="sr-only" for="inputfile6">文件输入</label>
+                                <input type="file" id="inputfile6">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="bbb">
+                        <input type="text" class="form-control" id="lastname" placeholder="角色名字" v-model="page.textname">
+                        <textarea class="form-control" rows="10" placeholder="角色对白文字" v-model="page.textdialog"></textarea>
+                        <label for="name">文本框
+                        </label>
+                    </div>
+                    <div class="tab-pane fade" id="ccc">
+                        <div class="row clearfix">
+                            <div class="col-md-8 column">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支1">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支2">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支3">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支4">
+                                <input type="text" class="form-control" id="lastname" placeholder="选择支5">
+                            </div>
+                            <div class="col-md-4 column">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                                <input type="text" class="form-control" id="lastname" placeholder="跳转到">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script language='javascript' src="srcs/jquery-2.1.1.min.js"></script>
+    <script language='javascript' src="srcs/bootstrap-3.3.7.min.js"></script>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <script src="indexjs.js"></script>
+</body>
+
+</html>
