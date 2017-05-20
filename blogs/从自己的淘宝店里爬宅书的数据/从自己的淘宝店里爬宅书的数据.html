@@ -23,6 +23,8 @@
 
 ![udspj](imgs/img4.png)
 
+整个页面html源码被包含在jsonp154()里，得先把这层东西去掉。
+
 商品数量是动态的，可以从页面获取到是否已经没有更多数据了。
 
 没数据的页面比有数据的多了一句“很抱歉，搜索到“0”个宝贝”，在源码里找到这句是在唯一一个strong标签里，有数据的页面不含strong标签，所以就拿strong标签来判断是否末尾页。
@@ -63,7 +65,6 @@ while pageEnd == False:
 		pageEnd = True
 		break
 	for _ in tags: 
-		# if _.a.img :
 		print _.a.img['src']
 		print _.a['href']
 		print _.a.img['alt']
