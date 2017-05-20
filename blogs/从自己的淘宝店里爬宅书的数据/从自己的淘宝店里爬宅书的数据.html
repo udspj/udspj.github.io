@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>从自己的淘宝店里爬宅书的数据</title>
+
+<xmp theme="simplex" style="display:none;">
+
+因为淘宝禁止没有经营许可的卖家售卖海外出版物，上次又因我的一本lu点轻小说被淘宝系统查到了直接扣了12分导致被关店7天，不得已只能把店里所有日版的漫画、轻小说、公式书、画集等全部下架放淘宝仓库里。但这样买家来我店铺就看不到我这些宅书了，无奈只能自己另外做一个宅书展示页让买家浏览，我可以随时从商品仓库里帮买家上架想买的东西。
+
+想提取的这些宅书都放在“仓库里的宝贝”中，这个必须店主登录才能看到，所以就还是从淘宝店铺的分类里去提取了。宅书都没上架，先抓“日本原版动漫周边”这个类目里的宅物试试。
+
+![udspj](imgs/img1.png)
+
+由于这块商品列表是动态加载的，得另外找到请求商品列表的地址。
+
+![udspj](imgs/img2.png)
+
+复制地址到浏览器看到也还是个html的形式，url里改变pageNo=＊切换页数。
+
+![udspj](imgs/img3.png)
+
+在这个html源码里找到了商品名称、缩略图、商品详情url。
+
+![udspj](imgs/img4.png)
+
+商品数量是动态的，可以从页面获取到是否已经没有更多数据了。
+
+没数据的页面比有数据的多了一句“很抱歉，搜索到“0”个宝贝”，在源码里找到这句是在唯一一个strong标签里，有数据的页面不含strong标签，所以就拿strong标签来判断是否末尾页。
+
+![udspj](imgs/img5.png)
+
+![udspj](imgs/img6.png)
+
+最终拿到了需要的数据，格式还没整理。
+
+这些只是商品列表数据，还要继续爬商品详情。
+
+![udspj](imgs/img7.png)
+
+顺道保存下代码，随便写的脚本……
+
+```c
+#!/usr/bin/python
+#coding:utf-8
+import requests
+from bs4 import BeautifulSoup
+
+pageEnd = False
+pageNo = 1
+
+while pageEnd == False:
+	url = "https://shop36066072.taobao.com/i/asynSearch.htm?_ksTS=1495095535601_153&mid=w-726411589-0&wid=726411589&path=/category-280512636.htm&catId=280512636&scid=280512636&pageNo="+str(pageNo)
+	remap = {
+	    'jsonp154("                ' : None
+	}
+	htmltext = requests.get(url).text
+	hh = htmltext.replace('jsonp154("                ', '')
+	hh2 = hh.replace('\\"', '"')
+	soup = BeautifulSoup(hh2, 'html.parser')
+	tags = soup.find_all('dt', class_='photo')
+	end = soup.find_all('strong')
+	if len(end) > 0 :
+		pageEnd = True
+		break
+	for _ in tags: 
+		# if _.a.img :
+		print _.a.img['src']
+		print _.a['href']
+		print _.a.img['alt']
+	pageNo = pageNo + 1
+```
+
+－
+
+商品详情页里需要拿到商品的多张大图、商品价格、商品描述。
+
+
+
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+</html>
