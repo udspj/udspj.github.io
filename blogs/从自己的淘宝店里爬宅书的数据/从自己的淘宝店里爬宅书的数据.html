@@ -33,9 +33,9 @@
 
 ![udspj](imgs/img6.png)
 
-最终拿到了需要的数据，格式还没整理。
+最终拿到了需要的数据，把所有商品缩略图下载下来，文件名按商品详情url里的id保存。
 
-这些只是商品列表数据，还要继续爬商品详情。
+这些都只是商品列表数据，格式还没整理，还要继续爬商品详情。
 
 ![udspj](imgs/img7.png)
 
@@ -65,9 +65,15 @@ while pageEnd == False:
 		pageEnd = True
 		break
 	for _ in tags: 
+		href = _.a['href']
 		print _.a.img['src']
-		print _.a['href']
+		print href
 		print _.a.img['alt']
+		imgurl = requests.get('http:'+_.a.img['src'])
+		string = href.replace('//item.taobao.com/item.htm?id=', '') + '.jpg'
+		fp = open('thumbnails/'+string,'wb')
+		fp.write(imgurl.content)
+		fp.close()
 	pageNo = pageNo + 1
 ```
 
