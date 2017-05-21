@@ -19,7 +19,7 @@
 
 ![udspj](imgs/img3.png)
 
-在这个html源码里找到了商品名称、缩略图、商品详情url。
+在这个html源码里找到了商品名称、缩略图、商品详情url、商品价格。
 
 ![udspj](imgs/img4.png)
 
@@ -94,9 +94,59 @@ fh.close()
 
 －
 
-商品详情页里需要拿到商品的多张大图、商品价格、商品描述。
+商品详情页里需要拿到商品的多张大图。
 
+在详情页源码里直接能找到auctionImages里面就是所有的详情大图的链接了，把这些图分别下载到对应商品id的文件夹里。
 
+![udspj](imgs/img8.png)
+
+在上面代码的基础上增加以下代码用来下载详情图：
+
+```c
+
+……
+和上面重复的代码
+……
+
+import re
+import os
+
+……
+和上面重复的代码
+……
+
+# 下载商品详情大图
+
+for good in goodList:
+	goodid = good['id']
+	detailurl = 'https://item.taobao.com/item.htm?id=' + goodid
+	htmltext = requests.get(detailurl).text
+	pattern = re.compile(r'auctionImages    :(.*?)"]')
+	imgsstr = re.search(pattern, htmltext, flags=0).group()
+	imgsstr = imgsstr.replace('auctionImages    : [', '')
+	imgsstr = imgsstr.replace(']', '')
+	imgsstr = imgsstr.replace('"', '')
+	imgs = imgsstr.split(',')
+	isFolderExists = os.path.exists('images/')
+	if not isFolderExists:
+		os.mkdir('images/')
+	imgfolder = 'images/' + goodid + '/'
+	isImgFolderExists = os.path.exists(imgfolder)
+	if not isImgFolderExists:
+		os.mkdir(imgfolder)
+	for _ in imgs:
+		imgstrs = _.split('/')
+		string = imgstrs[len(imgstrs) - 1]
+		fp = open(imgfolder + string,'wb')
+		fp.write(requests.get('http:' + _).content)
+		fp.close()
+```
+
+淘宝商品详情说明不是纯文本而是html格式的，并且是动态获取的数据。
+
+![udspj](imgs/img9.png)
+
+![udspj](imgs/img10.png)
 
 </xmp>
 
