@@ -35,7 +35,7 @@
 
 最终拿到了需要的数据，把所有商品缩略图下载下来，文件名按商品详情url里的id保存。
 
-这些都只是商品列表数据，格式还没整理，还要继续爬商品详情。
+这些都只是商品列表数据，整理成json格式存为文本。另外还要继续爬商品详情。
 
 ![udspj](imgs/img7.png)
 
@@ -49,6 +49,9 @@ from bs4 import BeautifulSoup
 
 pageEnd = False
 pageNo = 1
+goodList = []
+
+# 下载商品列表信息
 
 while pageEnd == False:
 	url = "https://shop36066072.taobao.com/i/asynSearch.htm?_ksTS=1495095535601_153&mid=w-726411589-0&wid=726411589&path=/category-280512636.htm&catId=280512636&scid=280512636&pageNo="+str(pageNo)
@@ -64,17 +67,29 @@ while pageEnd == False:
 	if len(end) > 0 :
 		pageEnd = True
 		break
+	startindex = len(goodList)
 	for _ in tags: 
-		href = _.a['href']
-		print _.a.img['src']
-		print href
-		print _.a.img['alt']
-		imgurl = requests.get('http:'+_.a.img['src'])
-		string = href.replace('//item.taobao.com/item.htm?id=', '') + '.jpg'
+		href = 'https:' + _.a['href']
+		imgsrc = _.a.img['src']
+		title = _.a.img['alt']
+		imgurl = requests.get('http:'+imgsrc)
+		idstr = href.replace('https://item.taobao.com/item.htm?id=', '')
+		string = idstr + '.jpg'
 		fp = open('thumbnails/'+string,'wb')
 		fp.write(imgurl.content)
 		fp.close()
+		goodList.append({'id':idstr, 'href':href, 'title':title, 'price':''})
+	spans = soup.find_all('span', class_='c-price')
+	spanindex = startindex
+	for _ in spans:
+		price = _.text
+		goodList[spanindex]['price'] = price
+		spanindex = spanindex + 1
 	pageNo = pageNo + 1
+jsontext = {'data':goodList}
+fh = open("json.txt","wb")
+fh.write(str(jsontext).replace(' u\'', ' \'').decode("utf-8"))
+fh.close()
 ```
 
 －
