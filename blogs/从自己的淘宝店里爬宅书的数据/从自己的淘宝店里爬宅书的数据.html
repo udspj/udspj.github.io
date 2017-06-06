@@ -35,7 +35,11 @@
 
 最终拿到了需要的数据，把所有商品缩略图下载下来，文件名按商品详情url里的id保存。
 
-这些都只是商品列表数据，整理成json格式存为文本。另外还要继续爬商品详情。
+这些都只是商品列表数据，整理成json格式存为文本。
+
+json文本里有保存所有商品名，有些名字里含有字符“×”乘号的，爬出来的编码是“\xd7”，可能会解析不了，找出这些“\xd7”替换成普通的字母x来代替。
+
+另外还要继续爬商品详情。
 
 ![udspj](imgs/img7.png)
 
@@ -75,6 +79,9 @@ while pageEnd == False:
 		imgurl = requests.get('http:'+imgsrc)
 		idstr = href.replace('https://item.taobao.com/item.htm?id=', '')
 		string = idstr + '.jpg'
+		isFolderExists = os.path.exists('thumbnails/')
+		if not isFolderExists:
+			os.mkdir('thumbnails/')
 		fp = open('thumbnails/'+string,'wb')
 		fp.write(imgurl.content)
 		fp.close()
