@@ -53,6 +53,16 @@ faces就是索引，把indices、positions、uv全取出来各自整合到一起
 
 html上弄4个canvas，在各自canvas上渲染一个模型，利用Matrix调整位置、旋转，做出模型的4个面。
 
+##关于其他
+
+我对三维模型本身也不是太了解，得自己从头做一遍才能清楚每个部分是做什么用的，模型数据各个部分只能大概看看是怎么运作的。
+
+上图解析出的json数据里，bones是骨骼，rigidBodies是刚体，与骨骼对应的，防止身体运动时变形。
+
+morphs是表情，这里的表情不是靠贴图改变，贴图还是一样的贴图，只是面部相关顶点的坐标位置变化，有点像是扭曲一下图像。
+
+光pmx或pmd基本上只能做到表情的改变，要让模型有动作或者动起来，还得需要vmd动作文件。
+
 </xmp>
 
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
