@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>miku</title>
+		<meta charset="utf-8">
 		<style>
 			body { margin: 0; background-color: #000;}
 			#text { color: #fff; font-size: 30px;}
@@ -147,6 +148,11 @@
 				miku4.style.position = "absolute";
 				miku4.style.left = 60+"vw";
 				miku4.style.top = 30+"vh";
+
+				renderer1.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+				renderer2.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+				renderer3.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+				renderer4.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
 			}
 			window.addEventListener('resize', resizeCanvas, false);
 			resizeCanvas();
