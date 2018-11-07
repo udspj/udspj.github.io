@@ -1,0 +1,156 @@
+<html>
+	<head>
+		<title>miku</title>
+		<style>
+			body { margin: 0; background-color: #000;}
+			#text { color: #fff; text-align:center; line-height: 100vh; }
+		</style>
+		<script src="js/three.min.js"></script>
+		<script src="js/loaders/MMDLoader.js"></script>
+		<script src="js/mmdparser.min.js"></script>
+		<script src="js/animation/MMDAnimationHelper.js"></script>
+		<script src="js/animation/CCDIKSolver.js"></script>
+		<script src="js/animation/MMDPhysics.js"></script>
+		<script src="js/libs/ammo.js"></script>
+	</head>
+	<body>
+		<div id="text">click to play</div>
+		<div id="miku1"></div>
+		<div id="miku2"></div>
+		<div id="miku3"></div>
+		<div id="miku4"></div>
+		<script>
+
+			var scene = new THREE.Scene();
+			var camera1 = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
+			camera1.position.z = 20;
+			camera1.position.y = 10;
+			camera1.rotation.order = 'YXZ';
+			camera1.rotateOnAxis((new THREE.Vector3(0, 0, 1)).normalize(), degInRad(180));
+			var camera2 = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
+			camera2.position.z = -20;
+			camera2.position.y = 10;
+			camera2.lookAt(new THREE.Vector3 (0.0, 10.0, 0.0));
+			var camera3 = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
+			camera3.position.z = 0;
+			camera3.position.y = 10;
+			camera3.position.x = 20;
+			camera3.lookAt(new THREE.Vector3 (0.0, 10.0, 0.0));
+			camera3.rotation.order = 'YXZ';
+			camera3.rotateOnAxis((new THREE.Vector3(0, 0, 1)).normalize(), degInRad(90));
+			var camera4 = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
+			camera4.position.z = 0;
+			camera4.position.y = 10;
+			camera4.position.x = -20;
+			camera4.lookAt(new THREE.Vector3 (0.0, 10.0, 0.0));
+			camera4.rotation.order = 'YXZ';
+			camera4.rotateOnAxis((new THREE.Vector3(0, 0, 1)).normalize(), degInRad(-90));
+
+			var renderer1 = new THREE.WebGLRenderer();
+			renderer1.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+			document.getElementById("miku1").appendChild( renderer1.domElement );
+			var renderer2 = new THREE.WebGLRenderer();
+			renderer2.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+			document.getElementById("miku2").appendChild( renderer2.domElement );
+			var renderer3 = new THREE.WebGLRenderer();
+			renderer3.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+			document.getElementById("miku3").appendChild( renderer3.domElement );
+			var renderer4 = new THREE.WebGLRenderer();
+			renderer4.setSize( window.innerHeight*0.4, window.innerHeight*0.4 );
+			document.getElementById("miku4").appendChild( renderer4.domElement );
+
+			var light = new THREE.DirectionalLight( 0xcccccc );
+			light.position.set( 1, 1, 1 );
+			scene.add( light );
+
+			var helper = new THREE.MMDAnimationHelper();
+			var clock = new THREE.Clock();
+			var audioParams = { delayTime: 160 * 1 / 30 };
+
+			function degInRad(deg) {
+			    return deg * Math.PI / 180;
+			}  
+
+			function render() {
+				requestAnimationFrame( render );
+				helper.update( clock.getDelta() );
+				renderer1.render( scene, camera1 );
+				renderer2.render( scene, camera2 );
+				renderer3.render( scene, camera3 );
+				renderer4.render( scene, camera4 );
+			}
+
+			function playMMD() {
+				document.getElementById("text").style.display="none";
+				var listener = new THREE.AudioListener();
+				new THREE.MMDLoader().loadWithAnimation(
+					'miku/arquivo.pmd',
+					'miku/wavefile_v2.vmd',
+					function ( mmd ) {
+						helper.add( mmd.mesh, {
+							animation: mmd.animation,
+							physics: true
+						} );
+
+						scene.add( mmd.mesh );
+
+						new THREE.AudioLoader().load(
+							'miku/wavefile_short.mp3',
+							function ( buffer ) {
+								var audio = new THREE.Audio( listener )
+								.setBuffer( buffer );
+								audio.setLoop( true );
+								// audio.play();
+								helper.add( audio, audioParams );
+
+								listener.position.z = 1;
+
+								scene.add( audio );
+								scene.add( listener );
+
+								render();
+							}
+						)
+					}
+				);
+
+				var source = listener.context.createBufferSource();
+				source.connect(listener.context.destination);
+				source.start();
+				window.removeEventListener('touchstart', playMMD);
+				document.removeEventListener('click', playMMD);
+			}
+			window.addEventListener('touchstart', playMMD);
+			document.addEventListener('click', playMMD);
+
+			function resizeCanvas() {
+				var miku1 = document.getElementById("miku1");
+				miku1.style.width = 40 + "vh"; 
+				miku1.style.height = 40 + "vh"; 
+				miku1.style.position = "absolute";
+				miku1.style.left = 40+"vw";
+				var miku2 = document.getElementById("miku2");
+				miku2.style.width = 40 + "vh"; 
+				miku2.style.height = 40 + "vh"; 
+				miku2.style.position = "absolute";
+				miku2.style.left = 40+"vw";
+				miku2.style.top = 60+"vh";
+				var miku3 = document.getElementById("miku3");
+				miku3.style.width = 40 + "vh"; 
+				miku3.style.height = 40 + "vh"; 
+				miku3.style.position = "absolute";
+				miku3.style.left = 20+"vw";
+				miku3.style.top = 30+"vh";
+				var miku4 = document.getElementById("miku4");
+				miku4.style.width = 40 + "vh"; 
+				miku4.style.height = 40 + "vh"; 
+				miku4.style.position = "absolute";
+				miku4.style.left = 60+"vw";
+				miku4.style.top = 30+"vh";
+			}
+			window.addEventListener('resize', resizeCanvas, false);
+			resizeCanvas();
+
+		</script>
+	</body>
+</html>
