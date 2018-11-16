@@ -69,6 +69,24 @@ html上弄4个canvas，在各自canvas上渲染一个模型，利用Matrix调整
 
 关于骨骼数据是怎么起到作用的还没研究过，需要自己动手做一遍mmd模型绑骨骼才有概念，这块就先不看了。
 
+##miku跳舞
+
+结果还是用了three.js的mmdloader。
+
+类似的视频有，但通过代码层面导入模型动作音乐更方便。
+
+http://udspj.github.io/minigame/mikusimple/index.html
+
+##miku MMD互动机器人
+
+在上面的miku跳舞的基础上加了多个vmd动作导入和切换。
+
+用Web Speech API识别语音输出文字，调用图灵机器人api获取回答，让Speech念出来。
+
+Speech说话的时候miku从常规动作切到说话时的动作，这里应该得根据语言语境情感作出不同动作表情反应，不过对机器人来说还是挺难的。
+
+这个没有放出demo因为Speech只支持chrome，还要用户做操作才执行start，更重要的！Speech声音和miku配一起太违和了！虽然买了V4C声库，算了把一个个拼音发音手工调出来好麻烦，暂时弃坑。
+
 </xmp>
 
 <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
